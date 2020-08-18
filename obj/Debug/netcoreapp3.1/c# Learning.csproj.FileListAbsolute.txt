@@ -1,0 +1,48 @@
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/c# Learning
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/c# Learning.deps.json
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/c# Learning.runtimeconfig.json
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/c# Learning.runtimeconfig.dev.json
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/c# Learning.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/c# Learning.pdb
+/home/deeper/Desktop/c# Learning/obj/Debug/netcoreapp3.1/c# Learning.csprojAssemblyReference.cache
+/home/deeper/Desktop/c# Learning/obj/Debug/netcoreapp3.1/c# Learning.AssemblyInfoInputs.cache
+/home/deeper/Desktop/c# Learning/obj/Debug/netcoreapp3.1/c# Learning.AssemblyInfo.cs
+/home/deeper/Desktop/c# Learning/obj/Debug/netcoreapp3.1/c# Learning.dll
+/home/deeper/Desktop/c# Learning/obj/Debug/netcoreapp3.1/c# Learning.pdb
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/Microsoft.Win32.Registry.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Data.SqlClient.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Security.AccessControl.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Security.Principal.Windows.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll
+/home/deeper/Desktop/c# Learning/obj/Debug/netcoreapp3.1/c# Learning.csproj.CopyComplete
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/Google.Protobuf.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/K4os.Compression.LZ4.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/K4os.Compression.LZ4.Streams.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/K4os.Hash.xxHash.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/MySql.Data.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/Ubiety.Dns.Core.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/Zstandard.Net.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/Renci.SshNet.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/SshNet.Security.Cryptography.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Drawing.Common.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Security.Permissions.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Windows.Extensions.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/System.Xml.XPath.XmlDocument.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/home/deeper/Desktop/c# Learning/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
