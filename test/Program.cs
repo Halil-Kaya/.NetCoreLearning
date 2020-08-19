@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace test
 {
@@ -16,6 +17,7 @@ namespace test
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
@@ -28,16 +30,104 @@ namespace test
         public static readonly ILoggerFactory MyLoggerFactory
     = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
+        //tablolalarım oluşturulurken kuralları burda belirtiyorum
+        protected override void OnModelCreating(ModelBuilder modelBuilder){ 
+        
+        /*
+            modelBuilder.Entity<User>()
+                            .HasIndex(u => u.Username)
+                            .IsUnique();
+            
+            modelBuilder.Entity<Customer>()
+                            .Property(p => p.IdentityNumber)
+                            .HasMaxLength(11)
+                            .IsRequired();
+*/
+            //Bu işlemleri yapmamın sebebi Many to Many için!
+
+
+            //veri tabanında birbirini tekrallayan veriler olmasın diye
+            //ör: 
+            /*
+            ProductCategory
+            [1,1]
+            [1,2]
+            [2,3]
+            [2,1]
+            [1,1] !! -> hata vercek yukarıda zaten bundan var bu yüzden bunu eklemiyecek
+            */
+            modelBuilder.Entity<ProductCategory>()
+                            .HasKey(pc => new {pc.ProductId,pc.CategoryId});
+            
+
+
+            /*burda iki tablo içinde beliriyorum bunlar tekrallayabilir diye*/
+
+            //önce buna diyorum ki product tun id si 1 tane ama category birden fazla olabilir
+            modelBuilder.Entity<ProductCategory>()
+                            .HasOne(pc => pc.Product)//bundan bir tane
+                            .WithMany(p => p.ProductCategories)//bundan bir çok olabilir
+                            .HasForeignKey(pc => pc.ProductId);
+
+            //aşağıda tam tersini söylüyorum category nin id si bir ama productun id si birden fazla olabilir diyorum
+            modelBuilder.Entity<ProductCategory>()
+                            .HasOne(pc => pc.Category)
+                            .WithMany(c => c.ProductCategories)
+                            .HasForeignKey(pc => pc.CategoryId);
+            //bunu dediğimde ikiside birden fazla olabiliyor yani:
+            /*
+            [1,1]
+            [1,2]
+            [2,3]
+            [2,1]
+            gibi verim olabiliyor
+            */
+        }
+
     }
 
 
     public class User{
 
         public int Id { get; set; }
+
+/*
+        [Required]
+        [MaxLength(15)]
+        [MinLength(8)]
+  
+  */
         public string Username { get; set; }
         public string Email { get; set; }
+
+        public Customer Customer { get; set; }
+
         public List<Address> Addresses { get; set; }
         
+    }
+
+    public class Customer{
+
+        //[Column("customer_id")]
+        public int Id { get; set; }
+        //[Required]
+        public string IdentityNumber { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        //[NotMapped]
+        //public string FullName { get; set; }
+        public User User { get; set; }
+        public int UserId { get; set; }
+
+    }
+
+    public class Supplier{
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string TaxNumber { get; set; }
+
     }
 
     public class Address{
@@ -59,56 +149,47 @@ namespace test
     public class Product
     {
 
-        public Product(){
-
-        }
-        public Product(string name,decimal price){
-            this.Name = name;
-            this.Price = price;
-        }
-
-        [Key]
+        
+        
+        //id değiştirilmesin
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [MaxLength(100)]
-        [Required]
+        //[MaxLength(100)]
+        //[Required]
         public string Name { get; set; }
-
         public decimal Price { get; set; }
 
-        public int CategoryId { get; set; }
-
-        public void PrintInfo(){
-            System.Console.WriteLine($"id: {Id} Name: {Name} Price: {Price}");
-        }
+        //oluşturulma tarihi değiştirilmesin
+       // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public DateTime InsertedDate { get; set; } = DateTime.Now;
         
-        public void PrintInfoWithoutId(){
-            System.Console.WriteLine($"Name: {Name} Price: {Price}");
-        }
+        //güncellenme tarihi değiştirilebilrsin
+        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime LastUpdatedDate { get; set; } = DateTime.Now;
 
-        public void PrintId(){
-            System.Console.WriteLine($"id: {Id}");
-        }
-
-        public void PrintName(){
-            System.Console.WriteLine($"Name: {Name}");
-        }
-
-        public void PrintPrice(){
-            System.Console.WriteLine($"Name: {Price}");
-        }
+        public List<ProductCategory> ProductCategories { get; set; }
 
     }
 
 
     public class Category
     {
-        [Key]
         public int Id { get; set; }
 
-        [MaxLength(100)]
-        [Required]
         public string Name { get; set; }
+
+        public List<ProductCategory> ProductCategories { get; set; }
+    }
+
+    public class ProductCategory{
+
+        public Product Product { get; set; }
+        public int ProductId { get; set; }
+
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
+
     }
 
 
@@ -116,179 +197,174 @@ namespace test
     {
         static void Main(string[] args)
         {
-            
-            //AddProduct(new Product("Samsung 6",50   ));
-            
             /*
-            List<Product> products = new List<Product>(){
-                new Product("Lenove",8972),
-                new Product("S5",2579),
-                new Product("Sahin",9760)
+            List<User> users = new List<User>(){
+                new User(){Username = "Halil Kaya",Email = "hl@gmail.com"},
+                new User(){Username = "Semih Parlak",Email = "qq@gmail.com"},
+                new User(){Username = "muco",Email = "ttt@gmail.com"}
             };
-            AddProducts(products);
-            */
 
+            InsertUser(users);
+*/
+/*
+            List<Address> addresses = new List<Address>(){
+                new Address(){Fullname = "Muci",Title = "iş adresi",Body = "fatih",UserId = 1},
+                new Address(){Fullname = "Hasan",Title = "iş adresi",Body = "Balat",UserId = 2},
+                new Address(){Fullname = "Mahmut",Title = "Ev adresi",Body = "fatih",UserId = 1},
+                new Address(){Fullname = "Habib",Title = "iş adresi",Body = "fatih",UserId = 3},
+                new Address(){Fullname = "Erkam",Title = "Ev adresi",Body = "fatih",UserId = 2}
+            };
+
+            InsertAddress(addresses);
+*/  
+
+            //AddAdressToUser(1);
+            
             /*
-            GetAllProducts().ForEach(p =>{
+            using (var db = new ShopContext())
+            {
                 
-                p.PrintInfo();
+                List<User> users = new List<User>(){
+                    new User(){Username = "Halil",Email = "asf@gmail.com"},
+                    new User(){Username = "Semih",Email = "qqq@gmail.com"},
+                    new User(){Username = "Erkam",Email = "ccc@gmail.com"}
+                };
 
-            });
-            */
-
-            //GetAllProductsNames();
-
-            //GetProductById(3).PrintInfo();
-
-            //GetProductsByName("sa");
-
-            //UpdateProduct1(1,"Halil Kaya",9999);
-            
-            //UpdateProduct2(1,"----",452);
-            
-            //UpdateProduct2(1,"Halil Kaya",999);
-            DeleteProductById(12);
-            
-
-        }
-
-
-        public static void DeleteProductById(int id){
-           
-            using(var db = new ShopContext()){
-
-                Product product = db.Products.Where(p => p.Id == id).FirstOrDefault();
-
-                if(product != null){
-
-                    //bu sekilde de silinebiliyor kendisi otomatik hangi tabloda oldugunu buluyor
-                    //db.Remove(product);
-                    db.Products.Remove(product);
-
-
-                    db.SaveChanges();
-                }
-
-            }
-
-        }
-
-        public static void UpdateProduct1(int id,string newName,decimal newPrice){
-
-            using(var db = new ShopContext()){
-                
-                Product product = db.Products.Where(p => p.Id == id).FirstOrDefault();
-                
-                product.Name = newName;
-                product.Price = newPrice;
-
+                db.Users.AddRange(users);
                 db.SaveChanges();
 
             }
+*/
 
-        }
-
-        public static void UpdateProduct2(int id,string newName,decimal newPrice){
-
+/*
             using(var db = new ShopContext()){
-                
-                Product product = db.Products.Where(p => p.Id == id).FirstOrDefault();
 
-                product.Name = newName;
-                product.Price = newPrice;
+                Customer customer = new Customer(){
+                    IdentityNumber = "66adsasd5",
+                    FirstName = "asd",
+                    LastName = "asdasdasdasd",
+                    UserId = 1
+                };
 
-                db.Products.Update(product);
-
+                db.Customers.Add(customer);
                 db.SaveChanges();
             }
-                
-        }
+*/
 
-
-        public static List<Product> GetAllProducts(){
-
-            List<Product> products = null; 
-
+/*
             using(var db = new ShopContext()){
-                products = db.Products.ToList();
-            }
 
-            return products;
+                //ekleyeceğim idler
+                int[] ids = new int[2]{3,4};
 
-        }
 
-        public static void GetAllProductsNames(){
+                //burda şunu yapıyorum
+                /*
+                    [1,1]
+                    [1,2]
+                    [1,3]
+                    
+                    yani producttan categoriye 
+                */
+                /*
+                var product = db.Products.Where(p => p.Id == 3).FirstOrDefault();
+
+                product.ProductCategories = ids.Select(cid => new ProductCategory(){
+                    CategoryId = cid,
+                    ProductId = product.Id
+                }).ToList();
+                */
+
+                //burda şunu yapıyorum
+                /*
+                    [1,1]
+                    [2,1]
+                    [3,1]
+
+                    yani category den producta
+                */
+                /*
+                var category = db.Categories.Where(c => c.Id ==1).FirstOrDefault();
+
+                category.ProductCategories = ids.Select(pid => new ProductCategory(){
+                    CategoryId = category.Id,
+                    ProductId = pid
+                }).ToList();
+*/
+
+                //db.SaveChanges();
+
+
             
-            using(var db = new ShopContext()){
-                
-                var productsNames = db.Products.Select(p => new {p.Name}).ToList();
-                
-                productsNames.ForEach(p => {
-                    System.Console.WriteLine($"-Name: {p.Name}");
-                });    
-                
-            }
+
+
+
+
         }
 
-        public static Product GetProductById(int id){
+
+
+        
+
+        public static void AddAdressToUser(int id){
+
             
-            Product product = null;
+            
 
             using(var db = new ShopContext()){
-                product = db.Products.Where(p => p.Id == id).FirstOrDefault();
-            }
+                
+                var user = db.Users.Where(u => u.Id == id).FirstOrDefault();
+            
 
-            return product;
-        }
-
-        public static void GetProductsByName(string name){
-
-            using(var db = new ShopContext()){
-
-                var result = db.Products.Select(p => new {p.Name})
-                .Where(p => p.Name.ToLower().Contains(name.ToLower()))
-                .ToList();
-
-                result.ForEach(p =>{
-                    System.Console.WriteLine($"name: {p.Name}");
+                user.Addresses = new List<Address>();
+                user.Addresses.AddRange(new List<Address>(){
+                    new Address(){Fullname = "---",Title = "iş adresi",Body = "Balat"},
+                    new Address(){Fullname = "...",Title = "Ev adresi",Body = "fatih"},
+                    new Address(){Fullname = "<___>",Title = "iş adresi",Body = "fatih"}
                 });
 
+                db.SaveChanges();
+
             }
+
 
         }
 
+        public static User GetUser(int id){
+            User user = null;
+            
+            using(var db = new ShopContext()){
+                user = db.Users.Where(u => u.Id == id).FirstOrDefault();
+            }
+           
+            return user;
+        }
 
-        //dizi olarak Product objelerini veri tabanına ekliyorum
-        public static void AddProducts(List<Product> products){
 
-            //veri tabanı bağlantısı oluşturuyorum
+        public static void InsertAddress(List<Address> addresses){
+
             using(var db = new ShopContext()){
 
-                
-                db.Products.AddRange(products);
+                db.Addresses.AddRange(addresses);
                 db.SaveChanges();
-                
-                System.Console.WriteLine("topluca kaydedildi");
+
             }
 
         }
 
 
-        //gonderdigim Product objesini veri tabanına kaydediyorum
-        public static void AddProduct(Product p){
 
-            //veri tabanına bağlantı oluşturuyorum
+        public static void InsertUser(List<User> users){
+            
             using(var db = new ShopContext()){
 
-                //veri tabanına objeyi ekliyorum
-                db.Products.Add(p);
-                //değişiklikleri kaydediyorum
+                db.Users.AddRange(users);
                 db.SaveChanges();
-                //eklendiği bilgisini veriyorum
-                System.Console.WriteLine("veri eklendi");
+
             }
 
         }
+
 
     }
 }
