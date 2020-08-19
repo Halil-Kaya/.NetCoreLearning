@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
+using test.Data.EfCore;
 
 namespace test
 {
@@ -196,172 +197,124 @@ namespace test
     class Program
     {
         static void Main(string[] args)
-        {
-            /*
-            List<User> users = new List<User>(){
-                new User(){Username = "Halil Kaya",Email = "hl@gmail.com"},
-                new User(){Username = "Semih Parlak",Email = "qq@gmail.com"},
-                new User(){Username = "muco",Email = "ttt@gmail.com"}
-            };
-
-            InsertUser(users);
-*/
-/*
-            List<Address> addresses = new List<Address>(){
-                new Address(){Fullname = "Muci",Title = "iş adresi",Body = "fatih",UserId = 1},
-                new Address(){Fullname = "Hasan",Title = "iş adresi",Body = "Balat",UserId = 2},
-                new Address(){Fullname = "Mahmut",Title = "Ev adresi",Body = "fatih",UserId = 1},
-                new Address(){Fullname = "Habib",Title = "iş adresi",Body = "fatih",UserId = 3},
-                new Address(){Fullname = "Erkam",Title = "Ev adresi",Body = "fatih",UserId = 2}
-            };
-
-            InsertAddress(addresses);
-*/  
-
-            //AddAdressToUser(1);
+        {   
+            
+            using(var db = new NorthwindContext()){
             
             /*
-            using (var db = new ShopContext())
-            {
-                
-                List<User> users = new List<User>(){
-                    new User(){Username = "Halil",Email = "asf@gmail.com"},
-                    new User(){Username = "Semih",Email = "qqq@gmail.com"},
-                    new User(){Username = "Erkam",Email = "ccc@gmail.com"}
-                };
-
-                db.Users.AddRange(users);
-                db.SaveChanges();
-
-            }
-*/
-
-/*
-            using(var db = new ShopContext()){
-
-                Customer customer = new Customer(){
-                    IdentityNumber = "66adsasd5",
-                    FirstName = "asd",
-                    LastName = "asdasdasdasd",
-                    UserId = 1
-                };
-
-                db.Customers.Add(customer);
-                db.SaveChanges();
-            }
-*/
-
-/*
-            using(var db = new ShopContext()){
-
-                //ekleyeceğim idler
-                int[] ids = new int[2]{3,4};
-
-
-                //burda şunu yapıyorum
-                /*
-                    [1,1]
-                    [1,2]
-                    [1,3]
-                    
-                    yani producttan categoriye 
-                */
-                /*
-                var product = db.Products.Where(p => p.Id == 3).FirstOrDefault();
-
-                product.ProductCategories = ids.Select(cid => new ProductCategory(){
-                    CategoryId = cid,
-                    ProductId = product.Id
-                }).ToList();
-                */
-
-                //burda şunu yapıyorum
-                /*
-                    [1,1]
-                    [2,1]
-                    [3,1]
-
-                    yani category den producta
-                */
-                /*
-                var category = db.Categories.Where(c => c.Id ==1).FirstOrDefault();
-
-                category.ProductCategories = ids.Select(pid => new ProductCategory(){
-                    CategoryId = category.Id,
-                    ProductId = pid
-                }).ToList();
-*/
-
-                //db.SaveChanges();
-
-
-            
-
-
-
-
-        }
-
-
-
-        
-
-        public static void AddAdressToUser(int id){
-
-            
-            
-
-            using(var db = new ShopContext()){
-                
-                var user = db.Users.Where(u => u.Id == id).FirstOrDefault();
-            
-
-                user.Addresses = new List<Address>();
-                user.Addresses.AddRange(new List<Address>(){
-                    new Address(){Fullname = "---",Title = "iş adresi",Body = "Balat"},
-                    new Address(){Fullname = "...",Title = "Ev adresi",Body = "fatih"},
-                    new Address(){Fullname = "<___>",Title = "iş adresi",Body = "fatih"}
+                var customers = db.Customers.ToList();
+                customers.ForEach(c => {
+                    System.Console.WriteLine(c.FirstName +" "+ c.LastName);
                 });
+            */
+                /*
+                var customers = db.Customers.Select(c => new {
+                    c.FirstName,
+                    c.LastName
+                }).ToList();
+                
+                customers.ForEach(c => {
+                    System.Console.WriteLine(c.FirstName +" "+c.LastName);
+                });
+                */
+                    
+                /*
+                var customers = db.Customers 
+                            .Where(c => c.City == "New York")
+                            .ToList();
 
-                db.SaveChanges();
+                customers.ForEach(c => {
+                    System.Console.WriteLine(c.FirstName +" "+c.LastName+" city: "+c.City);
+                });
+                */
+/*
+                var product = db.Products
+                            .Where(p => p.Category == "Beverages")
+                            .Select(p => p.ProductName)
+                            .ToList();
+                
+                product.ForEach(p => {
+                   System.Console.WriteLine("name: "+p); 
+                });
+*/
+/*
+                //id ye göre tersi sıralayıp ilk 5i alıyorum
+                var products = db.Products
+                            .OrderByDescending(p => p.Id)
+                            .Take(5)
+                            .ToList();
+
+                products.ForEach(p => {
+                    System.Console.WriteLine("name: "+p.ProductName);
+                });
+*/
+/*
+                var products = db.Products
+                            .Where(p => p.ListPrice > 0 && p.ListPrice <= 30)
+                            .OrderBy(p => p.ListPrice)
+                            .Select(p => new {p.ProductName,p.ListPrice})
+                            .ToList();
+  
+                products.ForEach(p => {
+                    System.Console.WriteLine("name: " + p.ProductName + "price: "+p.ListPrice);
+                });
+*/
+            /*
+                var ortalama = db.Products.Average(p => p.ListPrice);
+                
+                System.Console.WriteLine("fiyatların ortalaması: "+ortalama);
+            */
+
+/*
+                var adet = db.Products.Count();
+                System.Console.WriteLine("toplam adet: "+adet);
+*/
+/*
+                var adet = db.Products.Count(p => p.Category == "Beverages");
+                System.Console.WriteLine("Beverages kategorisine sahip ürün adeti: "+adet);
+*/
+/*
+                var toplamFiyat = db.Products
+                        .Where(p => p.Category == "Beverages" || p.Category == "Condiments")
+                        .Sum(p => p.ListPrice);
+                
+                System.Console.WriteLine("toplamFiyat: "+toplamFiyat);
+*/
+/*
+                var products = db.Products
+                            .Where(p => p.ProductName.Contains("Tea"))
+                            .ToList();
+
+                products.ForEach(p => {
+                    System.Console.WriteLine("id: "+p.Id+" name: "+p.ProductName);
+                });
+*/
+/*
+                var enPahaliUrun = db.Products.Max(p => p.ListPrice);
+                
+                System.Console.WriteLine("en pahalı urun: "+ enPahaliUrun);
+
+                var enUcuzUrun = db.Products.Min(p => p.ListPrice);
+
+                System.Console.WriteLine("en ucuz ürün: "+ enUcuzUrun);
+*/
+
+                var enPahaliUrun = db.Products
+                        .Where(p => p.ListPrice == (db.Products.Max(p => p.ListPrice)))
+                        .FirstOrDefault();
+                
+                System.Console.WriteLine("en pahalı urun adı: "+ enPahaliUrun.ProductName+" fiyatı: "+enPahaliUrun.ListPrice);
+
+                var enUcuzUrun = db.Products
+                        .Where(p => p.ListPrice == (db.Products.Min(p => p.ListPrice)))
+                        .FirstOrDefault();
+
+                System.Console.WriteLine("en ucuz ürün adı: "+ enUcuzUrun+" fiyatı: "+enUcuzUrun.ListPrice);
+
 
             }
 
 
-        }
-
-        public static User GetUser(int id){
-            User user = null;
-            
-            using(var db = new ShopContext()){
-                user = db.Users.Where(u => u.Id == id).FirstOrDefault();
-            }
-           
-            return user;
-        }
-
-
-        public static void InsertAddress(List<Address> addresses){
-
-            using(var db = new ShopContext()){
-
-                db.Addresses.AddRange(addresses);
-                db.SaveChanges();
-
-            }
-
-        }
-
-
-
-        public static void InsertUser(List<User> users){
-            
-            using(var db = new ShopContext()){
-
-                db.Users.AddRange(users);
-                db.SaveChanges();
-
-            }
 
         }
 
