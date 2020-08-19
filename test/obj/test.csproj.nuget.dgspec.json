@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/deeper/Desktop/net core learning/learning/learning.csproj": {}
+    "/home/deeper/Desktop/net core learning/test/test.csproj": {}
   },
   "projects": {
-    "/home/deeper/Desktop/net core learning/learning/learning.csproj": {
+    "/home/deeper/Desktop/net core learning/test/test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/deeper/Desktop/net core learning/learning/learning.csproj",
-        "projectName": "learning",
-        "projectPath": "/home/deeper/Desktop/net core learning/learning/learning.csproj",
+        "projectUniqueName": "/home/deeper/Desktop/net core learning/test/test.csproj",
+        "projectName": "test",
+        "projectPath": "/home/deeper/Desktop/net core learning/test/test.csproj",
         "packagesPath": "/home/deeper/.nuget/packages/",
-        "outputPath": "/home/deeper/Desktop/net core learning/learning/obj/",
+        "outputPath": "/home/deeper/Desktop/net core learning/test/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -39,13 +39,23 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "MySql.Data": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.21, )"
+              "version": "[3.1.7, )"
             },
-            "MySql.Data.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.21, )"
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.1.2, )"
             }
           },
           "imports": [

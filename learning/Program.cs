@@ -236,7 +236,7 @@ namespace learning
             });*/
             
 
-            mysqlProductDal.Delete(1);
+            //mysqlProductDal.Delete(1);
 
             /*
             mysqlProductDal.Create(new Product(){
