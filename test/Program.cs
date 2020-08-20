@@ -313,7 +313,7 @@ namespace test
                 System.Console.WriteLine("en ucuz ürün adı: "+ enUcuzUrun+" fiyatı: "+enUcuzUrun.ListPrice);
 */
 
-
+/*
                 //iç içe istek yapma: 
 
                 var customers = db.Customers
@@ -353,8 +353,17 @@ namespace test
                         });
                         
                     });
+*/
+                    //sql ile sorgu yapma:<daha detaylı isteklerde bulunabiliyorsun bu yapıda sadece * la çağrabiliyorsun detay için kursa bak! kurs adı:(Klasik SQL Sorgularının Entity Framework ile Kullanılması)>
+                    var customers = db.Customers.FromSqlRaw("Select * From customers").ToList();
+
+                    customers.ForEach(c => {
+                        System.Console.WriteLine("id: "+c.Id+ " company: "+c.FirstName);
+                    });
+                    
 
             }
+
 
         }
 
