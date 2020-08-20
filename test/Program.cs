@@ -194,6 +194,7 @@ namespace test
     }
 
 
+
     class Program
     {
         static void Main(string[] args)
@@ -298,7 +299,7 @@ namespace test
 
                 System.Console.WriteLine("en ucuz ürün: "+ enUcuzUrun);
 */
-
+/*
                 var enPahaliUrun = db.Products
                         .Where(p => p.ListPrice == (db.Products.Max(p => p.ListPrice)))
                         .FirstOrDefault();
@@ -310,12 +311,77 @@ namespace test
                         .FirstOrDefault();
 
                 System.Console.WriteLine("en ucuz ürün adı: "+ enUcuzUrun+" fiyatı: "+enUcuzUrun.ListPrice);
+*/
 
+
+                //iç içe istek yapma: 
+
+                var customers = db.Customers
+                        .Where(c => c.Orders.Count > 0)
+                        .Select(c => new CustomerDemo{
+                            CustomerId = c.Id,
+                            Name = c.FirstName,
+                            OrderCount = c.Orders.Count(),
+                            Orders = c.Orders.Select(co => new OrderDemo{
+
+                                OrderId = co.Id,
+                                Total = (decimal)co.OrderDetails.Sum(od => od.Quantity * od.UnitPrice),
+                                Products = co.OrderDetails.Select(p => new ProductDemo{
+                                    ProductId = (int)p.ProductId,
+                                    Name = p.Product.ProductName
+                                })
+                                .ToList()
+                            
+                            }).ToList()
+
+                        })
+                        .ToList();
+
+
+
+                    //bilgileri ekrana basıyorum
+                    customers.ForEach(c => {
+
+
+                        System.Console.WriteLine($"id: {c.CustomerId} name: {c.Name} count: {c.OrderCount}");
+                        c.Orders.ForEach(o => {
+                            System.Console.WriteLine($"order id: {o.OrderId} total: {o.Total}");
+                            
+                            o.Products.ForEach(p => {
+                                System.Console.WriteLine($"product id: {p.ProductId} Name: {p.Name}");
+                            });                            
+                        });
+                        
+                    });
 
             }
 
+        }
 
+        public class CustomerDemo{
 
+            public CustomerDemo(){
+                this.Orders = new List<OrderDemo>();
+            }
+
+            public int CustomerId;
+            public string Name;
+            public int OrderCount;
+            
+            public List<OrderDemo> Orders;
+
+        }
+
+        public class OrderDemo{
+            public int OrderId;
+            public decimal Total;
+
+            public List<ProductDemo> Products;
+        }
+
+        public class ProductDemo{
+            public int ProductId;
+            public string Name;
         }
 
 
