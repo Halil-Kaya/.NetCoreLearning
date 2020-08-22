@@ -1,0 +1,29 @@
+@model temelOzellikler.ViewModels.ProductViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    şuan product/list dizinindesin
+    
+    <h1>@Model.category.Name</h1>
+    
+    <p>Name: @Model.products[0].Name</p>
+    <p>Price: @Model.products[0].Price</p>
+    <p>Description: @Model.products[0].Description</p>
+    
+    <p>Name: @Model.products[1].Name</p>
+    <p>Price: @Model.products[1].Price</p>
+    <p>Description: @Model.products[1].Description</p>
+    
+    <p>Name: @Model.products[2].Name</p>
+    <p>Price: @Model.products[2].Price</p>
+    <p>Description: @Model.products[2].Description</p>
+    
+
+
+</body>
+</html>
