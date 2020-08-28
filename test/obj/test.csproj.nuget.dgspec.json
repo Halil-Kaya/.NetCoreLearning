@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/deeper/Desktop/net core learning/test/test.csproj": {}
+    "/home/deeper/Desktop/netCoreLearning/test/test.csproj": {}
   },
   "projects": {
-    "/home/deeper/Desktop/net core learning/test/test.csproj": {
+    "/home/deeper/Desktop/netCoreLearning/test/test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/deeper/Desktop/net core learning/test/test.csproj",
+        "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/test/test.csproj",
         "projectName": "test",
-        "projectPath": "/home/deeper/Desktop/net core learning/test/test.csproj",
+        "projectPath": "/home/deeper/Desktop/netCoreLearning/test/test.csproj",
         "packagesPath": "/home/deeper/.nuget/packages/",
-        "outputPath": "/home/deeper/Desktop/net core learning/test/obj/",
+        "outputPath": "/home/deeper/Desktop/netCoreLearning/test/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -52,6 +52,10 @@
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[3.1.7, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.21, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
