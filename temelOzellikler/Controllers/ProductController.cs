@@ -24,8 +24,10 @@ namespace temelOzellikler.Controllers
             
             List<Product> products = new List<Product>(){
                 new Product(){Name = "samsung s6",Price = 3000,Description = "iyi tel"},
-                new Product(){Name = "samsung s7",Price = 4000,Description = "eh işte tel"},
-                new Product(){Name = "samsung s6",Price = 5000,Description = "çok iyi tel"}
+                new Product(){Name = "samsung s7",Price = 4000,Description = "eh işte tel",IsApproved = true},
+                new Product(){Name = "samsung s6",Price = 5000,Description = "çok iyi tel"},
+                new Product(){Name = "samsung s6",Price = 5000,Description = "q iyi tel",IsApproved = true},
+                new Product(){Name = "samsung s6",Price = 5000,Description = "tl iyi tel"}
             };
 
             Category category = new Category(){
@@ -38,7 +40,7 @@ namespace temelOzellikler.Controllers
                 category = category
             };
 
-
+            //productViewModel = new ProductViewModel();
             return View(productViewModel);
         }
 
