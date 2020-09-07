@@ -1,71 +1,32 @@
 @model temelOzellikler.ViewModels.ProductViewModel
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    şuan product/list dizinindesin
-    
-    <!-- razordan önce bu şekilde 
-    <h1>@Model.category.Name</h1>
-    /*
-    <p>Name: @Model.products[0].Name</p>
-    <p>Price: @Model.products[0].Price</p>
-    <p>Description: @Model.products[0].Description</p>
-    
-    <p>Name: @Model.products[1].Name</p>
-    <p>Price: @Model.products[1].Price</p>
-    <p>Description: @Model.products[1].Description</p>
-    
-    <p>Name: @Model.products[2].Name</p>
-    <p>Price: @Model.products[2].Price</p>
-    <p>Description: @Model.products[2].Description</p>
-    -->
-    
-
-    <h1>@Model.category.Name</h1>
-
-    @if(@Model.products.Count == 0){
-        <p style="background-color: red;">ürün yok!</p>
-    }else{
-
-        <ul>
-
-            @foreach (var product in Model.products)
-            {
-                <li>
-
-                    @if(product.IsApproved){
-                        <div style="background-color: blue;">
-                            <p>Name: @product.Name</p>
-                            <p>Price: @product.Price</p>
-                            <p>Description: @product.Description</p>
-                        </div>
-                    }else{
-                        <div>
-                            <p>Name: @product.Name</p>
-                            <p>Price: @product.Price</p>
-                            <p>Description: @product.Description</p>
-                        </div>
-                    }
-                </li>
-            }
+@{
+    var products = Model.products;
+}
 
 
-        </ul>
-
-    }
+@section Categories{
+    @await Component.InvokeAsync("Categories")
+}
 
 
 
+@if(@products.Count == 0){
+        
+    @await Html.PartialAsync("_noproduct");
 
 
+}else{
 
-</body>
-</html>
+        <div class="row">
+        @foreach (var product in products)
+        {
+            
+            <div class="col-md-3">
+            @await Html.PartialAsync("_product",product);
+            </div>
+        }
+        </div>
+
+}

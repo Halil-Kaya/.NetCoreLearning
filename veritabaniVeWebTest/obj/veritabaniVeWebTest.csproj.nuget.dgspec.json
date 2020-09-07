@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/deeper/Desktop/net core learning/veritabaniVeWebTest/veritabaniVeWebTest.csproj": {}
+    "/home/deeper/Desktop/netCoreLearning/veritabaniVeWebTest/veritabaniVeWebTest.csproj": {}
   },
   "projects": {
-    "/home/deeper/Desktop/net core learning/veritabaniVeWebTest/veritabaniVeWebTest.csproj": {
+    "/home/deeper/Desktop/netCoreLearning/veritabaniVeWebTest/veritabaniVeWebTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/deeper/Desktop/net core learning/veritabaniVeWebTest/veritabaniVeWebTest.csproj",
+        "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/veritabaniVeWebTest/veritabaniVeWebTest.csproj",
         "projectName": "veritabaniVeWebTest",
-        "projectPath": "/home/deeper/Desktop/net core learning/veritabaniVeWebTest/veritabaniVeWebTest.csproj",
+        "projectPath": "/home/deeper/Desktop/netCoreLearning/veritabaniVeWebTest/veritabaniVeWebTest.csproj",
         "packagesPath": "/home/deeper/.nuget/packages/",
-        "outputPath": "/home/deeper/Desktop/net core learning/veritabaniVeWebTest/obj/",
+        "outputPath": "/home/deeper/Desktop/netCoreLearning/veritabaniVeWebTest/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -38,6 +38,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

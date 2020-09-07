@@ -30,17 +30,13 @@ namespace temelOzellikler.Controllers
                 new Product(){Name = "samsung s6",Price = 5000,Description = "tl iyi tel"}
             };
 
-            Category category = new Category(){
-              Name = "elektronik",
-              Description = "elektronik bir alet"   
-            };
-            
+
+
+
             ProductViewModel productViewModel = new ProductViewModel(){
                 products = products,
-                category = category
             };
-
-            //productViewModel = new ProductViewModel();
+            
             return View(productViewModel);
         }
 

@@ -1,5 +1,5 @@
 {
-  "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/temelOzellikler.csproj",
+  "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/temelOzellikler.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -12422,6 +12422,23 @@
         }
       },
       {
+        "HashCode": -1788831707,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__CategoriesViewComponentTagHelper",
+        "AssemblyName": "temelOzellikler",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:categories"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__CategoriesViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Categories"
+        }
+      },
+      {
         "HashCode": 899238057,
         "Kind": "Components.Bind",
         "Name": "Bind",
@@ -14392,38 +14409,78 @@
   "RootNamespace": "temelOzellikler",
   "Documents": [
     {
-      "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/Views/Product/Index.cshtml",
-      "TargetPath": "Views\\Product\\Index.cshtml",
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/Views/Product/List.cshtml",
-      "TargetPath": "Views\\Product\\List.cshtml",
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/_header.cshtml",
+      "TargetPath": "Views\\Shared\\_header.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/Views/Product/Details.cshtml",
-      "TargetPath": "Views\\Product\\Details.cshtml",
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/_categories.cshtml",
+      "TargetPath": "Views\\Shared\\_categories.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/Views/Home/About.cshtml",
-      "TargetPath": "Views\\Home\\About.cshtml",
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/Components/Categories/Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Categories\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/Views/Home/Index.cshtml",
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/_noproduct.cshtml",
+      "TargetPath": "Views\\Shared\\_noproduct.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/Views/_ViewImports.cshtml",
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Product/Details.cshtml",
+      "TargetPath": "Views\\Product\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/deeper/Desktop/net core learning/temelOzellikler/Views/Home/MyView.cshtml",
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/_product.cshtml",
+      "TargetPath": "Views\\Shared\\_product.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Product/Index.cshtml",
+      "TargetPath": "Views\\Product\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Home/About.cshtml",
+      "TargetPath": "Views\\Home\\About.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Home/MyView.cshtml",
       "TargetPath": "Views\\Home\\MyView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/_navbar.cshtml",
+      "TargetPath": "Views\\Shared\\_navbar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Product/List.cshtml",
+      "TargetPath": "Views\\Product\\List.cshtml",
       "FileKind": "mvc"
     }
   ],

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/deeper/Desktop/net core learning/temelOzellikler/temelOzellikler.csproj",
+      "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/temelOzellikler.csproj",
       "projectName": "temelOzellikler",
-      "projectPath": "/home/deeper/Desktop/net core learning/temelOzellikler/temelOzellikler.csproj",
+      "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/temelOzellikler.csproj",
       "packagesPath": "/home/deeper/.nuget/packages/",
-      "outputPath": "/home/deeper/Desktop/net core learning/temelOzellikler/obj/",
+      "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"

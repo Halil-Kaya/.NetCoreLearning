@@ -8,8 +8,6 @@ namespace temelOzellikler.ViewModels
         
         public List<Product> products { get; set; }
 
-        public Category category { get; set; }
-
 
     }
 }
