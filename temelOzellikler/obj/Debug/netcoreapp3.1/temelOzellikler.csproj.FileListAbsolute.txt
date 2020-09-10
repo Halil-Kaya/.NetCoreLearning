@@ -76,3 +76,5 @@
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/Categories/Default.cshtml.g.cs
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/obj/Debug/netcoreapp3.1/Razor/Views/Product/Create.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/obj/Debug/netcoreapp3.1/Razor/Views/Product/Edit.cshtml.g.cs

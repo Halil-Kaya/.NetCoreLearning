@@ -1,0 +1,44 @@
+@model Product
+@{
+    List<Category> categories = ViewBag.Categories;
+}
+
+<form action="/product/edit" method="POST">
+
+    <input type="hidden" name="ProductId" value="@Model.ProductId">
+
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" name="Name" value="@Model.Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Price">Price</label>
+        <input type="text" name="Price" value="@Model.Price" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea name="Description" value="@Model.Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="ImageUrl">ImageUrl</label>
+        <input type="text" name="ImageUrl" value="@Model.ImageUrl" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="CategoryId">CategoryId</label>
+        <select name="CategoryId" class="form-control">
+            @foreach (var category in categories)
+            {   
+                if(Model.CategoryId == category.CategoryId){
+                    <option value="@category.CategoryId" selected>@category.Name</option>            
+                }else{
+                    <option value="@category.CategoryId">@category.Name</option>
+                }
+                
+            }
+
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using temelOzellikler.Data;
 using temelOzellikler.Models;
 
 namespace temelOzellikler.ViewComponents
@@ -8,15 +9,13 @@ namespace temelOzellikler.ViewComponents
     {
 
        public IViewComponentResult Invoke(){
-            
-            
-            List<Category> categories = new List<Category>(){
-                new Category(){Name = "Telefon",Description = "Telefon kategorisi"},
-                new Category(){Name = "Bilgisayar",Description = "Bilgisayar kategorisi"},
-                new Category(){Name = "Elektronik",Description = "Elektronik kategorisi"}
-            };
 
-            return View(categories);          
+           if(RouteData.Values["action"].ToString() == "List"){
+                ViewBag.SelectedCategory = RouteData?.Values["id"];
+           }
+
+            return View(CategoryRepository.Categories);          
+       
        }
 
     }

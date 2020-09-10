@@ -1,10 +1,40 @@
 @model List<Category>
+@{
+    var hangisiSecili = "";
+}
 <div class="list-group">
+
+
+        <a href="/product/list" class="list-group-item list-group-item-action title">Tüm Kategoriler</a>             
 
         @foreach (var category in Model)
         {
-            <a href="#" class="list-group-item list-group-item-action">@category.Name</a>             
+
+            @(hangisiSecili = "");
+            if(ViewBag.SelectedCategory == category.CategoryId.ToString()){
+                hangisiSecili = "active";
+            }
+            
+
+            <a href="/product/list/@category.CategoryId" class="list-group-item list-group-item-action @hangisiSecili">@category.Name</a>             
         }
 
 </div>
 
+<script>
+
+    let title = document.querySelectorAll(".list-group-item")
+
+    let varMi = false;
+    title.forEach(element => {
+
+        if(element.classList.value.includes("active") == true){
+            varMi = true
+        }
+    })
+
+    if(!varMi){
+        title[0].className = title[0].className + " active"
+    }    
+
+</script>

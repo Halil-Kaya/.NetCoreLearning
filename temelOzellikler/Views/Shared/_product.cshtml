@@ -1,9 +1,10 @@
 @model Product
-<div class="card">
-    <img class="card-img-top" src="https://productimages.hepsiburada.net/s/6/375/9713620353074.jpg" alt="">
+<div class="card mb-2">
+    <img class="card-img-top" src="~/img/@Model.ImageUrl" alt="">
     <div class="card-body">
         <h5 class="card-title">@Model.Name</h5>
         <p class="card-text">@Model.Description</p>
-        <a href="" class="btn btn-primary">incele</a>
+        <a href="/product/details/@Model.ProductId" class="btn btn-primary btn-sm">incele</a>
+        <a href="/product/edit/@Model.ProductId" class="btn btn-primary btn-sm">Edit</a>
     </div>
 </div>

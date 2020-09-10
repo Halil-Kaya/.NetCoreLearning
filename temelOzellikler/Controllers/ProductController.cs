@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using temelOzellikler.Data;
 using temelOzellikler.Models;
 using temelOzellikler.ViewModels;
 
@@ -20,16 +23,19 @@ namespace temelOzellikler.Controllers
             return View(p);
         }
 
-        public IActionResult List(){
+        public IActionResult List(int? id){
             
-            List<Product> products = new List<Product>(){
-                new Product(){Name = "samsung s6",Price = 3000,Description = "iyi tel"},
-                new Product(){Name = "samsung s7",Price = 4000,Description = "eh işte tel",IsApproved = true},
-                new Product(){Name = "samsung s6",Price = 5000,Description = "çok iyi tel"},
-                new Product(){Name = "samsung s6",Price = 5000,Description = "q iyi tel",IsApproved = true},
-                new Product(){Name = "samsung s6",Price = 5000,Description = "tl iyi tel"}
-            };
+            var products = ProductRepository.Products;
 
+            if(id != null){
+                products = products.Where(p => p.CategoryId == id).ToList();
+            }
+
+            string q = HttpContext.Request.Query["q"];
+
+            if(!string.IsNullOrEmpty(q)){
+                products = products.Where(p => p.Name.ToLower().Contains(q.ToLower())).ToList();
+            }
 
 
 
@@ -41,9 +47,47 @@ namespace temelOzellikler.Controllers
         }
 
         public IActionResult Details(int id){
-            ViewBag.id = id;
+            return View(ProductRepository.GetProductById(id));
+        }
+
+
+        [HttpGet]
+        public IActionResult Create(){
+            ViewBag.Categories = CategoryRepository.Categories;
             return View();
         }
+
+
+
+        [HttpPost]
+        public IActionResult Create(Product p){
+
+            /*
+            System.Console.WriteLine("name: " + p.Name); 
+            System.Console.WriteLine("Price: " + p.Price);
+            System.Console.WriteLine("Description: " + p.Description);
+            System.Console.WriteLine("imageUrl: " + p.ImageUrl);
+            System.Console.WriteLine("categoryId: " + p.CategoryId);
+            */
+            ProductRepository.AddProduct(p);
+            
+            return RedirectToAction("list");
+        }
+
+
+        [HttpGet]
+        public IActionResult Edit(int id){
+
+            ViewBag.Categories = CategoryRepository.Categories;
+            return View(ProductRepository.GetProductById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Product p){
+            ProductRepository.EditProduct(p);
+            return RedirectToAction("list");
+        }
+
 
     }
 }

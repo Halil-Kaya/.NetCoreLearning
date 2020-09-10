@@ -21,11 +21,13 @@
 
 
 
-        @*_navbar ve _header dosyasındaki yapıları getirip ekliyorum!*@
+        @*_navbar dosyasındaki yapıları getirip ekliyorum!*@
         @await Html.PartialAsync("_navbar")
-        @await Html.PartialAsync("_header")
 
-    <main>
+        @RenderSection("Header",false)
+
+
+    <main class="my-3">
         <div class="container">
 
     @if(IsSectionDefined("Categories")){
@@ -62,6 +64,12 @@
 
         </div>
     </main>
+
+
+    <footer class="py-5 bg-dark text-white text-center">
+        2020 | hlk
+    </footer>
+
 
     @* sayfalarda scripts kısmı olursa burda gösterecek 2.parametreyi false girmemin sebebi bunun zorunlu olmaması *@
     @RenderSection("Scripts",false)

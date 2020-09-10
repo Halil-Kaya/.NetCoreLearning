@@ -14419,6 +14419,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Product/Create.cshtml",
+      "TargetPath": "Views\\Product\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/_categories.cshtml",
       "TargetPath": "Views\\Shared\\_categories.cshtml",
       "FileKind": "mvc"
@@ -14426,6 +14431,11 @@
     {
       "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Shared/Components/Categories/Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\Categories\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/Views/Product/Edit.cshtml",
+      "TargetPath": "Views\\Product\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
