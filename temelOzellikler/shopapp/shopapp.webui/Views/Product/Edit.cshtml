@@ -28,11 +28,9 @@
         <select name="CategoryId" class="form-control">
             @foreach (var category in categories)
             {   
-                if(Model.CategoryId == category.CategoryId){
-                    <option value="@category.CategoryId" selected>@category.Name</option>            
-                }else{
-                    <option value="@category.CategoryId">@category.Name</option>
-                }
+                
+                <option value="@category.CategoryId">@category.Name</option>
+               
                 
             }
 

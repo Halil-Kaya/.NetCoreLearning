@@ -19,7 +19,7 @@
 
 @if(@products.Count == 0){
         
-    @await Html.PartialAsync("_noproduct");
+    @await Html.PartialAsync("_noproduct")
 
 
 }else{
@@ -29,7 +29,7 @@
         {
             
             <div class="col-md-3">
-            @await Html.PartialAsync("_product",product);
+            @await Html.PartialAsync("_product",product)
             </div>
         }
         </div>

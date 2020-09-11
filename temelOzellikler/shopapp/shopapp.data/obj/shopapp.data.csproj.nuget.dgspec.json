@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/shopapp.data.csproj": {}
+  },
+  "projects": {
+    "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/shopapp.data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/shopapp.data.csproj",
+        "projectName": "shopapp.data",
+        "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/shopapp.data.csproj",
+        "packagesPath": "/home/deeper/.nuget/packages/",
+        "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/deeper/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/shopapp.entity.csproj": {
+                "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/shopapp.entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/shopapp.entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/shopapp.entity.csproj",
+        "projectName": "shopapp.entity",
+        "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/shopapp.entity.csproj",
+        "packagesPath": "/home/deeper/.nuget/packages/",
+        "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/deeper/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

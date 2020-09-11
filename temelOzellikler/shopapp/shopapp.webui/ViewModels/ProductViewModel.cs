@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using temelOzellikler.Models;
+using shopapp.entity;
 
 namespace temelOzellikler.ViewModels
 {

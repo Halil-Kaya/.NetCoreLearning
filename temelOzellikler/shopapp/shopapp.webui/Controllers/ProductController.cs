@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using temelOzellikler.Data;
-using temelOzellikler.Models;
 using temelOzellikler.ViewModels;
+using shopapp.entity;
 
 namespace temelOzellikler.Controllers
 {
@@ -14,7 +13,7 @@ namespace temelOzellikler.Controllers
     {
         
         public IActionResult Index(){
-
+            
             Product p = new Product();
             p.Name = "samsung s6";
             p.Price = 3000;
@@ -26,35 +25,17 @@ namespace temelOzellikler.Controllers
         [HttpGet]
         public IActionResult List(int? id){
             
-            var products = ProductRepository.Products;
-
-            if(id != null){
-                products = products.Where(p => p.CategoryId == id).ToList();
-            }
-
-            string q = HttpContext.Request.Query["q"];
-
-            if(!string.IsNullOrEmpty(q)){
-                products = products.Where(p => p.Name.ToLower().Contains(q.ToLower())).ToList();
-            }
-
-
-
-            ProductViewModel productViewModel = new ProductViewModel(){
-                products = products,
-            };
             
-            return View(productViewModel);
+            return View();
         }
 
         public IActionResult Details(int id){
-            return View(ProductRepository.GetProductById(id));
+            return View();
         }
 
 
         [HttpGet]
         public IActionResult Create(){
-            ViewBag.Categories = CategoryRepository.Categories;
             return View(new Product());
         }
 
@@ -71,11 +52,6 @@ namespace temelOzellikler.Controllers
             System.Console.WriteLine("categoryId: " + p.CategoryId);
             */
 
-            if(ModelState.IsValid){
-                ProductRepository.AddProduct(p);
-                return RedirectToAction("list");
-            }
-            ViewBag.Categories = CategoryRepository.Categories;
             return View(p);
         }
 
@@ -83,20 +59,17 @@ namespace temelOzellikler.Controllers
         [HttpGet]
         public IActionResult Edit(int id){
 
-            ViewBag.Categories = CategoryRepository.Categories;
-            return View(ProductRepository.GetProductById(id));
+            return View();
         }
 
         [HttpPost]
         public IActionResult Edit(Product p){
-            ProductRepository.EditProduct(p);
             return RedirectToAction("list");
         }
 
         [HttpPost]
         public IActionResult Delete(int ProductId){
             
-            ProductRepository.DeleteProduct(ProductId);
             return RedirectToAction("list");
         }
 

@@ -1,0 +1,13 @@
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/bin/Debug/netstandard2.0/shopapp.business.deps.json
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/bin/Debug/netstandard2.0/shopapp.business.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/bin/Debug/netstandard2.0/shopapp.business.pdb
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/bin/Debug/netstandard2.0/shopapp.data.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/bin/Debug/netstandard2.0/shopapp.entity.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/bin/Debug/netstandard2.0/shopapp.entity.pdb
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/bin/Debug/netstandard2.0/shopapp.data.pdb
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/Debug/netstandard2.0/shopapp.business.csprojAssemblyReference.cache
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/Debug/netstandard2.0/shopapp.business.AssemblyInfoInputs.cache
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/Debug/netstandard2.0/shopapp.business.AssemblyInfo.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/Debug/netstandard2.0/shopapp.business.csproj.CopyComplete
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/Debug/netstandard2.0/shopapp.business.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/Debug/netstandard2.0/shopapp.business.pdb
