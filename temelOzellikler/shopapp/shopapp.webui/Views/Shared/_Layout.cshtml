@@ -4,62 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <title>Document</title>
+        <title>Shopapp</title>
     </head>
     <body>
 
-        @*burda şunu kontrol ediyorum bu layoutu kullanan sayfada messageBox var mı?
-        eğer varsa onu kullan yok ise otomatik olarak welcome yazdır!*@
-        @if (IsSectionDefined("MessageBox"))
-        {
-            @RenderSection("MessageBox")        
-        }else{
-            <div class="alert alert-primary text-center m-0">
-                Welcome
-            </div>
-        }
-
-
+        
 
         @*_navbar dosyasındaki yapıları getirip ekliyorum!*@
         @await Html.PartialAsync("_navbar")
-
         @RenderSection("Header",false)
+
 
 
     <main class="my-3">
         <div class="container">
 
-    @if(IsSectionDefined("Categories")){
-
-        <div class="row">
-            <div class="col-md-3">
-                @RenderSection("Categories",false)
+            <div class="row">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
             </div>
-            <div class="col-md-9">
-
-
-                @*bu layoutu bütün sayfalarda aynı olacak<yapı olarak> bu yüzden burda sadece
-                    birkaç kısım değişeceği için değişecek kısmı belirtiyorum!
-                    hangi sayfa eğer bu layoutu kullanırsa ek gösterilecek şeyler bu RenderBody kısmında gözükecek!*@
-
-                @RenderBody()
-                
-            </div>
-        </div>        
-
-    }else{
-
-        <div class="row">
-            <div class="col-md-12">
-                @RenderBody()
-            </div>
-        </div>
-
-    }
-
-
-
 
 
         </div>
@@ -70,7 +34,7 @@
         2020 | hlk
     </footer>
 
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     @* sayfalarda scripts kısmı olursa burda gösterecek 2.parametreyi false girmemin sebebi bunun zorunlu olmaması *@
     @RenderSection("Scripts",false)
 

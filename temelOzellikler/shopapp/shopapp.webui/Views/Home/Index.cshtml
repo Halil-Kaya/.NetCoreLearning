@@ -1,40 +1,37 @@
-@model temelOzellikler.ViewModels.ProductViewModel
+@model temelOzellikler.ViewModels.ProductListViewModel
 
 
-@{
-    var products = Model.products;
-}
 
-@section MessageBox{
-    <div class="alert alert-warning text-center m-0">
-        Bir mesajınız var!
-    </div>
-}
 
 @section Header{
         @await Html.PartialAsync("_header")
 }
 
-
-
-@if(@products.Count == 0){
+<div class="row">
+    <div class="col-md-3">
         
-    @await Html.PartialAsync("_noproduct")
+        @await Component.InvokeAsync("Categories")
+        @await Html.PartialAsync("_search")
 
-
-}else{
+    </div>
+    <div class="col-md-9">
 
         <div class="row">
-        @foreach (var product in products)
-        {
-            
-            <div class="col-md-3">
-            @await Html.PartialAsync("_product",product)
-            </div>
-        }
+            @foreach (var product in Model.products)
+            {
+                
+                <div class="col-md-4">
+                @await Html.PartialAsync("_product",product)
+                </div>
+            }
         </div>
 
-}
+    </div>
+</div>
+
+
+
+
 
 
 

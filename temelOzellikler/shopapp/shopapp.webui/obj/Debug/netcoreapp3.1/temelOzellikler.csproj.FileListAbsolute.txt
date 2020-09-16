@@ -218,3 +218,7 @@
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/shopapp.business.dll
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/shopapp.business.pdb
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Shop/List.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Shop/Details.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_search.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Shop/Search.cshtml.g.cs

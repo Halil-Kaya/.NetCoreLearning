@@ -1,23 +1,23 @@
 @model List<Category>
-@{
-    var hangisiSecili = "";
-}
+
 <div class="list-group">
 
 
-        <a href="/product/list" class="list-group-item list-group-item-action title">Tüm Kategoriler</a>             
+        <a href="/products" class="list-group-item list-group-item-action title">Tüm Kategoriler</a>             
 
         @foreach (var category in Model)
-        {
-
-            @(hangisiSecili = "");
-            if(ViewBag.SelectedCategory == category.CategoryId.ToString()){
-                hangisiSecili = "active";
-            }
+        {  
             
+            if(ViewBag.SelectedCategory == category.Url){
+                <a href="/products/@category.Url" asp-route-category="halil" class="list-group-item list-group-item-action title active">@category.Name</a>             
+            }else{
+                <a href="/products/@category.Url" asp-route-category="halil" class="list-group-item list-group-item-action title">@category.Name</a>             
+            }         
 
-            <a href="/product/list/@category.CategoryId" class="list-group-item list-group-item-action @hangisiSecili">@category.Name</a>             
+
+
         }
+
 
 </div>
 

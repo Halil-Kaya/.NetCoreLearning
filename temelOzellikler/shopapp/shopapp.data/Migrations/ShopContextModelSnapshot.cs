@@ -26,6 +26,9 @@ namespace shopapp.data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
@@ -46,11 +49,17 @@ namespace shopapp.data.Migrations
                     b.Property<bool>("IsApproved")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<bool>("IsHome")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<double?>("Price")
                         .HasColumnType("double");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("ProductId");
 

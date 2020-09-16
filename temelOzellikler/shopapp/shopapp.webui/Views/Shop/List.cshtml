@@ -1,0 +1,65 @@
+@model temelOzellikler.ViewModels.ProductListViewModel
+
+@{
+    string isActive = "";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        
+         @await Component.InvokeAsync("Categories")
+        
+
+    </div>
+    <div class="col-md-9">
+
+        <div class="row">
+            @foreach (var product in Model.products)
+            {
+                
+                <div class="col-md-4">
+                @await Html.PartialAsync("_product",product)
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+
+                         @for (int i = 0; i < Model.PageInfo.TotalPages(); i++)
+                         {
+                             if(Model.PageInfo.CurrentPage == (i+1)){
+                                 isActive = "active";
+                             }else{
+                                 isActive = "";
+                             }
+
+                             if(String.IsNullOrEmpty(Model.PageInfo.CurrentCategory)){
+                                <li class="page-item @isActive"> <a href="/products?page=@(i+1)" class="page-link"> @(i+1) </a> </li>
+                             }else{
+                                <li class="page-item" @isActive> <a href="/products/@Model.PageInfo.CurrentCategory?page=@(i+1)" class="page-link"> @(i+1) </a> </li>
+                             }
+
+                         }
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>   
+}

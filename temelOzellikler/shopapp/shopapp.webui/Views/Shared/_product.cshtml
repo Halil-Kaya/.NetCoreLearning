@@ -3,16 +3,13 @@
     <img class="card-img-top" src="~/img/@Model.ImageUrl" alt="">
     <div class="card-body">
         <h5 class="card-title">@Model.Name</h5>
-        <p class="card-text">@Model.Description</p>
-        <a href="/product/details/@Model.ProductId" class="btn btn-primary btn-sm">incele</a>
-        <a href="/product/edit/@Model.ProductId" class="btn btn-primary btn-sm">Edit</a>
-
-        <form method="POST" action="/product/delete" style="display: inline;">
-            <input type="hidden" name="ProductId" value="@Model.ProductId">
-            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-        </form> 
-
-
+        <small class="text-muted">
+            <i class="fas fa-lira-sign"></i>@Model.Price
+        </small>
+    </div>
+    <div class="card-footer text-center">
+        <a href="~/@Model.Url" class="btn btn-primary btn-sm">Details</a>
+        <a href="/shop/addtocart/@Model.ProductId" class="btn btn-primary btn-sm">Add To Cart</a>
     </div>
 </div>
 

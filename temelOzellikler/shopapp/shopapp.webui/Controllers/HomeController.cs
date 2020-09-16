@@ -17,8 +17,8 @@ namespace temelOzellikler.Controllers
         public IActionResult Index(){
             
 
-            ProductViewModel productViewModel = new ProductViewModel(){
-                products = _productService.GetAll()
+            ProductListViewModel productViewModel = new ProductListViewModel(){
+                products = _productService.GetHomePageProducts()
             };
             
             return View(productViewModel);
@@ -28,7 +28,8 @@ namespace temelOzellikler.Controllers
             return View();
         }
 
-        public IActionResult Contact(){
+        public IActionResult Contact(string message){
+            System.Console.WriteLine("message: "+message);
             return View("MyView");
         }
 

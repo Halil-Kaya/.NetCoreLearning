@@ -1,24 +1,27 @@
  <div class="navbar bg-danger navbar-dark navbar-expand-sm">
         <div class="container">
-            <ul class="navbar-nav">
+            <a href="/" class="navbar-brand">Shopapp</a>
+            <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item">
-                    <a href="/product/list" class="nav-link">Product</a>
+                    <a href="/products" class="nav-link">Product</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="/product/create" class="nav-link">Add Product</a>
+                    <a href="/admin/createproduct" class="nav-link">Cart</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Link 3</a>
+                    <a href="/product/create" class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/createproduct" class="nav-link">Add Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/productlist" class="nav-link">Admin Products</a>
                 </li>
             </ul>
 
-            <form action="/product/list" method="GET" class="form-inline">
 
-                <input type="text" class="form-control mr-2" placeholder="Search" name="q">
-                <button type="submit" class="btn btn-outline-light mr-0">Search</button>
-
-            </form>
 
         </div>
     </div>
