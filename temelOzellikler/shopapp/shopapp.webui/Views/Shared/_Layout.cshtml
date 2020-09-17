@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <title>Shopapp</title>
     </head>
     <body>
@@ -18,13 +19,19 @@
 
     <main class="my-3">
         <div class="container">
-
-            <div class="row">
-                <div class="col-md-12">
-                    @RenderBody()
+            
+            @if(TempData["message"] != null){
+                var message = JsonConvert.DeserializeObject<AlertMessage>(TempData["message"] as String); 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@message.AlertType">
+                            @message.Message
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
 
+            @RenderBody()
 
         </div>
     </main>
@@ -34,7 +41,6 @@
         2020 | hlk
     </footer>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     @* sayfalarda scripts kısmı olursa burda gösterecek 2.parametreyi false girmemin sebebi bunun zorunlu olmaması *@
     @RenderSection("Scripts",false)
 

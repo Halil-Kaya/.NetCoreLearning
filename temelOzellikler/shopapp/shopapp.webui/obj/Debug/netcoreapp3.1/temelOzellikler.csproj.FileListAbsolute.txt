@@ -222,3 +222,14 @@
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Shop/Details.cshtml.g.cs
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_search.cshtml.g.cs
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Shop/Search.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Admin/ProductList.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Admin/CategoryList.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Admin/ProductEdit.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Admin/CategoryCreate.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Admin/CategoryEdit.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Admin/ProductCreate.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll

@@ -1,0 +1,98 @@
+@model CategoryModel
+<h1 class="h3">Edit Category</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="/admin/categoryedit" method="POST">
+            <input type="hidden" name="CategoryId" value="@Model.CategoryId">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" id="Name" name="Name" value="@Model.Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Url</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" id="Url" name="Url" value="@Model.Url">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Category</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-sm mt-3">
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Image</td>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Anasayfa</td>
+                            <td>Onaylı</td>
+                            <td></td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if(Model.Products.Count > 0){
+
+
+                            @foreach (var item in Model.Products)
+                            {
+                                <tr>
+                                    <td>@item.ProductId </td>
+                                    <td><img src="~/img/@item.ImageUrl" width="80"></td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Price</td>
+                                    <td>
+                                        @if(item.IsHome){
+                                            <i class="fas fa-check-circle"></i>
+                                        }else{
+                                            <i class="fas fa-times-circle"></i>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if(item.IsApproved){
+                                            <i class="fas fa-check-circle"></i>
+                                        }else{
+                                            <i class="fas fa-times-circle"></i>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="/admin/products/@item.ProductId" class="btn btn-primary btn-sm mr-2">Edit</a>
+                                    
+                                        <form action="/admin/deletefromcategory" method="POST" style="display: inline">
+                                            <input type="hidden" name="productId" value="@item.ProductId">
+                                            <input type="hidden" name="categoryId" value="@Model.CategoryId">
+                                            <button class="btn btn-danger btn-sm mr-2" type="submit">Delete</button>
+
+                                        </form>  
+                                    
+                                    </td>
+                                </tr>
+                            }
+                        }else{
+                            <div class="alert alert-warning">No Products</div>
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</div>

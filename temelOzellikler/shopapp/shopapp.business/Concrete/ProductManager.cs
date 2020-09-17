@@ -14,9 +14,15 @@ namespace shopapp.business.Concrete
             this._productRepository = productRepository;
         }
 
-        public void Create(Product entity)
+
+       public bool Create(Product entity)
         {
-            _productRepository.Create(entity);
+            if(Validation(entity)){
+                _productRepository.Create(entity);
+                return true;
+            }else{
+                return false;
+            }
         }
 
         public void Delete(Product entitiy)
@@ -32,6 +38,11 @@ namespace shopapp.business.Concrete
         public Product GetById(int id)
         {
             return _productRepository.GetById(id);
+        }
+
+        public Product GetByIdWithCategories(int id)
+        {
+            return _productRepository.GetByIdWithCategories(id);
         }
 
         public int GetCountByCategory(string category)
@@ -61,7 +72,34 @@ namespace shopapp.business.Concrete
 
         public void Update(Product entity)
         {
-            throw new System.NotImplementedException();
+            _productRepository.Update(entity);
         }
+
+        public void Update(Product entity, int[] CategoryIds)
+        {
+            _productRepository.Update(entity,CategoryIds);
+        }
+        public string ErrorMessage { get ; set ; }
+
+        public bool Validation(Product entity)
+        {
+           
+            var isValid = true;
+            
+            if(string.IsNullOrEmpty(entity.Name)){
+                ErrorMessage += "ürün ismi girmelisiniz.\n";
+                isValid = false;
+            }
+
+            if(entity.Price < 0){
+                ErrorMessage += "ürün fiyati negatif olamaz.\n";
+                isValid = false;
+            }
+
+            return isValid;
+       
+        }
+
+        
     }
 }

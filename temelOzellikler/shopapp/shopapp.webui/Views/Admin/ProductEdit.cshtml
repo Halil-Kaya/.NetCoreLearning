@@ -1,0 +1,61 @@
+@model ProductModel
+<h1 class="h3">Edit Product</h1>
+<hr>
+<form action="/admin/productedit" method="POST" enctype="multipart/form-data">
+
+<div class="row">
+    <div class="col-md-8">
+            <input type="hidden" name="ProductId" value="@Model.ProductId">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" id="Name" name="Name" value="@Model.Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Url</label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" id="Url" name="Url" value="@Model.Url">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea  class="form-control" id="Description" name="Description" >
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">ImageUrl</label>
+                <div class="col-sm-10">
+                    <input type="hidden" class="form-control" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl">
+                    <img src="~/img/@Model.ImageUrl" width="80">
+                    <input type="file" name="file">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input  class="form-control" id="Price" name="Price" value="@Model.Price">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </div>
+    </div>
+    <div class="col-md-4">
+        @foreach (var item in (List<Category>)ViewBag.Categories)
+        {
+            <div class="custom-control custom-checkbox">
+                <input name="categoryIds" value="@item.CategoryId" type="checkbox" class="custom-control-input" id="category_@(item.CategoryId)" @(Model.SelectedCategories.Any(i => i.CategoryId == item.CategoryId)?"checked":"")>
+            <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
+        </div>
+        }
+        
+    </div>
+</div>
+
+</form>
