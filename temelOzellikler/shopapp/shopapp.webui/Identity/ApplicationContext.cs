@@ -7,7 +7,7 @@ namespace shopapp.webui.Identity
     {
         
         public ApplicationContext(DbContextOptions<ApplicationContext> options) :base(options){
-
+            
         }
 
     }

@@ -8,5 +8,6 @@ namespace shopapp.data.Abstract
         List<Category> GetPopularCategories();
         Category GetByIdWithProducts(int categoryId);
         void DeleteFromCategory(int productId, int categoryId);
+        
     }
 }

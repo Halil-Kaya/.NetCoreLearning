@@ -233,3 +233,6 @@
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
 /home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Account/Login.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Account/Register.cshtml.g.cs
+/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/Debug/netcoreapp3.1/Razor/Views/Account/ConfirmEmail.cshtml.g.cs

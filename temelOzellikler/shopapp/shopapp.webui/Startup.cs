@@ -10,11 +10,19 @@ using shopapp.business.Concrete;
 using shopapp.webui.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using System;
+using shopapp.webui.EmailServices;
+using Microsoft.Extensions.Configuration;
 
 namespace temelOzellikler
 {
     public class Startup
     {
+        private IConfiguration _configuration;
+        public Startup(IConfiguration configuration){
+            this._configuration = configuration;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -22,11 +30,53 @@ namespace temelOzellikler
             services.AddDbContext<ApplicationContext>(options => options.UseMySql("server=127.0.0.1;port=3305;username=root;password=;database=shop"));
             services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
+            services.Configure<IdentityOptions>(options =>{
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.AllowedForNewUsers = true;
+
+                //options.User.AllowedUserNameCharacters = "";
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+
+            });
+
+            services.ConfigureApplicationCookie(options => {
+                
+                options.LoginPath = "/account/login";
+                options.LogoutPath = "/account/logout";
+                options.AccessDeniedPath = "/acount/accessdenied";
+                options.SlidingExpiration = true;
+                options.ExpireTimeSpan = TimeSpan.FromDays(1);
+                options.Cookie = new CookieBuilder{
+                    HttpOnly = true,
+                    Name = ".ShopApp.Security.Cookie",
+                    SameSite = SameSiteMode.Strict 
+                };
+
+            });
+
             services.AddScoped<ICategoryRepository,EfCoreCategoryRepository>();
             services.AddScoped<IProductRepository,EfCoreProductRepository>();
 
             services.AddScoped<IProductService,ProductManager>();
             services.AddScoped<ICategoryService,CategoryManager>();
+
+            services.AddScoped<IEmailSender,SmtpEmailSender>(i =>
+                 new SmtpEmailSender(
+                     _configuration["EmailSender:Host"],
+                     _configuration.GetValue<int>("EmailSender:Port"),
+                     _configuration.GetValue<bool>("EmailSender:EnableSSl"),
+                     _configuration["EmailSender:UserName"],
+                     _configuration["EmailSender:Password"]
+                     ));
             
             services.AddControllersWithViews();
         }
@@ -43,6 +93,9 @@ namespace temelOzellikler
             
             app.UseAuthentication();
             app.UseRouting();  
+            app.UseAuthorization();
+
+             
 
             //localhost:5001
             //localhost:5001/products            
