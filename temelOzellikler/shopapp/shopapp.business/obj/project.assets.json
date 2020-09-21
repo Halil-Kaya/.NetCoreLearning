@@ -6296,7 +6296,7 @@
     ]
   },
   "packageFolders": {
-    "/home/deeper/.nuget/packages/": {},
+    "/root/.nuget/packages/": {},
     "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
@@ -6305,14 +6305,14 @@
       "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/shopapp.business.csproj",
       "projectName": "shopapp.business",
       "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/shopapp.business.csproj",
-      "packagesPath": "/home/deeper/.nuget/packages/",
+      "packagesPath": "/root/.nuget/packages/",
       "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/deeper/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"

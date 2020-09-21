@@ -21,6 +21,9 @@ namespace shopapp.webui.Controllers
         }
 
         public IActionResult Login(string ReturnUrl = null){
+            
+            System.Console.WriteLine("return url: " + ReturnUrl);
+            
             return View(new LoginModel(){
                 ReturnUrl = ReturnUrl
             });
@@ -32,34 +35,32 @@ namespace shopapp.webui.Controllers
 
             //var user = await _userManager.FindByNameAsync(model.UserName);
             var user = await _userManager.FindByEmailAsync(model.Email);
-
-
+          
+  
+            
             if(user == null){
                 ModelState.AddModelError("","bu kullanici yok");
-                return View();
+                return View(model);
             }
 
             if(await _userManager.IsEmailConfirmedAsync(user)){
                 System.Console.WriteLine("Maili onaylı");
-                return View();
+
+                   var result = await _signInManager.PasswordSignInAsync(user,model.Password,true,false);
+
+                    if(result.Succeeded){
+                        return Redirect(model.ReturnUrl??"~/");
+                    }
+
             }else{
                 ModelState.AddModelError("","Mailinizi onaylayın");
                 System.Console.WriteLine("Maili onaylı değil");
     
             }
 
-            if( await _userManager.IsEmailConfirmedAsync(user)){
-                ModelState.AddModelError("","Mailinizi onaylayın");
-
-                return View(model);
-            }
 
 
-            var result = await _signInManager.PasswordSignInAsync(user,model.Password,true,false);
-
-            if(result.Succeeded){
-                return Redirect(model.ReturnUrl??"~/");
-            }
+         
 
             
 
@@ -84,7 +85,8 @@ namespace shopapp.webui.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModel model){
 
-
+            System.Console.WriteLine("???----------------------------???");
+            System.Console.WriteLine("first name: " + model.FirstName);
             var user = new User(){
                 FirstName = model.FirstName,
                 LastName = model.LastName,
@@ -117,8 +119,12 @@ namespace shopapp.webui.Controllers
             return View(model);
         }
 
+
+        
+
         public async Task<IActionResult> ConfirmEmail(string userId,string token){
             System.Console.WriteLine("confir email çalıştı");
+            System.Console.WriteLine("userId: " + userId + " token: ");
             if(userId == null || token == null){
                 CreateMessage("Geçersiz Token.","danger");
                 return View();
@@ -127,7 +133,7 @@ namespace shopapp.webui.Controllers
 
             if(user != null){
                 
-                
+                //mailin onaylandığı yer
                 var result = await _userManager.ConfirmEmailAsync(user,token);
 
                 if(result.Succeeded){
@@ -142,6 +148,71 @@ namespace shopapp.webui.Controllers
             System.Console.WriteLine("sanırım");
             return View();
         }
+
+        public IActionResult ForgotPassword(){
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string Email){
+            
+            if(string.IsNullOrEmpty(Email)){
+                return View();
+            }
+            
+            var user = await _userManager.FindByEmailAsync(Email);
+
+            if(user == null){
+                return View();
+            }
+
+            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var url = Url.Action("ResetPassword","Account",new {
+                userId = user.Id,
+                token = code
+            });
+            
+
+            await _emailSender.SendEmailAsync(Email,"Şifre sıfırlama",$"Parolanızı yenilemek için linke <a href='https://localhost:5001{url}'>tiklayiniz</a>");
+    
+
+            return View();
+        }
+
+
+        public IActionResult ResetPassword(string userId,string token){
+
+            if(userId == null || token == null){
+                return RedirectToAction("Home","Index");
+
+            }
+
+            var model = new ResetPasswordModel{Token = token};
+
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model){
+            
+            
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if(user == null){
+                return RedirectToAction("Home","Index");
+            }
+
+
+            //şifrenin resetlendiği yer
+            var result = await _userManager.ResetPasswordAsync(user,model.Token,model.Password);
+
+            if(result.Succeeded){
+                return RedirectToAction("Login","Account");
+            }
+
+            return View(model);
+        }
+
 
 
         private void CreateMessage(string message,string alerttype){

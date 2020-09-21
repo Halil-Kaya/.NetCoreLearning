@@ -10,14 +10,14 @@
         "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/shopapp.business.csproj",
         "projectName": "shopapp.business",
         "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/shopapp.business.csproj",
-        "packagesPath": "/home/deeper/.nuget/packages/",
+        "packagesPath": "/root/.nuget/packages/",
         "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.business/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/deeper/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -73,14 +73,14 @@
         "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/shopapp.data.csproj",
         "projectName": "shopapp.data",
         "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/shopapp.data.csproj",
-        "packagesPath": "/home/deeper/.nuget/packages/",
+        "packagesPath": "/root/.nuget/packages/",
         "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.data/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/deeper/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -147,14 +147,14 @@
         "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/shopapp.entity.csproj",
         "projectName": "shopapp.entity",
         "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/shopapp.entity.csproj",
-        "packagesPath": "/home/deeper/.nuget/packages/",
+        "packagesPath": "/root/.nuget/packages/",
         "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.entity/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/deeper/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -203,14 +203,14 @@
         "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/temelOzellikler.csproj",
         "projectName": "temelOzellikler",
         "projectPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/temelOzellikler.csproj",
-        "packagesPath": "/home/deeper/.nuget/packages/",
+        "packagesPath": "/root/.nuget/packages/",
         "outputPath": "/home/deeper/Desktop/netCoreLearning/temelOzellikler/shopapp/shopapp.webui/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/deeper/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -243,6 +243,10 @@
         "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.8, )"
             },

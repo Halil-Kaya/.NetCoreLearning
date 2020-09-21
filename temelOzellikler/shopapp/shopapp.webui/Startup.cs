@@ -78,6 +78,7 @@ namespace temelOzellikler
                      _configuration["EmailSender:Password"]
                      ));
             
+            
             services.AddControllersWithViews();
         }
 
@@ -90,6 +91,7 @@ namespace temelOzellikler
                 SeedDatabase.Seed();
                 app.UseDeveloperExceptionPage();
             }
+            
             
             app.UseAuthentication();
             app.UseRouting();  

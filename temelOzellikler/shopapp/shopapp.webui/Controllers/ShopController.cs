@@ -34,9 +34,7 @@ namespace shopapp.webui.Controllers
         }
 
         public IActionResult Details(string url){
-            System.Console.WriteLine("----");
             if(url == null){
-                System.Console.WriteLine("--++--");
                 return NotFound();
             }
             Product product = _productService.GetProductDetails(url);

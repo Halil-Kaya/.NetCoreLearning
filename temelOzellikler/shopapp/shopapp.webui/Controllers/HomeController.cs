@@ -16,7 +16,7 @@ namespace temelOzellikler.Controllers
 
         public IActionResult Index(){
             
-
+            System.Console.WriteLine("User.Identity.IsAuthenticated: " + User.Identity.IsAuthenticated);
             ProductListViewModel productViewModel = new ProductListViewModel(){
                 products = _productService.GetHomePageProducts()
             };

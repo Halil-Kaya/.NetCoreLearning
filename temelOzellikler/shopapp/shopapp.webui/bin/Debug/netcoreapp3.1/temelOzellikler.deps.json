@@ -25,6 +25,7 @@
       "temelOzellikler/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.8",
+          "Microsoft.EntityFrameworkCore": "3.1.8",
           "Microsoft.EntityFrameworkCore.Design": "3.1.8",
           "Newtonsoft.Json": "12.0.3",
           "shopapp.business": "1.0.0",

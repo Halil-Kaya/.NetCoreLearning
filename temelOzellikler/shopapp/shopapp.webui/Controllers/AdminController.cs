@@ -10,10 +10,11 @@ using shopapp.business.Abstract;
 using shopapp.entity;
 using shopapp.webui.Models;
 using temelOzellikler.ViewModels;
+using System.Collections.Generic;
 
 namespace shopapp.webui.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         private IProductService _productService;
@@ -36,6 +37,8 @@ namespace shopapp.webui.Controllers
             });
         }
 
+
+     
         public IActionResult ProductCreate(){
             return View();
         }
@@ -59,6 +62,11 @@ namespace shopapp.webui.Controllers
 
         }
 
+
+       
+        
+
+        
 
         public IActionResult CategoryCreate(){
             return View();

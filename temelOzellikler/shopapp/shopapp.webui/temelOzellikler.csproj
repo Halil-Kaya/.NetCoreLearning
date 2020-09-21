@@ -1,21 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <ProjectReference Include="../shopapp.data/shopapp.data.csproj" />
-     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8"/>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8"/>
+    <ProjectReference Include="../shopapp.data/shopapp.data.csproj"/>
   </ItemGroup>
-    <ItemGroup>
-    <ProjectReference Include="../shopapp.entity/shopapp.entity.csproj" />
-    <ProjectReference Include="../shopapp.data/shopapp.data.csproj" />
-    <ProjectReference Include="../shopapp.business/shopapp.business.csproj" />
+  <ItemGroup>
+    <ProjectReference Include="../shopapp.entity/shopapp.entity.csproj"/>
+    <ProjectReference Include="../shopapp.data/shopapp.data.csproj"/>
+    <ProjectReference Include="../shopapp.business/shopapp.business.csproj"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
 </Project>
