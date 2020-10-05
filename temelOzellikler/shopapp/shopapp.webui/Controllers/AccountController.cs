@@ -20,8 +20,10 @@ namespace shopapp.webui.Controllers
             this._emailSender = emailSender;
         }
 
-        public IActionResult Login(string ReturnUrl = null){
+        public async  Task<IActionResult> Login(string ReturnUrl = null){
+            var user = await _userManager.FindByIdAsync("1");
             
+
             System.Console.WriteLine("return url: " + ReturnUrl);
             
             return View(new LoginModel(){
@@ -32,10 +34,16 @@ namespace shopapp.webui.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model){
 
-
-            //var user = await _userManager.FindByNameAsync(model.UserName);
             var user = await _userManager.FindByEmailAsync(model.Email);
           
+            var result = await _signInManager.PasswordSignInAsync(user,model.Password,true,false);
+
+            if(result.Succeeded){
+                return Redirect(model.ReturnUrl??"~/");
+            }
+
+            //var user = await _userManager.FindByNameAsync(model.UserName);
+            
   
             
             if(user == null){
@@ -46,7 +54,7 @@ namespace shopapp.webui.Controllers
             if(await _userManager.IsEmailConfirmedAsync(user)){
                 System.Console.WriteLine("Maili onaylı");
 
-                   var result = await _signInManager.PasswordSignInAsync(user,model.Password,true,false);
+                    result = await _signInManager.PasswordSignInAsync(user,model.Password,true,false);
 
                     if(result.Succeeded){
                         return Redirect(model.ReturnUrl??"~/");
@@ -102,12 +110,14 @@ namespace shopapp.webui.Controllers
             var result = await _userManager.CreateAsync(user,model.Password);
 
             if(result.Succeeded){
-
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var url = Url.Action("ConfirmEmail","Account",new {
                     userId = user.Id,
                     token = code
                 });
+
+
+
                 System.Console.WriteLine("url: " + url);
                 System.Console.WriteLine("token! : " + code);
                 
@@ -186,7 +196,6 @@ namespace shopapp.webui.Controllers
                 return RedirectToAction("Home","Index");
 
             }
-
             var model = new ResetPasswordModel{Token = token};
 
 
