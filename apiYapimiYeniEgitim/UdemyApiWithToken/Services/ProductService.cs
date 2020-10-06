@@ -88,8 +88,7 @@ namespace UdemyApiWithToken.Services
 
                     return new ProductResponse("silmeye çalıştığınız ürün bulunamadı");
                 }
-
-                this._productRepository.RemoveProduct(productId);
+                await this._productRepository.RemoveProduct(productId);
 
                 await this._unitOfWork.CompleteAsync();
                 
@@ -104,7 +103,7 @@ namespace UdemyApiWithToken.Services
 
         }
 
-        public async Task<ProductResponse> UpdateResponse(Product product, int productId)
+        public async Task<ProductResponse> UpdateProduct(Product product, int productId)
         {
 
             try{

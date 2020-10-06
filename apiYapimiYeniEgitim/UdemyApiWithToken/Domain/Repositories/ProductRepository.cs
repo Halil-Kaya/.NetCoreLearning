@@ -28,9 +28,10 @@ namespace UdemyApiWithToken.Domain.Repositories
             return await this._dbContext.Product.ToListAsync();
         }
 
-        public void RemoveProduct(int productId)
+        public async Task RemoveProduct(int productId)
         {
-            var product = FindByIdAsync(productId);
+            var product = await FindByIdAsync(productId);
+
             this._dbContext.Remove(product);
 
         }

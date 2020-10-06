@@ -11,7 +11,7 @@ namespace UdemyApiWithToken.Domain.Repositories
 
         Task AddProductAsync(Product product);
 
-        void RemoveProduct(int productId);
+        Task RemoveProduct(int productId);
 
         void UpdateProduct(Product product);
 

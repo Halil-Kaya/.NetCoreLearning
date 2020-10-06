@@ -42,3 +42,4 @@
 /home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
 /home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
 /home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using UdemyApiWithToken.Domain;
 using UdemyApiWithToken.Domain.Entities;
+using UdemyApiWithToken.Domain.Repositories;
+using UdemyApiWithToken.Domain.Services;
+using UdemyApiWithToken.Domain.UnitOfWork;
+using UdemyApiWithToken.Services;
 
 namespace UdemyApiWithToken
 {
@@ -29,9 +34,34 @@ namespace UdemyApiWithToken
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddScoped<IProductService,ProductService>();
+            services.AddScoped<IProductRepository,ProductRepository>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            
+            services.AddCors(opts => {
+               
+               
+                opts.AddDefaultPolicy(builder => {
+
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+
+                });
+/*
+                opts.AddPolicy("abc", builder => {
+
+                    builder.WithOrigins("https://www.abc.com").AllowAnyHeader().AllowAnyMethod();
+
+                });
+*/
+
+            });
+
+
+
             services.AddDbContext<UdemyApiWithTokenDBContext>(options=> options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]));
             services.AddControllers();
-        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,15 +74,11 @@ namespace UdemyApiWithToken
                 app.UseDeveloperExceptionPage();
             }
 
-            using(var db = new UdemyApiWithTokenDBContext()){
-                var user = db.User.FirstOrDefault();
-                System.Console.WriteLine("name: " + user.Name);
-            }
+            //app.UseCors("abc");
+            app.UseCors();
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
