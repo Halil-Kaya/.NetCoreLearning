@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,6 +19,7 @@ using UdemyApiWithToken.Domain.Entities;
 using UdemyApiWithToken.Domain.Repositories;
 using UdemyApiWithToken.Domain.Services;
 using UdemyApiWithToken.Domain.UnitOfWork;
+using UdemyApiWithToken.Security.Token;
 using UdemyApiWithToken.Services;
 
 namespace UdemyApiWithToken
@@ -55,14 +58,37 @@ namespace UdemyApiWithToken
 
                 });
 */
+            });
+
+            services.Configure<TokenOptions>(Configuration.GetSection("TokenOptions"));
+
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtbeareroptions => {
+
+                jwtbeareroptions.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters(){
+
+
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = tokenOptions.Issuer,
+                    ValidAudience = tokenOptions.Audience,
+                    IssuerSigningKey = SignHandler.GetSecurityKey(tokenOptions.SecurityKey)
+
+                };
+
 
             });
+
 
 
 
             services.AddDbContext<UdemyApiWithTokenDBContext>(options=> options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]));
             services.AddControllers();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -73,6 +99,8 @@ namespace UdemyApiWithToken
 
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
 
             //app.UseCors("abc");
             app.UseCors();

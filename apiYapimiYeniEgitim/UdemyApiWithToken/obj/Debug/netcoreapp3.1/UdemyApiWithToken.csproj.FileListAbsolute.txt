@@ -43,3 +43,10 @@
 /home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
 /home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/AutoMapper.dll
 /home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
