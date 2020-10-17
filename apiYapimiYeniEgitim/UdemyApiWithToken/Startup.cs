@@ -37,6 +37,10 @@ namespace UdemyApiWithToken
         public void ConfigureServices(IServiceCollection services)
         {
 
+
+            services.AddDbContext<UdemyApiWithTokenDBContext>(options=> options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]));
+            services.AddControllers();
+
             services.AddScoped<IProductService,ProductService>();
             services.AddScoped<IProductRepository,ProductRepository>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
@@ -85,8 +89,7 @@ namespace UdemyApiWithToken
 
 
 
-            services.AddDbContext<UdemyApiWithTokenDBContext>(options=> options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]));
-            services.AddControllers();
+  
         }
 
 

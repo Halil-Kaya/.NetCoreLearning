@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/home/deeper/.dotnet/store/|arch|/|tfm|",
-      "/home/deeper/.nuget/packages",
-      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+      "/home/minter/.dotnet/store/|arch|/|tfm|",
+      "/home/minter/.nuget/packages"
     ]
   }
 }

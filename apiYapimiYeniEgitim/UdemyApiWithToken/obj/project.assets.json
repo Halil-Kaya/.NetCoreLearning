@@ -1335,23 +1335,19 @@
     ]
   },
   "packageFolders": {
-    "/home/deeper/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/home/minter/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/UdemyApiWithToken.csproj",
+      "projectUniqueName": "/home/minter/Desktop/netCoreLearning/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/UdemyApiWithToken.csproj",
       "projectName": "UdemyApiWithToken",
-      "projectPath": "/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/UdemyApiWithToken.csproj",
-      "packagesPath": "/home/deeper/.nuget/packages/",
-      "outputPath": "/home/deeper/Desktop/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/obj/",
+      "projectPath": "/home/minter/Desktop/netCoreLearning/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/UdemyApiWithToken.csproj",
+      "packagesPath": "/home/minter/.nuget/packages/",
+      "outputPath": "/home/minter/Desktop/netCoreLearning/netCoreLearning/apiYapimiYeniEgitim/UdemyApiWithToken/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/home/deeper/.nuget/NuGet/NuGet.Config"
+        "/home/minter/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -1412,7 +1408,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
       }
     }
   }
