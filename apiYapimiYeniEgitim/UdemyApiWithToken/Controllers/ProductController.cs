@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UdemyApiWithToken.Domain.Model;
 using UdemyApiWithToken.Domain.Responses;
@@ -9,6 +10,7 @@ using UdemyApiWithToken.Resources;
 
 namespace UdemyApiWithToken.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase

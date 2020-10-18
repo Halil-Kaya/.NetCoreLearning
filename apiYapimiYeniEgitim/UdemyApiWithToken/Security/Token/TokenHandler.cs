@@ -57,7 +57,6 @@ namespace UdemyApiWithToken.Security.Token
                 new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email,user.Email),
                 new Claim(ClaimTypes.Name,$"{user.Name} {user.SurName}"),
-                new Claim(ClaimTypes.Name,$"{user.Name} {user.SurName}"),
                 new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
 
             };

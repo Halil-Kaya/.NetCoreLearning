@@ -7,5 +7,6 @@ namespace UdemyApiWithToken.Domain.UnitOfWork
 
         Task CompleteAsync();
 
+        void Complete();
     }
 }

@@ -41,6 +41,8 @@ namespace UdemyApiWithToken
             services.AddDbContext<UdemyApiWithTokenDBContext>(options=> options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]));
             services.AddControllers();
 
+            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IUserService,UserService>();
             services.AddScoped<IProductService,ProductService>();
             services.AddScoped<IProductRepository,ProductRepository>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
@@ -64,8 +66,12 @@ namespace UdemyApiWithToken
 */
             });
 
+
+            //eğer projemin Herhangi bir yerinde TokenOptions görürse bunu appsettings.json dosyasında ki TokenOptions olarak alıcak
+            //daha iyi anlatmak gerekirse bunun bir aşağısında yazdığım getSection kısmını her yerde yazmama gerek kalmiyacak
             services.Configure<TokenOptions>(Configuration.GetSection("TokenOptions"));
 
+            
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtbeareroptions => {

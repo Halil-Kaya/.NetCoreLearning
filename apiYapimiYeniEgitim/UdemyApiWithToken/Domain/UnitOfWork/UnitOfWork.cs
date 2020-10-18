@@ -13,6 +13,10 @@ namespace UdemyApiWithToken.Domain.UnitOfWork
             this._dbcontext = dBContext;
         }
 
+        public void Complete()
+        {
+            this._dbcontext.SaveChanges();
+        }
 
         public async Task CompleteAsync()
         {
