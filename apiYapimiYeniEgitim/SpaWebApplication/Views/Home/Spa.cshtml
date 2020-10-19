@@ -1,0 +1,194 @@
+    
+@section Scripts{
+
+    <script> 
+        
+        $(document).ready(function(){
+            
+
+            $("#btnSave").click(function(){
+
+                let name = $("#Name").val()
+                let surName = $("#SurName").val()
+                let email = $("#Email").val()
+                let password = $("#Password").val()
+
+                let user = 
+                    {
+                        "Name":name,
+                        "SurName" : surName,
+                        "Email" : email,
+                        "Password" : password
+                    }
+
+
+                var url = "https://localhost:5001/api/user"
+
+                $.ajax({
+
+                    type:"POST",
+                    crossDomain : true,
+                    url : url,
+                    data : JSON.stringify(user),
+                    success : function(data){
+                        console.table(data)
+                    },
+                    error : function(error){
+
+                    },
+                    contentType : "application/json",
+                    dataType : "json"
+                })
+
+            })
+
+            function getUserData(){
+
+                var url = "https://localhost:5001/api/user"
+
+                let accessToken  = localStorage.getItem("token")
+
+                $.ajax({
+                    type : "GET",
+                    url:url,
+                    async : false,
+                    crossDomain : true,
+                    beforeSend: function(xhr){
+                        xhr.setRequestHeader("Authorization","Bearer " + accessToken)
+                    },
+                    statusCode : {
+
+                        401: function(){
+
+                        },
+                        
+                    },
+                    success : function(data){
+
+                        $(".loginDiv").hide()
+                        $(".userDiv").show().html("").append(`
+                        <table class="table">
+                            <tr> 
+                                <th>Id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                            </tr>
+                            <tr>
+                                <td>${data.id}</td>
+                                <td>${data.name}</td>
+                                <td>${data.surname}</td>
+                                <td>${data.email}</td>
+                            </tr>    
+                        </table>`)        
+
+                    },
+                    error : function(err){
+
+                    },
+                    
+                    contentType : "application/json",
+                    dataType : "json"
+                
+                })
+
+            }
+
+            $("#btnLogin").click(function(){
+
+                let email = $("#LoginEmail").val()
+                let password = $("#LoginPassword").val()
+
+                let user = 
+                    {
+                        "Email" : email,
+                        "Password" : password
+                    }
+
+
+                var url = "https://localhost:5001/api/login/AccessToken"
+
+                $.ajax({
+                    type:"POST",
+                    crossDomain : true,
+                    url : url,
+                    data : JSON.stringify(user),
+                    success : function(data){
+                        console.table(data)
+                        localStorage.setItem("token",data.token)
+                        localStorage.setItem("refreshToken",data.refreshToken)
+                        getUserData()
+                    },
+                    error : function(error){
+
+                    },
+                    contentType : "application/json",
+                    dataType : "json"
+                })
+
+            })
+
+
+
+
+        })
+
+    </script>
+
+}
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <h2>Üye Kayıt formu</h2>
+
+            <form>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="Name" placeholder="isminiz" value="halil">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="SurName" placeholder="soy isminiz" value="kaya">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="Email" placeholder="email" value="hlk@gmail.com">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="Password" placeholder="sifreniz" value="1234">
+                </div>
+
+                <button type="button" id="btnSave" class="btn btn-primary">Kaydet</button>
+            </form>
+
+        </div>
+
+        <div class="col-md-6">
+            
+
+            <div class="userDiv">
+
+            </div>
+
+            <div class="loginDiv">
+                <h2>Üye Giriş Formu</h2>
+                <form>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="LoginEmail" placeholder="email" value="hlk@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="LoginPassword" placeholder="sifreniz" value="1234">
+                    </div>
+                    <button type="button" class="btn btn-success" id="btnLogin">Giriş</button>
+
+                </form>
+                </div>
+        </div>
+
+    </div>
+
+</div>
