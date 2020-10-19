@@ -23,7 +23,8 @@ namespace UdemyApiWithToken.Domain.Repositories
 
         public User FindByEmailAndPassword(string email, string password)
         {
-            return this._dbContext.User.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
+            User user = this._dbContext.User.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
+            return user;
         }
 
         public User FindById(int userId)
@@ -40,6 +41,7 @@ namespace UdemyApiWithToken.Domain.Repositories
         {
             User newUser = this.FindById(user.Id);
             newUser.RefreshToken = null; 
+            newUser.RefreshTokenEndDate = null;
         }
 
         public void SaveRefreshToken(int userId, string refreshToken)

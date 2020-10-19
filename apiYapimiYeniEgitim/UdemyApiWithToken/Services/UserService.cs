@@ -33,18 +33,17 @@ namespace UdemyApiWithToken.Services
         {
 
             try{
-
                 User user = this._userRepository.FindByEmailAndPassword(email,password);
 
                 if(user == null){
 
                     return new UserResponse("böyle bir kullanici bulunamadi");
-
                 }
-
+            
                 return new UserResponse(user);
 
             }catch(Exception e){
+
 
                 return new UserResponse($"kullanici bulunurken bir hata oldu: {e.Message}");
 
@@ -101,6 +100,7 @@ namespace UdemyApiWithToken.Services
             try{
 
                 this._userRepository.RemoveRefreshToken(user);
+                this._unitOfWork.Complete();
 
             }catch(Exception){
                 //loglama yapilabilir

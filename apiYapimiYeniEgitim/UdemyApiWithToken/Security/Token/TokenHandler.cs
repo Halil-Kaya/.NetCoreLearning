@@ -20,7 +20,6 @@ namespace UdemyApiWithToken.Security.Token
 
         public AccessToken CreateAccessToken(User user)
         {
-
             var accessTokenExpiration = DateTime.Now.AddMinutes(this._tokenOptions.AccessTokenExpiration);
 
             var securityKey = SignHandler.GetSecurityKey(this._tokenOptions.SecurityKey);
@@ -38,13 +37,15 @@ namespace UdemyApiWithToken.Security.Token
 
 
             var handler = new JwtSecurityTokenHandler();
-
-            var token = handler.WriteToken(jwtSecurityToken);
+            
+            var token =handler.WriteToken(jwtSecurityToken);
 
             AccessToken accessToken = new AccessToken();
             
             accessToken.Token = token;
+
             accessToken.RefreshToken = CreateRefreshToken();
+            
             accessToken.Expiration = accessTokenExpiration;
 
 

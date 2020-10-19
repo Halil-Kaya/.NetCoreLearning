@@ -41,6 +41,8 @@ namespace UdemyApiWithToken
             services.AddDbContext<UdemyApiWithTokenDBContext>(options=> options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]));
             services.AddControllers();
 
+            services.AddScoped<Domain.Services.IAuthenticationService, Services.AuthenticationService>();
+            services.AddScoped<ITokenHandler,TokenHandler>();
             services.AddScoped<IUserRepository,UserRepository>();
             services.AddScoped<IUserService,UserService>();
             services.AddScoped<IProductService,ProductService>();

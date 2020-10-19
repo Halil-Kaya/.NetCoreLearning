@@ -21,30 +21,17 @@ namespace UdemyApiWithToken.Domain.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
-
-            //bunu burda koymuyorum normalde silmem lazım ama görmen için buraya bırakıyorum bunu burda yazmam güvenli değil bir nevi sistem açığı
-            //veri tabanına bağlanmak için gerekli bilgileri appsettings.json dosyasına koydum startup kısmında ise dosya aracılığıyla veri tabanına
-            //bağlantıyı gerçekleştirdim böylece daha güvenli oldu
-            
-            
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=127.0.0.1;port=3305;username=root;database=UdemyApiWithTokenDB", x => x.ServerVersion("10.4.13-mariadb"));
+                optionsBuilder.UseMySql("server=127.0.0.1;port=3306;username=root;database=UdemyApiWithTokenDB", x => x.ServerVersion("10.4.14-mariadb"));
             }
-            
-            
-
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasColumnType("int(11)");
+                entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.Category)
                     .IsRequired()
@@ -63,11 +50,15 @@ namespace UdemyApiWithToken.Domain.Entities
 
             modelBuilder.Entity<User>(entity =>
             {
+                entity.HasIndex(e => e.Id)
+                    .HasName("Id")
+                    .IsUnique();
+
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasColumnType("varchar(100)")
+                    .HasColumnType("varchar(50)")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_general_ci");
 
@@ -79,17 +70,16 @@ namespace UdemyApiWithToken.Domain.Entities
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasColumnType("varchar(8)")
+                    .HasColumnType("varchar(50)")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_general_ci");
 
                 entity.Property(e => e.RefreshToken)
-                    .IsRequired()
-                    .HasColumnType("varchar(500)")
+                    .HasColumnType("varchar(50)")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_general_ci");
 
-                entity.Property(e => e.RefreshTokenEndDate).HasColumnType("datetime");
+                entity.Property(e => e.RefreshTokenEndDate).HasColumnType("date");
 
                 entity.Property(e => e.SurName)
                     .IsRequired()

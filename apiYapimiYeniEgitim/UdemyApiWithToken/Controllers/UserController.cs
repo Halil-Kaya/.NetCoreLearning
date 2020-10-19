@@ -48,14 +48,11 @@ namespace UdemyApiWithToken.Controllers
         [HttpPost]
         public IActionResult AddUser(UserResource userResource){
 
-            System.Console.WriteLine("kisi geldi adi: " + userResource.Name);
             User user = this._mapper.Map<UserResource,User>(userResource);
 
-            System.Console.WriteLine("kisiyi esitledi: " + user.Name);
             System.Console.WriteLine(user.RefreshTokenEndDate);
 
             UserResponse userResponse = this._userService.AddUser(user);
-            System.Console.WriteLine("iste burda hata oldi");
 
             if(userResponse.Success){
 
