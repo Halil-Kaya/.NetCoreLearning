@@ -6,6 +6,20 @@
         $(document).ready(function(){
             
 
+            var token = localStorage.getItem("token");
+
+            if(token == null){
+                $(".loginDiv").show()
+                $(".userDiv").hide()
+            }else{
+
+                $(".loginDiv").hide()
+                $(".userDiv").show()
+            
+
+            }
+
+
             $("#btnSave").click(function(){
 
                 let name = $("#Name").val()
@@ -42,6 +56,36 @@
 
             })
 
+            getUserDataRefreshToken(){
+
+                let refreshToken  = localStorage.getItem("refreshToken")
+
+                var data = {"RefreshToken" : refreshToken}
+
+                let url = "https://localhost:5001/api/login/RefreshToken"
+
+                $.ajax({
+                    type: "POST",
+                    url : url,
+                    async : false,
+                    crossDomain : true,
+                    data : JSON.stringify(data),
+                    success : function(){
+
+                        
+                        localStorage.setItem("token",data.token)
+                        localStorage.setItem("refreshToken",data.refreshToken)
+                        getUserData()
+
+                    },
+                    error : function(){
+
+                    },
+                    contentType : "application/json"
+                    dataType : "json"
+                })
+            }
+
             function getUserData(){
 
                 var url = "https://localhost:5001/api/user"
@@ -59,7 +103,7 @@
                     statusCode : {
 
                         401: function(){
-
+                            getUserDataRefreshToken()
                         },
                         
                     },
@@ -173,7 +217,7 @@
 
             </div>
 
-            <div class="loginDiv">
+            <div class="loginDiv" style="display: none;">
                 <h2>Üye Giriş Formu</h2>
                 <form>
 
