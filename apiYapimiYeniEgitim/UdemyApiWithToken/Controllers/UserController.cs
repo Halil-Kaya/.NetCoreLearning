@@ -32,12 +32,12 @@ namespace UdemyApiWithToken.Controllers
 
             string userId = claims.Where(c => c.Type == ClaimTypes.NameIdentifier).First().Value;
 
-            UserResponse userResponse = this._userService.FindById(int.Parse(userId));
+            BaseResponse<User> userResponse = this._userService.FindById(int.Parse(userId));
 
 
             if(userResponse.Success){
 
-                return Ok(userResponse.user);
+                return Ok(userResponse.Extra);
 
             }
 
@@ -52,11 +52,11 @@ namespace UdemyApiWithToken.Controllers
 
             System.Console.WriteLine(user.RefreshTokenEndDate);
 
-            UserResponse userResponse = this._userService.AddUser(user);
+            BaseResponse<User> userResponse = this._userService.AddUser(user);
 
             if(userResponse.Success){
 
-                return Ok(userResponse.user);
+                return Ok(userResponse.Extra);
 
             }
 

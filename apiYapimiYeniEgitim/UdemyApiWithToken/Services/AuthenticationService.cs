@@ -1,4 +1,5 @@
 using System;
+using UdemyApiWithToken.Domain.Model;
 using UdemyApiWithToken.Domain.Responses;
 using UdemyApiWithToken.Domain.Services;
 using UdemyApiWithToken.Security.Token;
@@ -17,60 +18,60 @@ namespace UdemyApiWithToken.Services
             this._tokenHandler = tokenHandler;
         }
 
-        public AccessTokenResponse CreateAccessToken(string email, string password)
+        public BaseResponse<AccessToken> CreateAccessToken(string email, string password)
         {
 
-            UserResponse userResponse = this._userService.FindByEmailAndPassword(email,password);
+            BaseResponse<User> userResponse = this._userService.FindByEmailAndPassword(email,password);
 
             if(userResponse.Success){
 
-                AccessToken accessToken = this._tokenHandler.CreateAccessToken(userResponse.user);
+                AccessToken accessToken = this._tokenHandler.CreateAccessToken(userResponse.Extra);
                 
-                this._userService.SaveRefreshToken(userResponse.user.Id,accessToken.RefreshToken);
+                this._userService.SaveRefreshToken(userResponse.Extra.Id,accessToken.RefreshToken);
                 
-                return new AccessTokenResponse(accessToken);
+                return new BaseResponse<AccessToken>(accessToken);
 
             }
 
-            return new AccessTokenResponse(userResponse.Message);
+            return new BaseResponse<AccessToken>(userResponse.Message);
         }
 
-        public AccessTokenResponse CreateAccessTokenByRefreshToken(string refreshToken)
+        public BaseResponse<AccessToken> CreateAccessTokenByRefreshToken(string refreshToken)
         {
-            UserResponse userResponse = this._userService.GetUserWithRefreshToken(refreshToken);
+            BaseResponse<User> userResponse = this._userService.GetUserWithRefreshToken(refreshToken);
 
             if(userResponse.Success){
 
-                if(userResponse.user.RefreshTokenEndDate > DateTime.Now){
+                if(userResponse.Extra.RefreshTokenEndDate > DateTime.Now){
 
-                    AccessToken accessToken = this._tokenHandler.CreateAccessToken(userResponse.user);
+                    AccessToken accessToken = this._tokenHandler.CreateAccessToken(userResponse.Extra);
                     
-                    this._userService.SaveRefreshToken(userResponse.user.Id,accessToken.RefreshToken);
+                    this._userService.SaveRefreshToken(userResponse.Extra.Id,accessToken.RefreshToken);
                     
-                    return new AccessTokenResponse(accessToken);
+                    return new BaseResponse<AccessToken>(accessToken);
                 }
 
-                return new AccessTokenResponse("refresh tokenin suresi dolmus");
+                return new BaseResponse<AccessToken>("refresh tokenin suresi dolmus");
 
             }
 
-            return new AccessTokenResponse("boyle bir kullanici yok");
+            return new BaseResponse<AccessToken>("boyle bir kullanici yok");
 
         }
 
-        public AccessTokenResponse RevokeRefreshToken(string refreshToken)
+        public BaseResponse<AccessToken> RevokeRefreshToken(string refreshToken)
         {
 
-            UserResponse userResponse = this._userService.GetUserWithRefreshToken(refreshToken);
+            BaseResponse<User> userResponse = this._userService.GetUserWithRefreshToken(refreshToken);
 
             if(userResponse.Success){
 
-                this._userService.RemoveRefreshToken(userResponse.user);
-                return new AccessTokenResponse(new AccessToken());
+                this._userService.RemoveRefreshToken(userResponse.Extra);
+                return new BaseResponse<AccessToken>(new AccessToken());
 
             }
 
-            return new AccessTokenResponse($"refresh token bulunamadi: {userResponse.Message}");
+            return new BaseResponse<AccessToken>($"refresh token bulunamadi: {userResponse.Message}");
         }
     }
 }

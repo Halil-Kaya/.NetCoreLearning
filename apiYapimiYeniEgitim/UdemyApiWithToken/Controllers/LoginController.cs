@@ -5,6 +5,7 @@ using UdemyApiWithToken.Domain.Responses;
 using UdemyApiWithToken.Domain.Services;
 using UdemyApiWithToken.Extensions;
 using UdemyApiWithToken.Resources;
+using UdemyApiWithToken.Security.Token;
 
 namespace UdemyApiWithToken.Controllers
 {
@@ -31,13 +32,13 @@ namespace UdemyApiWithToken.Controllers
             }
 
 
-            AccessTokenResponse accessTokenResponse = this._authenticationService.CreateAccessToken(loginResource.Email,loginResource.Password);
+            BaseResponse<AccessToken> accessTokenResponse = this._authenticationService.CreateAccessToken(loginResource.Email,loginResource.Password);
              
 
              if(accessTokenResponse.Success){
 
 
-                return Ok(accessTokenResponse.accesToken);
+                return Ok(accessTokenResponse.Extra);
              }
              
              return BadRequest(accessTokenResponse.Message);
@@ -47,12 +48,12 @@ namespace UdemyApiWithToken.Controllers
         [HttpPost]
         public IActionResult RefreshToken(TokenResource tokenResource){
             
-            AccessTokenResponse accessTokenResponse = this._authenticationService.CreateAccessTokenByRefreshToken(tokenResource.RefreshToken);
+            BaseResponse<AccessToken> accessTokenResponse = this._authenticationService.CreateAccessTokenByRefreshToken(tokenResource.RefreshToken);
 
 
             if(accessTokenResponse.Success){
 
-                return Ok(accessTokenResponse.accesToken);
+                return Ok(accessTokenResponse.Extra);
             }
 
             return BadRequest(accessTokenResponse.Message);
@@ -62,10 +63,10 @@ namespace UdemyApiWithToken.Controllers
         [HttpPost]
         public IActionResult RevokeRefreshToken(TokenResource tokenResource){
 
-            AccessTokenResponse accessTokenResponse =  this._authenticationService.RevokeRefreshToken(tokenResource.RefreshToken);
+            BaseResponse<AccessToken> accessTokenResponse =  this._authenticationService.RevokeRefreshToken(tokenResource.RefreshToken);
 
             if(accessTokenResponse.Success){
-                return Ok(accessTokenResponse.accesToken);
+                return Ok(accessTokenResponse.Extra);
             }
 
             return BadRequest(accessTokenResponse.Message);

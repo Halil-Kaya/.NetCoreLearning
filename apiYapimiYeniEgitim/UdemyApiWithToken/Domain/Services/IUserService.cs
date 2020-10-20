@@ -6,15 +6,15 @@ namespace UdemyApiWithToken.Domain.Services
     public interface IUserService
     {
 
-        UserResponse AddUser(User user);
+        BaseResponse<User> AddUser(User user);
 
-        UserResponse FindById(int userId);
+        BaseResponse<User> FindById(int userId);
 
-        UserResponse FindByEmailAndPassword(string email,string password);
+        BaseResponse<User> FindByEmailAndPassword(string email,string password);
 
         void SaveRefreshToken(int userId,string refreshToken);
 
-        UserResponse GetUserWithRefreshToken(string refreshToken);
+        BaseResponse<User> GetUserWithRefreshToken(string refreshToken);
 
         void RemoveRefreshToken(User user);
 

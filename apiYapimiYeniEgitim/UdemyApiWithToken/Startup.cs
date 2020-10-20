@@ -111,14 +111,15 @@ namespace UdemyApiWithToken
                 app.UseDeveloperExceptionPage();
             }
 
+
+            app.UseRouting();
+
             app.UseAuthentication();
+            app.UseAuthorization();
 
             //app.UseCors("abc");
             app.UseCors();
-
             app.UseHttpsRedirection();
-            app.UseRouting();
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

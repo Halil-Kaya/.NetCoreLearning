@@ -21,7 +21,7 @@ namespace UdemyApiWithToken.Services
         }
 
 
-        public async Task<ProductResponse> AddProduct(Product product)
+        public async Task<BaseResponse<Product>> AddProduct(Product product)
         {
 
             try{
@@ -30,15 +30,15 @@ namespace UdemyApiWithToken.Services
 
                 await this._unitOfWork.CompleteAsync();
 
-                return new ProductResponse(product);
+                return new BaseResponse<Product>(product);
 
             }catch(Exception e){
-                return new ProductResponse($"Ürün eklenirken hata oldu: {e.Message}");
+                return new BaseResponse<Product>($"Ürün eklenirken hata oldu: {e.Message}");
             }
 
         }
 
-        public async Task<ProductResponse> FindByIdAsync(int productId)
+        public async Task<BaseResponse<Product>> FindByIdAsync(int productId)
         {
 
             try{
@@ -47,37 +47,37 @@ namespace UdemyApiWithToken.Services
 
                 if(p == null){
 
-                    return new ProductResponse("ürün bulunamadı");
+                    return new BaseResponse<Product>("ürün bulunamadı");
 
                 }
 
-                return new ProductResponse(p);
+                return new BaseResponse<Product>(p);
 
             }catch(Exception e){
                 
-                return new ProductResponse($"ürün bulunurken bir hata meydana geldi: {e.Message}");
+                return new BaseResponse<Product>($"ürün bulunurken bir hata meydana geldi: {e.Message}");
 
             }
 
         }
 
-        public async Task<ProductListResponse> ListAsync()
+        public async Task<BaseResponse<IEnumerable<Product>>> ListAsync()
         {
             
             try{
 
                 IEnumerable<Product> products = await this._productRepository.ListAsync();
-                return new ProductListResponse(products);
+                return new BaseResponse<IEnumerable<Product>>(products);
 
             }catch(Exception e){
 
-                return new ProductListResponse($"rün listelinirken bir hata oldu: {e.Message}");
+                return new BaseResponse<IEnumerable<Product>>($"rün listelinirken bir hata oldu: {e.Message}");
 
             }
 
         }
 
-        public async Task<ProductResponse> RemoveProduct(int productId)
+        public async Task<BaseResponse<Product>> RemoveProduct(int productId)
         {
 
             try{
@@ -86,24 +86,24 @@ namespace UdemyApiWithToken.Services
 
                 if(product == null){
 
-                    return new ProductResponse("silmeye çalıştığınız ürün bulunamadı");
+                    return new BaseResponse<Product>("silmeye çalıştığınız ürün bulunamadı");
                 }
                 await this._productRepository.RemoveProduct(productId);
 
                 await this._unitOfWork.CompleteAsync();
                 
-                return new ProductResponse(product);
+                return new BaseResponse<Product>(product);
 
 
             }catch(Exception e){
                 
-                return new ProductResponse($"ürün silinmeye çalışırken bir hata meydana geldi: {e.Message}");
+                return new BaseResponse<Product>($"ürün silinmeye çalışırken bir hata meydana geldi: {e.Message}");
 
             }
 
         }
 
-        public async Task<ProductResponse> UpdateProduct(Product product, int productId)
+        public async Task<BaseResponse<Product>> UpdateProduct(Product product, int productId)
         {
 
             try{
@@ -111,7 +111,7 @@ namespace UdemyApiWithToken.Services
                 Product firstProduct = await this._productRepository.FindByIdAsync(productId);
 
                 if(firstProduct == null){
-                    return new ProductResponse("güncellemeye çalıştığınız ürün bulunamadı");
+                    return new BaseResponse<Product>("güncellemeye çalıştığınız ürün bulunamadı");
                 }
 
                 firstProduct.Name = product.Name;
@@ -122,10 +122,10 @@ namespace UdemyApiWithToken.Services
 
                 await this._unitOfWork.CompleteAsync();
 
-                return new ProductResponse(firstProduct);
+                return new BaseResponse<Product>(firstProduct);
 
             }catch(Exception e){
-                return new ProductResponse($"ürün güncellenirken bir hata oldu: {e.Message}");
+                return new BaseResponse<Product>($"ürün güncellenirken bir hata oldu: {e.Message}");
                 
             }
 

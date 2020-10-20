@@ -32,7 +32,7 @@ namespace UdemyApiWithToken.Controllers
             
             if(productListResponse.Success){
 
-                return Ok(productListResponse.ProductList);
+                return Ok(productListResponse.Extra);
 
             }
 
@@ -47,10 +47,10 @@ namespace UdemyApiWithToken.Controllers
                 return BadRequest("int sayi girmedin!");
             }
 
-            ProductResponse productResponse = await this._productService.FindByIdAsync((int)id);
+            BaseResponse<Product> productResponse = await this._productService.FindByIdAsync((int)id);
 
             if(productResponse.Success){
-                return Ok(productResponse.Product);
+                return Ok(productResponse.Extra);
             }
 
             return BadRequest(productResponse.Message);
@@ -72,7 +72,7 @@ namespace UdemyApiWithToken.Controllers
 
             if(productResponse.Success){
 
-                return Ok(productResponse.Product);
+                return Ok(productResponse.Extra);
             
             }
 
@@ -95,7 +95,7 @@ namespace UdemyApiWithToken.Controllers
             var productResponse = await this._productService.UpdateProduct(product,id);
 
             if(productResponse.Success){
-                return Ok(productResponse.Product);
+                return Ok(productResponse.Extra);
             }
 
             return BadRequest(productResponse.Message);
@@ -108,7 +108,7 @@ namespace UdemyApiWithToken.Controllers
             var productResponse = await this._productService.RemoveProduct(id);
 
             if(productResponse.Success){
-                return Ok(productResponse.Product);
+                return Ok(productResponse.Extra);
             }
 
 
