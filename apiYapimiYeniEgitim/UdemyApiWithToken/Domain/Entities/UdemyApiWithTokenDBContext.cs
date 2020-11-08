@@ -23,7 +23,9 @@ namespace UdemyApiWithToken.Domain.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=127.0.0.1;port=3306;username=root;database=UdemyApiWithTokenDB", x => x.ServerVersion("10.4.14-mariadb"));
+                //server=win12p12-516.srvpanel.com;user=akust_emre;password=InovatifArge2020;database=akustikaraoke_com_deneme
+                optionsBuilder.UseMySql("server=win12p12-516.srvpanel.com;user=akustikaraoke_com_akust_halil;password=InovatifArge2020;database=akustikaraoke_com_deneme", x => x.ServerVersion("10.4.14-mariadb"));
+                //optionsBuilder.UseMySql("server=127.0.0.1;port=3306;username=root;database=UdemyApiWithTokenDB", x => x.ServerVersion("10.4.14-mariadb"));
             }
         }
 
