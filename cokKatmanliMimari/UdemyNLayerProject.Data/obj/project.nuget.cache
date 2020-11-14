@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mTeywv76Rb7i1U6IPUAtZwVhH5QnCEg2WL0DnzRd5MZBm8oKA5oSh465CuNIXIpXOR+flcKYdzzwdaoKh+19Og==",
+  "success": true,
+  "projectFilePath": "/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/UdemyNLayerProject.Data.csproj",
+  "expectedPackageFiles": [
+    "/home/ubunter/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
