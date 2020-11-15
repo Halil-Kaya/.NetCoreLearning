@@ -3,7 +3,7 @@ using UdemyNLayerProject.Core.Repositories;
 
 namespace UdemyNLayerProject.Core.UnitOfWorks
 {
-    public interface IUnitOfWorks
+    public interface IUnitOfWork
     {  
         IProductRepository Products { get;}
         

@@ -1,0 +1,9 @@
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/bin/Debug/netstandard2.0/UdemyNLayerProject.Core.deps.json
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/bin/Debug/netstandard2.0/UdemyNLayerProject.Core.dll
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/bin/Debug/netstandard2.0/UdemyNLayerProject.Core.pdb
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/obj/Debug/netstandard2.0/UdemyNLayerProject.Core.csprojAssemblyReference.cache
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/obj/Debug/netstandard2.0/UdemyNLayerProject.Core.AssemblyInfoInputs.cache
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/obj/Debug/netstandard2.0/UdemyNLayerProject.Core.AssemblyInfo.cs
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/obj/Debug/netstandard2.0/UdemyNLayerProject.Core.csproj.CoreCompileInputs.cache
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/obj/Debug/netstandard2.0/UdemyNLayerProject.Core.dll
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Core/obj/Debug/netstandard2.0/UdemyNLayerProject.Core.pdb

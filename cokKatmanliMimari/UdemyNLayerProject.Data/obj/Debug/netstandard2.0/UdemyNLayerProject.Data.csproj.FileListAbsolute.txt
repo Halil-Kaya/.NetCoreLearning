@@ -1,0 +1,12 @@
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/bin/Debug/netstandard2.0/UdemyNLayerProject.Data.deps.json
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/bin/Debug/netstandard2.0/UdemyNLayerProject.Data.dll
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/bin/Debug/netstandard2.0/UdemyNLayerProject.Data.pdb
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/bin/Debug/netstandard2.0/UdemyNLayerProject.Core.dll
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/bin/Debug/netstandard2.0/UdemyNLayerProject.Core.pdb
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/obj/Debug/netstandard2.0/UdemyNLayerProject.Data.csprojAssemblyReference.cache
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/obj/Debug/netstandard2.0/UdemyNLayerProject.Data.AssemblyInfoInputs.cache
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/obj/Debug/netstandard2.0/UdemyNLayerProject.Data.AssemblyInfo.cs
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/obj/Debug/netstandard2.0/UdemyNLayerProject.Data.csproj.CoreCompileInputs.cache
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/obj/Debug/netstandard2.0/UdemyNLayerProject.Data.csproj.CopyComplete
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/obj/Debug/netstandard2.0/UdemyNLayerProject.Data.dll
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.Data/obj/Debug/netstandard2.0/UdemyNLayerProject.Data.pdb
