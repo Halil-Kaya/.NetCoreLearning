@@ -9,9 +9,9 @@ namespace UdemyNLayerProject.Data.Repositories
     {   
         private AppDbContext _appDbContext  { get => this._db as AppDbContext; }
 
-        public ProductRepository(DbContext db) : base(db)
+        public ProductRepository(AppDbContext db) : base(db)
         {
-            
+
         }
 
         public async Task<Product> GetWithCategoryByIdAsync(int productId)
