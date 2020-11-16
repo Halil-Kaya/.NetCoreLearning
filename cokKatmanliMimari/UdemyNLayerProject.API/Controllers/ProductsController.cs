@@ -53,6 +53,12 @@ namespace UdemyNLayerProject.API.Controllers
 
         [HttpPut]
         public IActionResult Update(ProductDto productDto){
+
+            if(string.IsNullOrEmpty(productDto.Id.ToString()) || productDto.Id <= 0){
+                throw new System.Exception("id alani boş olamaz");
+            }
+
+
             var product = _productService.Update(_mapper.Map<Product>(productDto));
             return NoContent();
         }
