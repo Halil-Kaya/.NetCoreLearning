@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using UdemyNLayerProject.API.Filters;
 using UdemyNLayerProject.Core.Repositories;
 using UdemyNLayerProject.Core.Services;
 using UdemyNLayerProject.Core.UnitOfWorks;
@@ -42,7 +43,7 @@ namespace UdemyNLayerProject.API
             services.AddScoped<IProductService,ProductService>();
             services.AddScoped<ICategoryService,CategoryService>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
-
+            services.AddScoped<NotFoundFilter>();
 
             services.AddDbContext<AppDbContext>(options =>{
                 options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"].ToString(),o => {
@@ -53,6 +54,11 @@ namespace UdemyNLayerProject.API
 
 
             services.AddControllers();
+
+            //hatalari kendim yonetcegimi soyluyorum
+            services.Configure<ApiBehaviorOptions>(options => {
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
         }
 
