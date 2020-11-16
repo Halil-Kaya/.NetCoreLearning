@@ -49,3 +49,6 @@
 /home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.API/bin/Debug/netcoreapp3.1/UdemyNLayerProject.Data.pdb
 /home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.API/bin/Debug/netcoreapp3.1/UdemyNLayerProject.Service.pdb
 /home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.API/obj/Debug/netcoreapp3.1/UdemyNLayerProject.API.csproj.CopyComplete
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.API/bin/Debug/netcoreapp3.1/mono_crash.21acb2ae56.0.json
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.API/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.API/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

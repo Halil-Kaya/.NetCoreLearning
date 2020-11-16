@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+uGemGpYdZRCbO9pNUE2MZ4ssy9LawUYd9DUKQecO6Y+gQZlr4HEk8wmO7BBsINgU0TUCyZ6SboCHA7HnL092w==",
+  "dgSpecHash": "6q6Vt1VRHk4OJROQ7rxXToTfYKtW3U0EUak6NfzV2EFqffdWyjO/00nare6osldYCkrKpWw/Drvmp/dN/84GRQ==",
   "success": true,
   "projectFilePath": "/home/ubunter/Desktop/NetCoreLearning/cokKatmanliMimari/UdemyNLayerProject.API/UdemyNLayerProject.API.csproj",
   "expectedPackageFiles": [
+    "/home/ubunter/.nuget/packages/automapper/10.1.1/automapper.10.1.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/8.1.0/automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -30,7 +32,8 @@
     "/home/ubunter/.nuget/packages/pomelo.jsonobject/2.2.1/pomelo.jsonobject.2.2.1.nupkg.sha512",
     "/home/ubunter/.nuget/packages/system.collections.immutable/1.7.1/system.collections.immutable.1.7.1.nupkg.sha512",
     "/home/ubunter/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512",
-    "/home/ubunter/.nuget/packages/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+    "/home/ubunter/.nuget/packages/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.reflection.emit/4.7.0/system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
