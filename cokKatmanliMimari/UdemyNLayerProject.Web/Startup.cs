@@ -17,6 +17,7 @@ using UdemyNLayerProject.Data;
 using UdemyNLayerProject.Data.Repositories;
 using UdemyNLayerProject.Data.UnitOfWorks;
 using UdemyNLayerProject.Service.Services;
+using UdemyNLayerProject.Web.ApiService;
 using UdemyNLayerProject.Web.Filters;
 
 namespace UdemyNLayerProject.Web
@@ -35,6 +36,12 @@ namespace UdemyNLayerProject.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            services.AddHttpClient<CategoryApiService>(opt => {
+
+                opt.BaseAddress = new Uri(Configuration["baseUrl"]);
+
+            });
 
             services.AddScoped<NotFoundFilter>();
 
