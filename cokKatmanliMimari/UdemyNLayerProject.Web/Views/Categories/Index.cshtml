@@ -1,0 +1,35 @@
+@model IEnumerable<UdemyNLayerProject.Web.DTOs.CategoryDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kategoriler</h1>
+<a class="btn btn-primary mb-4" asp-action = "Create">Kategori Ekle</a>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>işlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+         <tr>
+             <td>@item.Id</td>
+             <td>@item.Name</td>
+             <td>
+                 <a asp-action = "Update" asp-route-id = "@item.Id">Güncelle</a>
+                 <a asp-action = "Delete" asp-route-id = "@item.Id">Sil</a>
+             </td>
+         </tr>
+
+        }
+    </tbody>
+
+</table>

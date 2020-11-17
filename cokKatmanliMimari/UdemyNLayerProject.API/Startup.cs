@@ -43,12 +43,13 @@ namespace UdemyNLayerProject.API
 
             
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<NotFoundFilter>();
+
             services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
             services.AddScoped(typeof(IService<>),typeof(Service<>));
             services.AddScoped<IProductService,ProductService>();
             services.AddScoped<ICategoryService,CategoryService>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
-            services.AddScoped<NotFoundFilter>();
 
             services.AddDbContext<AppDbContext>(options =>{
                 options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"].ToString(),o => {

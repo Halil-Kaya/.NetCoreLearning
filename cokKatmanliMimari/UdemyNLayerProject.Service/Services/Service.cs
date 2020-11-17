@@ -47,6 +47,7 @@ namespace UdemyNLayerProject.Service.Services
         public void Remove(TEntity entity)
         {
             _repository.Remove(entity);
+            _unitOfWork.Commit();
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
