@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using UdemyNLayerProject.Core.models;
 using UdemyNLayerProject.Core.Services;
+using UdemyNLayerProject.Web.ApiService;
 using UdemyNLayerProject.Web.DTOs;
 using UdemyNLayerProject.Web.Filters;
 
@@ -13,16 +15,25 @@ namespace UdemyNLayerProject.Web.Controllers
     {
 
         private readonly ICategoryService _categoryService;
+        private readonly CategoryApiService _categoryApiService;
         private readonly IMapper _mapper;
 
-        public CategoriesController(ICategoryService categoryService,IMapper mapper){
+
+        public CategoriesController(ICategoryService categoryService,IMapper mapper,CategoryApiService categoryApiService){
             this._categoryService = categoryService;
             this._mapper = mapper;
+            this._categoryApiService = categoryApiService;
         }
 
         public async Task<IActionResult> Index(){
 
             var categories = await _categoryService.GetAllAsync(); 
+           // var response = await _httpClient.GetAsync("test");
+
+            System.Console.WriteLine(await _categoryApiService.test());
+
+            //System.Console.WriteLine("response: " + response);
+
 
             return View(_mapper.Map<IEnumerable<CategoryDto>>(categories));
         }

@@ -71,7 +71,6 @@ namespace UdemyNLayerProject.Web
             }
 
             app.UseRouting();
-
             app.UseEndpoints(endpoints =>
             {
                 

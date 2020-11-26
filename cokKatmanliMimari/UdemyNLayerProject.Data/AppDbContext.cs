@@ -8,6 +8,10 @@ namespace UdemyNLayerProject.Data
     public class AppDbContext : DbContext
     {
 
+        public AppDbContext(){
+
+        }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}       
 
         public DbSet<Category> Categories { get; set; }
@@ -15,6 +19,14 @@ namespace UdemyNLayerProject.Data
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Person> Persons { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySql("server=127.0.0.1;port=3306;username=root;password=;database=test", x => x.ServerVersion("5.6.48-mysql"));
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             
