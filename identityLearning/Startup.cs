@@ -1,6 +1,9 @@
+using identityLearning.CustomValidation;
+using identityLearning.EmailServices;
 using identityLearning.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -27,8 +30,56 @@ namespace identityLearning
                 options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]);
             });
 
-            services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
-        
+
+            services.AddScoped<IEmailSender,SmtpEmailSender>(i =>
+                 new SmtpEmailSender(
+                     Configuration["EmailSender:Host"],
+                     Configuration.GetValue<int>("EmailSender:Port"),
+                     Configuration.GetValue<bool>("EmailSender:EnableSSl"),
+                     Configuration["EmailSender:UserName"],
+                     Configuration["EmailSender:Password"]
+                     ));
+            
+
+
+            services.AddIdentity<AppUser,AppRole>(opts => {
+                //kendime göre özelleştirebiliyorum(şifre kısımlarını)
+                opts.Password.RequiredLength = 4;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+
+                //mail kısımları
+                //maillerin unique olmasını belirttim
+                opts.User.RequireUniqueEmail = true;
+                opts.User.AllowedUserNameCharacters = "abcçdefgğhiıjklmnoöprsştuüvyzABCÇDEFGĞHİIJKLMNOÖPRSŞTUÜVYZ0123456789-._";
+
+            
+            })
+            .AddDefaultTokenProviders()
+            .AddPasswordValidator<CustomPasswordValidator>()//şifre hatalarını kendim kontrol ediyorum
+            .AddUserValidator<CustomUserValidator>()//kullanıcıyla ilgili hataları kendim kontrol ediyorum
+            .AddErrorDescriber<CustomIdentityErrorDescriber>()//hataların sonucunda dönecek olanları kendim kontrol ediyorum (türkçeye çevirttim)
+            .AddEntityFrameworkStores<AppIdentityDbContext>();
+
+
+            CookieBuilder cookieBuilder = new CookieBuilder();
+            cookieBuilder.Name = "MyBlog";
+            cookieBuilder.HttpOnly = false;
+            cookieBuilder.SameSite = SameSiteMode.Lax;
+            cookieBuilder.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+
+
+            services.ConfigureApplicationCookie(opts => {
+                opts.LoginPath = new PathString("/Home/Login");
+                opts.Cookie = cookieBuilder;
+                opts.SlidingExpiration = true;
+                opts.ExpireTimeSpan = System.TimeSpan.FromDays(60);
+            });
+
+
+
             services.AddControllersWithViews();
       
 

@@ -14402,6 +14402,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/ResetPassword.cshtml",
+      "TargetPath": "Views\\Home\\ResetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/SignUp.cshtml",
       "TargetPath": "Views\\Home\\SignUp.cshtml",
       "FileKind": "mvc"
@@ -14422,6 +14427,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/ResetPasswordConfirm.cshtml",
+      "TargetPath": "Views\\Home\\ResetPasswordConfirm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -14439,6 +14449,11 @@
     {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/Index.cshtml",
+      "TargetPath": "Views\\Member\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

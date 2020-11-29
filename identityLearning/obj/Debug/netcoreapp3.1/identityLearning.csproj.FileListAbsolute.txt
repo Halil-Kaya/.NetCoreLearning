@@ -71,3 +71,6 @@
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Shared/AdminLayout.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/SignUp.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/LogIn.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/Index.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/ResetPassword.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/ResetPasswordConfirm.cshtml.g.cs
