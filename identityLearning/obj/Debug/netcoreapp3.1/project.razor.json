@@ -14452,6 +14452,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/UserEdit.cshtml",
+      "TargetPath": "Views\\Member\\UserEdit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"

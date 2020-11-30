@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using identityLearning.Models;
 using identityLearning.ViewModels;
 using Mapster;
@@ -23,7 +24,7 @@ namespace identityLearning.Controllers
 
 
         public IActionResult Index(){
-            
+
             //eğer şuan sistemde kişi giriş yapmışsa 
             //User.Identity.IsAuthenticated -> true oluyor  
             //true olduğunda User.Identity.Name içinde kullanıcı adı oluyor o kullanıcı adıyla kullanıcıyı buluyorum
@@ -32,6 +33,62 @@ namespace identityLearning.Controllers
 
             //Adapt metodu Mapster kütüphanesinden geliyor AutoMapper in yaptığını yapıyor AutoMapper dan daha performanslı çalıştığı söyleniliyor
             UserViewModel userViewModel = user.Adapt<UserViewModel>();
+
+            return View(userViewModel);
+        }
+
+
+        public IActionResult UserEdit(){
+            
+            AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+            UserViewModel userViewModel = user.Adapt<UserViewModel>();
+
+            return View(userViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserEdit(UserViewModel userViewModel){
+
+            //UserViewModel kismini birkac yerde daha kullaniyorum edit kismi için password bilgisi gereksiz eğer bu kismi çikartmazsam
+            //ModelState.IsValid kısmı hatalı olucak o yüzden Password kısmını çıkartıp görmezden geliyorum
+            ModelState.Remove("Password");
+
+            if(ModelState.IsValid){
+
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                user.UserName = userViewModel.UserName;
+                user.Email = userViewModel.Email;
+                user.PhoneNumber = userViewModel.PhoneNumber;
+
+                IdentityResult result = await _userManager.UpdateAsync(user);
+
+                if(result.Succeeded){
+
+                    //kullanıcının kullanıcı adını da güncellettiğim için securityStampi güncelliyorum
+                    await _userManager.UpdateSecurityStampAsync(user);
+                    //securityStampi güncellediğim için kullanıcıyı sistemden çıkartıp bir daha sokuyorum böylece cookie tekrar oluşuyor
+                    await _signInManager.SignOutAsync();
+                    //2. parametredeki true nun anlamı session oturumu değil normal oturum açma anlamına geliyor yani 60 gün
+                    await _signInManager.SignInAsync(user,true);
+
+                    ViewBag.success = "true";
+
+                }else{
+
+
+                    foreach (var item in result.Errors)
+                    {
+                        
+                        ModelState.AddModelError("",item.Description);
+
+                    }
+
+
+                }
+
+            }
 
             return View(userViewModel);
         }
