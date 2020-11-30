@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eYbFlGWwSOYu/ELATr6HqNHm0P4Y+Spnnf7C4HuQPAg1dqGEcgepUTCTN7QLRc69ba5v+U3YFGKikAPVrPoizA==",
+  "dgSpecHash": "rPUH2WEy0XjPgWEVQHjE+T0xIfrJaIEcWxoeKqYb0/A7rPawSZ7835GbO5yKxoux5plhvuyo6MPrOW2zRaJ0zg==",
   "success": true,
   "projectFilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/identityLearning.csproj",
   "expectedPackageFiles": [
-    "/home/ubunter/.nuget/packages/mapster/4.1.1/mapster.4.1.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/mapster/7.0.1/mapster.7.0.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/mapster.core/1.0.0/mapster.core.1.0.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.aspnetcore.authentication.facebook/3.1.0/microsoft.aspnetcore.authentication.facebook.3.1.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.aspnetcore.authentication.google/3.1.0/microsoft.aspnetcore.authentication.google.3.1.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.aspnetcore.authentication.microsoftaccount/3.1.0/microsoft.aspnetcore.authentication.microsoftaccount.3.1.0.nupkg.sha512",
@@ -33,13 +34,23 @@
     "/home/ubunter/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.10/microsoft.extensions.logging.abstractions.3.1.10.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.extensions.options/3.1.10/microsoft.extensions.options.3.1.10.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.extensions.primitives/3.1.10/microsoft.extensions.primitives.3.1.10.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/mysqlconnector/0.69.9/mysqlconnector.0.69.9.nupkg.sha512",
     "/home/ubunter/.nuget/packages/newtonsoft.json/11.0.2/newtonsoft.json.11.0.2.nupkg.sha512",
     "/home/ubunter/.nuget/packages/pomelo.entityframeworkcore.mysql/3.2.4/pomelo.entityframeworkcore.mysql.3.2.4.nupkg.sha512",
     "/home/ubunter/.nuget/packages/pomelo.jsonobject/2.2.1/pomelo.jsonobject.2.2.1.nupkg.sha512",
     "/home/ubunter/.nuget/packages/system.collections.immutable/1.7.1/system.collections.immutable.1.7.1.nupkg.sha512",
     "/home/ubunter/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512",
-    "/home/ubunter/.nuget/packages/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+    "/home/ubunter/.nuget/packages/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

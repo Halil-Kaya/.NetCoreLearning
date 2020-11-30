@@ -38,7 +38,7 @@
           "dependencies": {
             "Mapster": {
               "target": "Package",
-              "version": "[4.1.1, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.AspNetCore.Authentication.Facebook": {
               "target": "Package",

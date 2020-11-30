@@ -14392,8 +14392,18 @@
   "RootNamespace": "identityLearning",
   "Documents": [
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/_MemberLayout.cshtml",
+      "TargetPath": "Views\\Member\\_MemberLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/PasswordChange.cshtml",
+      "TargetPath": "Views\\Member\\PasswordChange.cshtml",
       "FileKind": "mvc"
     },
     {

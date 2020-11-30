@@ -74,3 +74,6 @@
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/Index.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/ResetPassword.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/ResetPasswordConfirm.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/_MemberLayout.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/bin/Debug/netcoreapp3.1/Mapster.Core.dll
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/PasswordChange.cshtml.g.cs
