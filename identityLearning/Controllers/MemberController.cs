@@ -14,16 +14,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace identityLearning.Controllers
 {
     [Authorize]
-    public class MemberController : Controller
+    public class MemberController : BaseController
     {
         
-        private readonly UserManager<AppUser> _userManager;
-
-        private readonly SignInManager<AppUser> _signInManager;
-
-        public MemberController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager){
-            this._userManager = userManager;
-            this._signInManager = signInManager;
+        public MemberController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager):base(userManager,signInManager){
         }
 
 
@@ -33,8 +27,8 @@ namespace identityLearning.Controllers
             //eğer şuan sistemde kişi giriş yapmışsa 
             //User.Identity.IsAuthenticated -> true oluyor  
             //true olduğunda User.Identity.Name içinde kullanıcı adı oluyor o kullanıcı adıyla kullanıcıyı buluyorum
-
-            AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            //CurrentUser BaseControllerin içinde!
+            AppUser user = CurrentUser;
 
             //Adapt metodu Mapster kütüphanesinden geliyor AutoMapper in yaptığını yapıyor AutoMapper dan daha performanslı çalıştığı söyleniliyor
             UserViewModel userViewModel = user.Adapt<UserViewModel>();
@@ -45,7 +39,7 @@ namespace identityLearning.Controllers
 
         public IActionResult UserEdit(){
             
-            AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            AppUser user = CurrentUser;
 
             UserViewModel userViewModel = user.Adapt<UserViewModel>();
 
@@ -66,7 +60,7 @@ namespace identityLearning.Controllers
 
             if(ModelState.IsValid){
 
-                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                AppUser user = CurrentUser;
 
 
                 if(userPicture != null && userPicture.Length > 0){
@@ -105,14 +99,7 @@ namespace identityLearning.Controllers
 
                 }else{
 
-
-                    foreach (var item in result.Errors)
-                    {
-                        
-                        ModelState.AddModelError("",item.Description);
-
-                    }
-
+                    AddModelError(result);
 
                 }
 
@@ -131,7 +118,7 @@ namespace identityLearning.Controllers
             
             if(ModelState.IsValid){
 
-                AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+                AppUser user = CurrentUser;
 
                 if(user != null){
 
@@ -156,10 +143,7 @@ namespace identityLearning.Controllers
 
                         }else{
 
-                            foreach (var item in result.Errors)
-                            {
-                                ModelState.AddModelError("",item.Description);
-                            }
+                            AddModelError(result);
 
                         }
 

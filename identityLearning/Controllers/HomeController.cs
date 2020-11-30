@@ -12,18 +12,11 @@ using identityLearning.EmailServices;
 
 namespace identityLearning.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController 
     {
 
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
-        private readonly IEmailSender _emailSender;
 
-
-        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IEmailSender emailSender){
-            this._userManager = userManager;
-            this._signInManager = signInManager;
-            this._emailSender = emailSender;
+        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IEmailSender emailSender):base(userManager,signInManager,emailSender){
         }
 
         public IActionResult Index()
@@ -133,12 +126,7 @@ namespace identityLearning.Controllers
 
                 }else{
 
-                    foreach (IdentityError item in result.Errors)
-                    {
-                        
-                        ModelState.AddModelError("",item.Description);
-
-                    }
+                    AddModelError(result);
 
                 }
                 
@@ -211,12 +199,7 @@ namespace identityLearning.Controllers
 
                 }else{
 
-                    foreach (var item in result.Errors)
-                    {
-
-                        ModelState.AddModelError("",item.Description);
-                        
-                    }
+                    AddModelError(result);
 
                 }
                 
