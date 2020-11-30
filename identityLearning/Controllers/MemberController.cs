@@ -1,10 +1,15 @@
+using System;
+using System.IO;
 using System.Threading.Tasks;
+using identityLearning.Enums;
 using identityLearning.Models;
 using identityLearning.ViewModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace identityLearning.Controllers
 {
@@ -44,23 +49,46 @@ namespace identityLearning.Controllers
 
             UserViewModel userViewModel = user.Adapt<UserViewModel>();
 
+            ViewBag.Gender = new SelectList(Enum.GetNames(typeof(Gender)));
+
             return View(userViewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UserEdit(UserViewModel userViewModel){
+        public async Task<IActionResult> UserEdit(UserViewModel userViewModel,IFormFile userPicture){
 
             //UserViewModel kismini birkac yerde daha kullaniyorum edit kismi için password bilgisi gereksiz eğer bu kismi çikartmazsam
             //ModelState.IsValid kısmı hatalı olucak o yüzden Password kısmını çıkartıp görmezden geliyorum
             ModelState.Remove("Password");
 
+            ViewBag.Gender = new SelectList(Enum.GetNames(typeof(Gender)));
+
+
             if(ModelState.IsValid){
 
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
+
+                if(userPicture != null && userPicture.Length > 0){
+
+                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(userPicture.FileName);
+
+                    var path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/UserPicture",fileName);
+
+                    using(var stream = new FileStream(path,FileMode.Create)){
+                        await userPicture.CopyToAsync(stream);
+                        user.Picture = "/UserPicture/" + fileName;
+                    }
+
+                }
+
                 user.UserName = userViewModel.UserName;
                 user.Email = userViewModel.Email;
                 user.PhoneNumber = userViewModel.PhoneNumber;
+
+                user.City = userViewModel.City;
+                user.BirthDay = userViewModel.BirthDay;
+                user.Gender = (int) userViewModel.Gender;
 
                 IdentityResult result = await _userManager.UpdateAsync(user);
 
@@ -149,6 +177,10 @@ namespace identityLearning.Controllers
             return View(passwordChangeViewModel);
         }
 
+
+        public void Logout(){
+            _signInManager.SignOutAsync();
+        }
 
     }
 }

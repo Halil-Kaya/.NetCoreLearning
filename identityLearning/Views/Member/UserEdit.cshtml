@@ -31,6 +31,30 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="BirthDay" class="control-label"></label>
+                <input asp-for="BirthDay" class="form-control" />
+                <span asp-validation-for="BirthDay" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <select class="form-control" asp-for="Gender" asp-items="@ViewBag.Gender"></select>
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="Picture" class="control-label"></label>
+                <input class="form-control" type="file" name="userPicture" />
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Güncelle" class="btn btn-primary" />
             </div>
