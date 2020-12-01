@@ -7,7 +7,6 @@
 
 <h3>Roller</h3>
 <hr />
-
 <table class="table table table-bordered table-striped">
     <tr>
         <th>Id</th>
@@ -26,6 +25,7 @@
                 <form asp-action="RoleDelete" asp-route-id="@item.Id" method="post">
 
                     <button class="btn btn-success" type="submit">sil</button>
+                
                 </form>
             </td>
             <td><a class="btn btn-info" asp-action="RoleUpdate" asp-route-id="@item.Id">Güncelle</a></td>

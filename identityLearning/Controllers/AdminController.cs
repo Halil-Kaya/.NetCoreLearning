@@ -51,5 +51,19 @@ namespace identityLearning.Controllers
             return View(_roleManager.Roles.ToList());
         }
 
+        public IActionResult RoleDelete(string id){
+            
+            AppRole role = _roleManager.FindByIdAsync(id).Result;
+            
+            if(role != null){
+
+                IdentityResult result = _roleManager.DeleteAsync(role).Result;
+
+            }
+
+            return RedirectToAction("Roles");
+
+        }
+
     }
 }

@@ -26,6 +26,7 @@ namespace identityLearning
         public void ConfigureServices(IServiceCollection services)
         {
             
+
             services.AddDbContext<AppIdentityDbContext>(options => {
                 options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]);
             });
