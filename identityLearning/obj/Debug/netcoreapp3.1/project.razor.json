@@ -14417,6 +14417,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/Users.cshtml",
+      "TargetPath": "Views\\Admin\\Users.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/SignUp.cshtml",
       "TargetPath": "Views\\Home\\SignUp.cshtml",
       "FileKind": "mvc"
@@ -14429,6 +14434,11 @@
     {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Shared/AdminLayout.cshtml",
       "TargetPath": "Views\\Shared\\AdminLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/AccessDenied.cshtml",
+      "TargetPath": "Views\\Admin\\AccessDenied.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14452,6 +14462,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/_AdminLayout.cshtml",
+      "TargetPath": "Views\\Admin\\_AdminLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/Roles.cshtml",
+      "TargetPath": "Views\\Admin\\Roles.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/UserEdit.cshtml",
       "TargetPath": "Views\\Member\\UserEdit.cshtml",
       "FileKind": "mvc"
@@ -14464,6 +14484,11 @@
     {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/RoleCreate.cshtml",
+      "TargetPath": "Views\\Admin\\RoleCreate.cshtml",
       "FileKind": "mvc"
     },
     {
