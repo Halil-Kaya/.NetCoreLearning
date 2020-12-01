@@ -14412,6 +14412,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/RoleUpdate.cshtml",
+      "TargetPath": "Views\\Admin\\RoleUpdate.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/ResetPassword.cshtml",
       "TargetPath": "Views\\Home\\ResetPassword.cshtml",
       "FileKind": "mvc"

@@ -1,6 +1,7 @@
 using System.Linq;
 using identityLearning.Models;
 using identityLearning.ViewModels;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -64,6 +65,51 @@ namespace identityLearning.Controllers
             return RedirectToAction("Roles");
 
         }
+
+        public IActionResult RoleUpdate(string id){
+            
+            AppRole role = _roleManager.FindByIdAsync(id).Result;
+            
+            if(role != null){
+                
+                return View(role.Adapt<RoleViewModel>());
+
+            }
+
+            return RedirectToAction("Roles");
+
+        }
+
+
+        [HttpPost]
+        public IActionResult RoleUpdate(RoleViewModel roleViewModel){
+
+            AppRole role = _roleManager.FindByIdAsync(roleViewModel.Id).Result;
+
+            if(role != null){
+                role.Name = roleViewModel.Name;
+
+                IdentityResult result = _roleManager.UpdateAsync(role).Result;
+
+                if(result.Succeeded){
+
+                    return RedirectToAction("Roles");
+
+                }
+
+                AddModelError(result);
+                
+
+
+            }else{
+
+                ModelState.AddModelError("","Güncelleme işi başarısız oldu");
+
+            }
+
+            return View(roleViewModel);
+        }
+    
 
     }
 }
