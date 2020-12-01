@@ -14497,6 +14497,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/RoleAssign.cshtml",
+      "TargetPath": "Views\\Admin\\RoleAssign.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/Index.cshtml",
       "TargetPath": "Views\\Member\\Index.cshtml",
       "FileKind": "mvc"

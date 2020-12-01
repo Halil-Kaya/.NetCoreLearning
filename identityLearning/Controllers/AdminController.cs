@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using identityLearning.Models;
 using identityLearning.ViewModels;
 using Mapster;
@@ -108,6 +110,77 @@ namespace identityLearning.Controllers
             }
 
             return View(roleViewModel);
+        }
+
+        public IActionResult RoleAssign(string id){
+            
+            //kullanicinin id sini tempte sakliyorum bunun post işleminde bana lazim olucak
+            TempData["userId"] = id;
+
+            AppUser user = _userManager.FindByIdAsync(id).Result;
+
+            ViewBag.userName = user.UserName;
+            
+
+
+            //bütün rolleri getiriyorum
+            IQueryable<AppRole> roles = _roleManager.Roles;
+            
+            //kullanıcının rollerini getiriyorum
+            List<string> userRoles =  _userManager.GetRolesAsync(user).Result as List<string>;
+
+            //webe döneceğim yapı
+            List<RoleAssignViewModel> roleAssignViewModels = new List<RoleAssignViewModel>();
+
+            //bütün rolleri dolaşıyorum
+            foreach (var role in roles)
+            {
+                //yeni roleri göstereceğim obje oluşturuyorum
+                RoleAssignViewModel r = new RoleAssignViewModel();
+
+                r.RoleId = role.Id;
+                r.RoleName = role.Name;
+                
+                //eğer kullanıcıda bu rol varsa true yapıyorum yoksa false yapıyorum
+                if(userRoles.Contains(role.Name)){
+
+                    r.Exist = true;
+                
+                }else{
+
+                    r.Exist = false;
+
+                }
+
+                roleAssignViewModels.Add(r);
+                
+            }
+
+            //bütün rolleri kullanıcıya göre ayarlanmış bir şekilde döndürüyorum
+            return View(roleAssignViewModels);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RoleAssign(List<RoleAssignViewModel> roleAssignViewModels){
+
+            AppUser user = _userManager.FindByIdAsync(TempData["userId"].ToString()).Result;
+
+
+            foreach (var role in roleAssignViewModels)
+            {
+
+                if(role.Exist){
+
+                    await _userManager.AddToRoleAsync(user,role.RoleName);
+
+                }else{
+                    await _userManager.RemoveFromRoleAsync(user,role.RoleName);
+                }
+                
+            }
+
+
+            return RedirectToAction("Users");
         }
     
 
