@@ -168,7 +168,19 @@ namespace identityLearning.Controllers
 
         public IActionResult AccessDenied(){
             return View();
-        }        
+        }
+
+        //bu sayfaya sadece editorler ve adminler erisebilir
+        [Authorize(Roles = "editor,admin")]
+        public IActionResult Editor(){
+            return View();
+        }
+
+        //bu sayfaya sadece manager ve adminler erisebilir
+        [Authorize(Roles = "manager,admin")]
+        public IActionResult Manager(){
+            return View();
+        }
 
     }
 }
