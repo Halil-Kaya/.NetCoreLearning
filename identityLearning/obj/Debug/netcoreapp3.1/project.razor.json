@@ -10256,6 +10256,45 @@
         }
       },
       {
+        "HashCode": -1994688506,
+        "Kind": "ITagHelper",
+        "Name": "identityLearning.CustomTagHelpers.UserRolesName",
+        "AssemblyName": "identityLearning",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "td",
+            "Attributes": [
+              {
+                "Name": "user-roles"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "_user-manager",
+            "TypeName": "Microsoft.AspNetCore.Identity.UserManager<identityLearning.Models.AppUser>",
+            "Metadata": {
+              "Common.PropertyName": "_userManager"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "user-roles",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "UserId"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "identityLearning.CustomTagHelpers.UserRolesName"
+        }
+      },
+      {
         "HashCode": -578525471,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",

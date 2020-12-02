@@ -13,28 +13,28 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
+#line 4 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
 using identityLearning;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
+#line 5 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
 using identityLearning.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
+#line 6 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
 using identityLearning.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3cb6e8275100e496d5b6b9718eb20e5a21996af5", @"/Views/Admin/Users.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e907c6b5f80f43113b2047f1017e2c02ec836747", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dfa3335e896ab7e21ecf6e8660be3bc437932e13", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Users : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<AppUser>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -60,6 +60,7 @@ using identityLearning.ViewModels;
                 return __backed__tagHelperScopeManager;
             }
         }
+        private global::identityLearning.CustomTagHelpers.UserRolesName __identityLearning_CustomTagHelpers_UserRolesName;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
@@ -126,18 +127,32 @@ using identityLearning.ViewModels;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("</td>\n                <td");
-            BeginWriteAttribute("user-roles", " user-roles=\"", 695, "\"", 716, 1);
+            WriteLiteral("</td>\n                ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("td", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cb6e8275100e496d5b6b9718eb20e5a21996af56313", async() => {
+            }
+            );
+            __identityLearning_CustomTagHelpers_UserRolesName = CreateTagHelper<global::identityLearning.CustomTagHelpers.UserRolesName>();
+            __tagHelperExecutionContext.Add(__identityLearning_CustomTagHelpers_UserRolesName);
+            BeginWriteTagHelperAttribute();
 #nullable restore
 #line 34 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/Users.cshtml"
-WriteAttributeValue("", 708, item.Id, 708, 8, false);
+                    WriteLiteral(item.Id);
 
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral("></td>\n                <td> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cb6e8275100e496d5b6b9718eb20e5a21996af56578", async() => {
+            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
+            __identityLearning_CustomTagHelpers_UserRolesName.UserId = __tagHelperStringValueBuffer;
+            __tagHelperExecutionContext.AddTagHelperAttribute("user-roles", __identityLearning_CustomTagHelpers_UserRolesName.UserId, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            WriteLiteral("\n                <td> ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cb6e8275100e496d5b6b9718eb20e5a21996af57855", async() => {
                 WriteLiteral("Role ata");
             }
             );
@@ -169,7 +184,7 @@ WriteAttributeValue("", 708, item.Id, 708, 8, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</td>\n                <td>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cb6e8275100e496d5b6b9718eb20e5a21996af58838", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cb6e8275100e496d5b6b9718eb20e5a21996af510115", async() => {
                 WriteLiteral("şifre yenileme");
             }
             );

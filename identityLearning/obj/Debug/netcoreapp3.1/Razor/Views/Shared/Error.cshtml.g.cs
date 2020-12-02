@@ -13,28 +13,28 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
+#line 4 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
 using identityLearning;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
+#line 5 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
 using identityLearning.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
+#line 6 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
 using identityLearning.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e907c6b5f80f43113b2047f1017e2c02ec836747", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dfa3335e896ab7e21ecf6e8660be3bc437932e13", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998
