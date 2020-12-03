@@ -14486,6 +14486,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/AnkaraPage.cshtml",
+      "TargetPath": "Views\\Member\\AnkaraPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/AccessDenied.cshtml",
       "TargetPath": "Views\\Admin\\AccessDenied.cshtml",
       "FileKind": "mvc"
@@ -14521,6 +14526,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/ViolencePage.cshtml",
+      "TargetPath": "Views\\Member\\ViolencePage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/AccessDenied.cshtml",
       "TargetPath": "Views\\Member\\AccessDenied.cshtml",
       "FileKind": "mvc"
@@ -14538,6 +14548,11 @@
     {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/Editor.cshtml",
       "TargetPath": "Views\\Member\\Editor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/Claims.cshtml",
+      "TargetPath": "Views\\Admin\\Claims.cshtml",
       "FileKind": "mvc"
     },
     {

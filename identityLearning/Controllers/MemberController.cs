@@ -166,7 +166,25 @@ namespace identityLearning.Controllers
             _signInManager.SignOutAsync();
         }
 
-        public IActionResult AccessDenied(){
+        //NOT AcessDenied kullanici yok giris yapamaz anlamina degil kullanicinin yetkisi yok anlamina gelmekte o mantikla calisiyor!
+        public IActionResult AccessDenied(string ReturnUrl){
+
+            //ReturnUrl yi identity otomatik kendisi koyuyor bundan nereye gitmeye calistigi geliyor ona gore bilgi bastircam
+
+            ReturnUrl = ReturnUrl.ToLower();
+            
+            if(ReturnUrl.Contains("violencepage")){
+                
+                ViewBag.message = "Erişmeye çalıştığınız sayfa şiddet videoları içerdiğinizden dolayı 15 yaşından büyük olmanız gerekmektedir";
+
+            }else if(ReturnUrl.Contains("ankarapage")){
+
+                ViewBag.message = "Bu Sayfaya sadece şehir alanı Ankara olan kullanıcılar erişebilir";
+
+            }
+
+
+
             return View();
         }
 
@@ -181,6 +199,20 @@ namespace identityLearning.Controllers
         public IActionResult Manager(){
             return View();
         }
+
+        //claims bazli bir yetkilendirme yaptim buranin anlami sadece cityi ankara olanlar buraya erisebilir
+        [Authorize(Policy = "AnkaraPolicy")]
+        public IActionResult AnkaraPage(){
+            return View();
+        }
+
+        [Authorize(Policy = "ViolencePolicy")]
+        public IActionResult ViolencePage(){
+            return View();
+        }
+
+
+
 
     }
 }

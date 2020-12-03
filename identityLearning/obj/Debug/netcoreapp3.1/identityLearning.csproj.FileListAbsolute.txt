@@ -88,3 +88,6 @@
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/Editor.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/Manager.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/AccessDenied.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Admin/Claims.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/AnkaraPage.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/ViolencePage.cshtml.g.cs

@@ -30,6 +30,12 @@ namespace identityLearning.Controllers
         }
 
         public IActionResult LogIn(string ReturnUrl){
+            
+            //kullanici zaten varsa member/index sayfasina gonderiyorum
+            if(User.Identity.IsAuthenticated){
+                return RedirectToAction("Index","Member");
+            }
+            
 
             TempData["ReturnUrl"] = ReturnUrl;
 
@@ -38,7 +44,8 @@ namespace identityLearning.Controllers
 
         [HttpPost]
         public async Task<IActionResult> LogIn(LoginViewModel loginViewModel){
-            
+
+
             
             if(ModelState.IsValid){
 

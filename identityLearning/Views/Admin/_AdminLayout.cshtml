@@ -10,7 +10,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Bıdıbıdı.com</a>
+            <a class="navbar-brand" asp-action="Index" asp-controller="Member" >Bıdıbıdı.com</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,6 +36,8 @@
                 
                 <h3>Menü</h3>
                 
+                <a class="btn btn-danger btn-block" asp-action="Claims" asp-controller="Admin">üye Claims</a>
+
                 <a class="btn btn-danger btn-block" asp-action="Users" asp-controller="Admin">Üyeler</a>
 
                 <a class="btn btn-danger btn-block" asp-action="Roles" asp-controller="Admin">Roller</a>

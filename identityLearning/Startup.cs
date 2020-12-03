@@ -1,6 +1,7 @@
 using identityLearning.CustomValidation;
 using identityLearning.EmailServices;
 using identityLearning.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,6 +31,27 @@ namespace identityLearning
             services.AddDbContext<AppIdentityDbContext>(options => {
                 options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]);
             });
+
+
+            //claim bazli yetkilendirme yaptim!
+            services.AddAuthorization(opts => {
+
+                opts.AddPolicy("AnkaraPolicy",policy => {
+                    //burdaki claimin anlami su eger cookie nin icinde city var ve degeri ankara ise dogru boylece AnkaraPolicy etiketini verdigin
+                    //endpoinlerde cityi ankara olanlar erisebilir
+                    policy.RequireClaim("city","ankara");
+
+                });
+
+                opts.AddPolicy("ViolencePolicy",policy => {
+                    //burda ise cookie nin icinde violence varsa anlami geliyor icindeki degere bakmiyorum cookienin icinde violence olmasi yeterli
+                    //eger violence var ise yasi 15 ten buyuk anlamina gelmektedir
+                    policy.RequireClaim("violence");
+
+                });
+
+            });
+            
 
 
             services.AddScoped<IEmailSender,SmtpEmailSender>(i =>
@@ -73,20 +95,24 @@ namespace identityLearning
 
 
             services.ConfigureApplicationCookie(opts => {
+                //eger kisi giriş yapmamissa buraya yonlendircem
                 opts.LoginPath = new PathString("/Home/Login");
+                //kisi sistemden cikarken buraya yonlendircem
                 opts.LogoutPath = new PathString("/Member/Logout");
+                //kendi cookiemi kullancam onu belirtiyorum
                 opts.Cookie = cookieBuilder;
+                //cookie yi tekrar olustursun anlamine geliyor
                 opts.SlidingExpiration = true;
+                //60 gun giris yapmazsa kisi tekrar giris yapsin
                 opts.ExpireTimeSpan = System.TimeSpan.FromDays(60);
+                //NOT AcessDenied kullanici yok giris yapamaz anlamina degil kullanicinin yetkisi yok anlamina gelmekte o mantikla calisiyor!
                 opts.AccessDeniedPath = new PathString("/Member/AccessDenied");
             });
 
-
+            //claims islemlerinde benim olusturdugum claim olarak sekillensin diye scoped icinde olusturuyorum kendi custom claim im ClaimProvider dosyasinin icinde!
+            services.AddScoped<IClaimsTransformation,ClaimProvider.ClaimProvider>();
 
             services.AddControllersWithViews();
-      
-
-
 
         }
 
