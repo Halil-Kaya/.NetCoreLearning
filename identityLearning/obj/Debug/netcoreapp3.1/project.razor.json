@@ -14481,6 +14481,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/Exchange.cshtml",
+      "TargetPath": "Views\\Member\\Exchange.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Shared/AdminLayout.cshtml",
       "TargetPath": "Views\\Shared\\AdminLayout.cshtml",
       "FileKind": "mvc"

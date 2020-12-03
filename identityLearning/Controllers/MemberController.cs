@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using identityLearning.Enums;
 using identityLearning.Models;
@@ -181,6 +182,10 @@ namespace identityLearning.Controllers
 
                 ViewBag.message = "Bu Sayfaya sadece şehir alanı Ankara olan kullanıcılar erişebilir";
 
+            }else if(ReturnUrl.Contains("exchange")){
+
+                ViewBag.message = "30 günlük ücretsiz deneme hakkınız sona ermiştir";
+
             }
 
 
@@ -212,6 +217,33 @@ namespace identityLearning.Controllers
         }
 
 
+        //istek attigim yer bura ilk burdan geciyor
+        public async Task<IActionResult> ExchangeRedirect(){
+
+            //kullanicida boyle bir claim var mi diye kontrol ediyorum
+            bool result = User.HasClaim(x => x.Type == "ExpireDateExchange");
+
+            //yoksa giriyorum
+            if(!result){
+                //boyle bir claim olusturup deger olarakta tarih atiyorum(30 gün sonrası)
+                Claim ExpireDateExchange = new Claim("ExpireDateExchange",DateTime.Now.AddDays(30).Date.ToShortDateString(),ClaimValueTypes.String,"Internal");
+
+                //claimi ekliyorum
+                await _userManager.AddClaimAsync(CurrentUser,ExpireDateExchange);
+
+                //cookie guncellensin diye kullaniciyi gir cik yaptiriyorum
+                await _signInManager.SignOutAsync();
+                await _signInManager.SignInAsync(CurrentUser,true);
+
+            } 
+
+            return RedirectToAction("Exchange");
+        }
+
+        [Authorize(Policy = "ExchangePolicy")]
+        public IActionResult Exchange(){
+            return View();
+        }
 
 
     }

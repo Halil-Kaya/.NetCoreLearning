@@ -65,6 +65,7 @@ namespace identityLearning.ClaimProvider
                     if( user.City != null){
                         
                         //kullanicida boyle bir claim var mi diye kontrol ediyorum eger boyle bir claim yoksa ekliyecem var ise eklememe gerek yok zaten var
+                        //User.HasClaim olarak dusun zaten principal aslinda User Objesi
                         if( !principal.HasClaim(c => c.Type == "city") ){
                             //cookie ye city yi ekliyorum deger olarak da kisinin sehrini giriyorum
                             Claim cityClaim = new Claim("city",user.City,ClaimValueTypes.String,"Internal");

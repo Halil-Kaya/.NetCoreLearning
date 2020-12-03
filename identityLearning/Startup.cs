@@ -2,6 +2,7 @@ using identityLearning.CustomValidation;
 using identityLearning.EmailServices;
 using identityLearning.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -26,7 +27,9 @@ namespace identityLearning
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
+            services.AddTransient<IAuthorizationHandler,ExpireDateExchangeHandler>();
+
 
             services.AddDbContext<AppIdentityDbContext>(options => {
                 options.UseMySql(Configuration["ConnectionStrings:DefaultConnectionString"]);
@@ -47,6 +50,12 @@ namespace identityLearning
                     //burda ise cookie nin icinde violence varsa anlami geliyor icindeki degere bakmiyorum cookienin icinde violence olmasi yeterli
                     //eger violence var ise yasi 15 ten buyuk anlamina gelmektedir
                     policy.RequireClaim("violence");
+
+                });
+
+                opts.AddPolicy("ExchangePolicy",policy => {
+
+                    policy.AddRequirements(new ExpireDateExchangeRequirement());
 
                 });
 
