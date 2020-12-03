@@ -56,9 +56,16 @@ namespace identityLearning.Controllers
 
                     if(await _userManager.IsLockedOutAsync(user)){
                         ModelState.AddModelError("","Hesabınız bir süreliğine kitlenmiştir Lütfen daha sonra tekrar deneyiniz");
-                        return View();  
+                        return View(loginViewModel);  
                     }
 
+
+                    if(_userManager.IsEmailConfirmedAsync(user).Result == false){
+                        
+                        ModelState.AddModelError("","Lutfen mailinizi onaylayiniz!");
+                        return View(loginViewModel);
+
+                    }
 
                     await _signInManager.SignOutAsync();
 
@@ -120,14 +127,25 @@ namespace identityLearning.Controllers
 
             if(ModelState.IsValid){
 
-                AppUser appUser = new AppUser();
-                appUser.UserName = userViewModel.UserName;
-                appUser.Email = userViewModel.Email;
-                appUser.PhoneNumber = userViewModel.PhoneNumber;
+                AppUser user = new AppUser();
+                user.UserName = userViewModel.UserName;
+                user.Email = userViewModel.Email;
+                user.PhoneNumber = userViewModel.PhoneNumber;
 
-                IdentityResult result = await _userManager.CreateAsync(appUser,userViewModel.Password);
+                IdentityResult result = await _userManager.CreateAsync(user,userViewModel.Password);
                 
                 if(result.Succeeded){
+                    
+                    string confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    
+                    string link = Url.Action("ConfirmEmail","Home",new {
+                        
+                        userId = user.Id,
+                        token = confirmationToken
+                    
+                    },HttpContext.Request.Scheme);
+
+                    await _emailSender.SendEmailAsync(user.Email,"Mail Onaylama",$"<h2>Mailinizi onaylamak için lütfen aşağıdaki linke tıklayınız</h2><hr/><a href='{link}'>mail onaylama yenileme linki</a>");
 
                     return RedirectToAction("LogIn");
 
@@ -184,7 +202,7 @@ namespace identityLearning.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost]//Bind[PasswordNew in anlami su icindeki viewModelinin icindeki sadece PasswordNew kismini al diger kisimlara gerek yok anlamina geliyor]
         public async Task<IActionResult> ResetPasswordConfirm([Bind("PasswordNew")]PasswordResetViewModel passwordResetViewModel){
             
             string userId = TempData["userId"].ToString();
@@ -221,8 +239,31 @@ namespace identityLearning.Controllers
             return View(passwordResetViewModel);
         }
 
-        
-        
+
+        public async Task<IActionResult> ConfirmEmail(string userId,string token){
+
+            var user = await _userManager.FindByIdAsync(userId);
+
+            IdentityResult result = await _userManager.ConfirmEmailAsync(user,token);
+
+            if(result.Succeeded){
+                
+                ViewBag.status = "Email Adresiniz Onaylanmistir. Login ekranindan giris yapabilirsiniz";
+
+            }else{
+
+                ViewBag.status = "Bir hata meydana geldi.Lütfen daha sonra tekrar deneyiniz.";
+
+            }
+
+            return View();
+
+        }
+
+
+
+
+
 
     }
 }
