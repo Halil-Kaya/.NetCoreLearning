@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using identityLearning.Enums;
@@ -62,6 +63,18 @@ namespace identityLearning.Controllers
             if(ModelState.IsValid){
 
                 AppUser user = CurrentUser;
+
+                string phone = _userManager.GetPhoneNumberAsync(user).Result;
+
+                if (phone != userViewModel.PhoneNumber)
+                {
+                    if (_userManager.Users.Any(u => u.PhoneNumber == userViewModel.PhoneNumber))
+                    {
+                        ModelState.AddModelError("", "Bu telefon numarası başka üye tarafından kullanılmaktadır.");
+                        return View(userViewModel);
+                    }
+                }
+
 
 
                 if(userPicture != null && userPicture.Length > 0){
