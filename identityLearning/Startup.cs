@@ -60,6 +60,13 @@ namespace identityLearning
                 });
 
             });
+
+            services.AddAuthentication().AddFacebook(opts => {
+                
+                opts.AppId = Configuration["Authentication:Facebook:AppId"];
+                opts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+
+            });
             
 
 
