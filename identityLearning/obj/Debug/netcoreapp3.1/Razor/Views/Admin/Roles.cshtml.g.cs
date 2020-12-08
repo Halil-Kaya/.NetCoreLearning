@@ -33,8 +33,15 @@ using identityLearning.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/_ViewImports.cshtml"
+using identityLearning.Enums;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"137622663ca111da5208c35cec4a1fb1b4d622c4", @"/Views/Admin/Roles.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dfa3335e896ab7e21ecf6e8660be3bc437932e13", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"658e6a65976c31b6fc3a921a7927601f76c55188", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Roles : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<AppRole>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "RoleDelete", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -104,7 +111,7 @@ using identityLearning.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\n            <td>\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "137622663ca111da5208c35cec4a1fb1b4d622c46282", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "137622663ca111da5208c35cec4a1fb1b4d622c46467", async() => {
                 WriteLiteral("\n\n                    <button class=\"btn btn-success\" type=\"submit\">sil</button>\n                \n                ");
             }
             );
@@ -139,7 +146,7 @@ using identityLearning.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n            </td>\n            <td>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "137622663ca111da5208c35cec4a1fb1b4d622c49024", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "137622663ca111da5208c35cec4a1fb1b4d622c49209", async() => {
                 WriteLiteral("Güncelle");
             }
             );
@@ -180,7 +187,7 @@ using identityLearning.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("</table>\n\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "137622663ca111da5208c35cec4a1fb1b4d622c411475", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "137622663ca111da5208c35cec4a1fb1b4d622c411660", async() => {
                 WriteLiteral("Role Oluştur");
             }
             );

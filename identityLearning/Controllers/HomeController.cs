@@ -10,6 +10,7 @@ using identityLearning.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using identityLearning.EmailServices;
 using System.Security.Claims;
+using identityLearning.Enums;
 
 namespace identityLearning.Controllers
 {
@@ -30,7 +31,8 @@ namespace identityLearning.Controllers
             return View();
         }
 
-        public IActionResult LogIn(string ReturnUrl){
+        //ReturnUrl de default olarak baslangic dizinine gidecek ordan da eğer kayıtlıysa memberin index sayfasına
+        public IActionResult LogIn(string ReturnUrl = "/"){
             
             //kullanici zaten varsa member/index sayfasina gonderiyorum
             if(User.Identity.IsAuthenticated){
@@ -68,23 +70,25 @@ namespace identityLearning.Controllers
 
                     }
 
-                    await _signInManager.SignOutAsync();
-
-                    Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(user,loginViewModel.Password,loginViewModel.RememberMe,false);
                     
-                    if(result.Succeeded){
+                    bool userCheck = await _userManager.CheckPasswordAsync(user,loginViewModel.Password);
 
+                    if(userCheck){
 
                         await _userManager.ResetAccessFailedCountAsync(user);
+                        await _signInManager.SignOutAsync();
 
+                        var result = await _signInManager.PasswordSignInAsync(user,loginViewModel.Password,loginViewModel.RememberMe,false);
 
-                        if(TempData["ReturnUrl"] != null){
+                        if(result.RequiresTwoFactor){
+
+                            return RedirectToAction("TwoFactorLogIn");
+                            
+                        }else{
 
                             return Redirect(TempData["ReturnUrl"].ToString());
-
+                            
                         }
-
-                        return RedirectToAction("Index","Member");
 
                     }else{
 
@@ -119,6 +123,74 @@ namespace identityLearning.Controllers
             return View();
         }
 
+        public async Task<IActionResult> TwoFactorLogIn(string ReturnUrl = "/"){
+            
+            //burda kullaniciyi cookie den aliyor
+            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
+
+            TempData["ReturnUrl"] = ReturnUrl;
+
+            switch((TwoFactor)user.TwoFactor){
+                case TwoFactor.MicrosoftGoogle:
+                    break;
+                default:
+                    break;
+            }
+
+            return View(new TwoFactorLoginViewModel(){TwoFactorType = (TwoFactor)user.TwoFactor,isRecoverCode = false,isRememberMe = false,VerificationCode = string.Empty});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TwoFactorLogIn(TwoFactorLoginViewModel twoFactorLoginViewModel){
+
+            //burda kullaniciyi cookie den aliyor
+            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
+
+            ModelState.Clear();
+
+            bool isSuccessAuth = false;
+
+            if((TwoFactor)user.TwoFactor == TwoFactor.MicrosoftGoogle){
+
+
+                Microsoft.AspNetCore.Identity.SignInResult result;
+
+                if(twoFactorLoginViewModel.isRecoverCode){
+
+                    result = await _signInManager.TwoFactorRecoveryCodeSignInAsync(twoFactorLoginViewModel.VerificationCode);
+
+                }else{
+
+                    result = await _signInManager.TwoFactorAuthenticatorSignInAsync(twoFactorLoginViewModel.VerificationCode,twoFactorLoginViewModel.isRememberMe,false);
+
+                }
+
+                if(result.Succeeded){
+                
+                    isSuccessAuth = true;
+                
+                }else{
+
+                    ModelState.AddModelError("","Doğrulama Kodu Yanlış");
+                
+                }
+
+
+            }
+
+            if(isSuccessAuth){
+
+                return Redirect(TempData["ReturnUrl"].ToString());
+
+            }
+
+            twoFactorLoginViewModel.TwoFactorType = (TwoFactor)user.TwoFactor;
+
+            return View(twoFactorLoginViewModel);
+        }
+
+
+
         public IActionResult SignUp(){
             return View();
         }
@@ -140,6 +212,7 @@ namespace identityLearning.Controllers
                 user.UserName = userViewModel.UserName;
                 user.Email = userViewModel.Email;
                 user.PhoneNumber = userViewModel.PhoneNumber;
+                user.TwoFactor = 0;
 
                 IdentityResult result = await _userManager.CreateAsync(user,userViewModel.Password);
                 

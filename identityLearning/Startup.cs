@@ -28,6 +28,9 @@ namespace identityLearning
         public void ConfigureServices(IServiceCollection services)
         {
 
+
+            services.AddScoped<TwoFactorService.TwoFactorService>();
+
             services.AddTransient<IAuthorizationHandler,ExpireDateExchangeHandler>();
 
 
@@ -146,6 +149,7 @@ namespace identityLearning
                 app.UseHsts();
             }
 
+            
             app.UseStatusCodePages();
             app.UseHttpsRedirection();
             app.UseStaticFiles();

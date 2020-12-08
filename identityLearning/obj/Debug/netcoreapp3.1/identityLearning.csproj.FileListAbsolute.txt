@@ -27,7 +27,6 @@
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/identityLearning.RazorTargetAssemblyInfo.cache
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/identityLearning.RazorTargetAssemblyInfo.cs
-/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/identityLearning.Views.pdb
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/staticwebassets/identityLearning.StaticWebAssets.Manifest.cache
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/staticwebassets/identityLearning.StaticWebAssets.xml
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/identityLearning.dll
@@ -95,3 +94,6 @@
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/ConfirmEmail.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/Error.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Admin/ResetUserPassword.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/TwoFactorAuth.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/identityLearning.Views.pdb
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/TwoFactorWithAuthenticator.cshtml.g.cs

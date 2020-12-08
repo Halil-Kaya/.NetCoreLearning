@@ -14496,6 +14496,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/TwoFactorLogIn.cshtml",
+      "TargetPath": "Views\\Home\\TwoFactorLogIn.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/AnkaraPage.cshtml",
       "TargetPath": "Views\\Member\\AnkaraPage.cshtml",
       "FileKind": "mvc"
@@ -14531,6 +14536,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/TwoFactorAuth.cshtml",
+      "TargetPath": "Views\\Member\\TwoFactorAuth.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Admin/Roles.cshtml",
       "TargetPath": "Views\\Admin\\Roles.cshtml",
       "FileKind": "mvc"
@@ -14548,6 +14558,11 @@
     {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Home/ConfirmEmail.cshtml",
       "TargetPath": "Views\\Home\\ConfirmEmail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/Views/Member/TwoFactorWithAuthenticator.cshtml",
+      "TargetPath": "Views\\Member\\TwoFactorWithAuthenticator.cshtml",
       "FileKind": "mvc"
     },
     {
