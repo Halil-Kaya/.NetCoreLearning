@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "mZTjiRwquTna6UhjMePLrymg1DGYI5w39meC+/J3o6LiAFWYZMFo0vHjnyXxstoEvz67+RUAUUFmGfh2h1gUMA==",
+  "success": true,
+  "projectFilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/UdemyIdentityServer.AuthServer.csproj",
+  "expectedPackageFiles": [
+    "/home/ubunter/.nuget/packages/identitymodel/4.4.0/identitymodel.4.4.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/identityserver4/4.1.1/identityserver4.4.1.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/identityserver4.storage/4.1.1/identityserver4.storage.4.1.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.aspnetcore.authentication.openidconnect/3.1.0/microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.identitymodel.jsonwebtokens/5.6.0/microsoft.identitymodel.jsonwebtokens.5.6.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.identitymodel.logging/5.6.0/microsoft.identitymodel.logging.5.6.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.identitymodel.protocols/5.6.0/microsoft.identitymodel.protocols.5.6.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/5.6.0/microsoft.identitymodel.protocols.openidconnect.5.6.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/microsoft.identitymodel.tokens/5.6.0/microsoft.identitymodel.tokens.5.6.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.identitymodel.tokens.jwt/5.6.0/system.identitymodel.tokens.jwt.5.6.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.text.encodings.web/4.7.0/system.text.encodings.web.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
