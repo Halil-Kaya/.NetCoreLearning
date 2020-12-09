@@ -12,5 +12,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="3.1.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0"/>
+    <PackageReference Include="SendGrid" Version="9.21.2"/>
   </ItemGroup>
 </Project>

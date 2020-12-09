@@ -1,4 +1,7 @@
+using System;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 
 namespace identityLearning.TwoFactorService
 {
@@ -6,11 +9,42 @@ namespace identityLearning.TwoFactorService
     {
         
         private readonly UrlEncoder _urlEncoder;
+        private readonly TwoFactorOptions _twoFactorOptions;
 
-        public TwoFactorService(UrlEncoder urlEncoder){
+
+        public TwoFactorService(UrlEncoder urlEncoder,IOptions<TwoFactorOptions> options){
             this._urlEncoder = urlEncoder;
+            this._twoFactorOptions = options.Value;
         }
 
+        public int GetCodeVerification(){
+
+            Random rnd = new Random();
+
+            return rnd.Next(1000,9999);
+        }
+
+        public int TimeLeft(HttpContext context){
+
+            if(context.Session.GetString("currentTime") == null){
+
+                context.Session.SetString("currentTime",DateTime.Now.AddSeconds(_twoFactorOptions.CodeTimeExpire).ToString());
+
+            }
+
+            DateTime currentTime = DateTime.Parse(context.Session.GetString("currentTime").ToString());
+
+            int timeLeft = (int)(currentTime - DateTime.Now).TotalSeconds;
+
+            if(timeLeft <= 0){
+                
+                context.Session.Remove("currentTime");
+                return 0;
+            }else{
+                return timeLeft;
+            }
+
+        }
 
         public string GenerateQrCodeUri(string email,string unformattedKey){
 
@@ -18,6 +52,8 @@ namespace identityLearning.TwoFactorService
 
             return string.Format(format, _urlEncoder.Encode("www.bidibidi.com"), _urlEncoder.Encode(email), unformattedKey);
         }
+
+
 
     }
 }

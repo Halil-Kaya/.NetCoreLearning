@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rPUH2WEy0XjPgWEVQHjE+T0xIfrJaIEcWxoeKqYb0/A7rPawSZ7835GbO5yKxoux5plhvuyo6MPrOW2zRaJ0zg==",
+  "dgSpecHash": "lMUq6pJEqWDrHChaS0ij2qdhpZnayBlOitAv85qoDp1hu/cqPF6zFpWr6tCWT/759fZ8s28v3ZCoj0sWU9hjsQ==",
   "success": true,
   "projectFilePath": "/home/ubunter/Desktop/NetCoreLearning/identityLearning/identityLearning.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,8 @@
     "/home/ubunter/.nuget/packages/newtonsoft.json/11.0.2/newtonsoft.json.11.0.2.nupkg.sha512",
     "/home/ubunter/.nuget/packages/pomelo.entityframeworkcore.mysql/3.2.4/pomelo.entityframeworkcore.mysql.3.2.4.nupkg.sha512",
     "/home/ubunter/.nuget/packages/pomelo.jsonobject/2.2.1/pomelo.jsonobject.2.2.1.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/sendgrid/9.21.2/sendgrid.9.21.2.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/starkbank-ecdsa/1.2.0/starkbank-ecdsa.1.2.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/system.collections.immutable/1.7.1/system.collections.immutable.1.7.1.nupkg.sha512",
     "/home/ubunter/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "/home/ubunter/.nuget/packages/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",

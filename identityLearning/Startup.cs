@@ -1,6 +1,8 @@
+using System;
 using identityLearning.CustomValidation;
 using identityLearning.EmailServices;
 using identityLearning.Models;
+using identityLearning.TwoFactorService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +29,11 @@ namespace identityLearning
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped<EmailSender>();
+
+            services.Configure<TwoFactorOptions>(Configuration.GetSection("TwoFactorOptions"));
+
 
 
             services.AddScoped<TwoFactorService.TwoFactorService>();
@@ -131,7 +138,18 @@ namespace identityLearning
             //claims islemlerinde benim olusturdugum claim olarak sekillensin diye scoped icinde olusturuyorum kendi custom claim im ClaimProvider dosyasinin icinde!
             services.AddScoped<IClaimsTransformation,ClaimProvider.ClaimProvider>();
 
+            
+            services.AddSession(options => {
+
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.Name = "MainSession";
+
+
+            });
+            
             services.AddControllersWithViews();
+
+            
 
         }
 
@@ -157,6 +175,8 @@ namespace identityLearning
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

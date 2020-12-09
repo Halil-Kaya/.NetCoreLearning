@@ -338,6 +338,14 @@ namespace identityLearning.Controllers
 
                     return RedirectToAction("TwoFactorWithAuthenticator");
 
+                case TwoFactor.Email:
+
+                    CurrentUser.TwoFactorEnabled = true;
+                    CurrentUser.TwoFactor = (sbyte)TwoFactor.Email;
+                    TempData["message"] = "iki adımlı kimlik doğrulama tipiniz email olarak belirlenmiştir";
+
+
+                    break;
 
                 default:
                     break;

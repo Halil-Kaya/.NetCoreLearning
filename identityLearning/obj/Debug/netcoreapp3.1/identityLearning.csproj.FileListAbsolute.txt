@@ -97,3 +97,6 @@
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/TwoFactorAuth.cshtml.g.cs
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/identityLearning.Views.pdb
 /home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Member/TwoFactorWithAuthenticator.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/bin/Debug/netcoreapp3.1/SendGrid.dll
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/bin/Debug/netcoreapp3.1/StarkbankEcdsa.dll
+/home/ubunter/Desktop/NetCoreLearning/identityLearning/obj/Debug/netcoreapp3.1/Razor/Views/Home/TwoFactorLogIn.cshtml.g.cs

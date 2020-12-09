@@ -11,14 +11,20 @@ using Microsoft.AspNetCore.Identity;
 using identityLearning.EmailServices;
 using System.Security.Claims;
 using identityLearning.Enums;
+using identityLearning.TwoFactorService;
+using Microsoft.AspNetCore.Http;
 
 namespace identityLearning.Controllers
 {
     public class HomeController : BaseController 
     {
 
+        private readonly TwoFactorService.TwoFactorService _twoFactorService;
+        private readonly EmailSender _email;
 
-        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IEmailSender emailSender):base(userManager,signInManager,emailSender){
+        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IEmailSender emailSender,TwoFactorService.TwoFactorService twoFactorService,EmailSender email):base(userManager,signInManager,emailSender){
+            this._twoFactorService = twoFactorService; 
+            this._email = email;
         }
 
         public IActionResult Index()
@@ -82,6 +88,12 @@ namespace identityLearning.Controllers
 
                         if(result.RequiresTwoFactor){
 
+                            if(user.TwoFactor == (int)TwoFactor.Email ||user.TwoFactor == (int)TwoFactor.Phone){
+
+                                HttpContext.Session.Remove("currentTime");
+
+                            }
+
                             return RedirectToAction("TwoFactorLogIn");
                             
                         }else{
@@ -133,6 +145,19 @@ namespace identityLearning.Controllers
             switch((TwoFactor)user.TwoFactor){
                 case TwoFactor.MicrosoftGoogle:
                     break;
+
+                case TwoFactor.Email:
+                    
+                    if(_twoFactorService.TimeLeft(HttpContext) == 0){
+                        return RedirectToAction("LogIn");
+                    }
+
+                    ViewBag.timeLeft = _twoFactorService.TimeLeft(HttpContext);
+
+                    HttpContext.Session.SetString("codeverification",_email.Send(user.Email));
+
+                    break;
+                
                 default:
                     break;
             }
