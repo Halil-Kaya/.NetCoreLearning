@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "octnEv3wym2UkJ2hpPtxg625YpZ9yCPXFb9kC6eRj4IS6iIiR4Nj/HNGVOCQ1Dqh5nOyXG5G6H+Aw21I2oF20w==",
+  "dgSpecHash": "XEfx2BbNnFTsGmIUGWsUj3rh2TyknxocQdGotI8J8Lh890CYHj+Ked2VmED9bOaPUnAbWrmlGZhWBjByuMqs6Q==",
   "success": true,
   "projectFilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/UdemyIdentityServer.Client1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/ubunter/.nuget/packages/identitymodel/4.5.0/identitymodel.4.5.0.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/newtonsoft.json/11.0.2/newtonsoft.json.11.0.2.nupkg.sha512",
+    "/home/ubunter/.nuget/packages/system.text.encodings.web/5.0.0/system.text.encodings.web.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

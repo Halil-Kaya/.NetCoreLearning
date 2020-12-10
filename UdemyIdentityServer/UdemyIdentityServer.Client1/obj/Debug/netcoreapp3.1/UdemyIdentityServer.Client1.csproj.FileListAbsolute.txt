@@ -35,3 +35,7 @@
 /home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/obj/Debug/netcoreapp3.1/UdemyIdentityServer.Client1.pdb
 /home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/obj/Debug/netcoreapp3.1/UdemyIdentityServer.Client1.genruntimeconfig.cache
 /home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/obj/Debug/netcoreapp3.1/UdemyIdentityServer.Client1.csproj.CopyComplete
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/IdentityModel.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/System.Text.Encodings.Web.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/obj/Debug/netcoreapp3.1/Razor/Views/Products/Index.cshtml.g.cs

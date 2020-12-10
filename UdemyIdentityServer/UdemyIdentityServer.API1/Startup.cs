@@ -35,11 +35,28 @@ namespace UdemyIdentityServer.API1
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,opts => {
 
-                    opts.Authority = "https://localhost:5001";
-                    opts.RequireHttpsMetadata = true;
+                    opts.Authority = "http://192.168.53.239:5001";
                     opts.Audience = "resource_api1";
+                    opts.RequireHttpsMetadata = false;
 
                 });
+
+            
+            services.AddAuthorization(opts => {
+
+                opts.AddPolicy("ReadProduct",policy => {
+                
+                    policy.RequireClaim("scope","api1.read");
+                
+                });
+
+                opts.AddPolicy("UpdateOrCreate",policy => {
+
+                    policy.RequireClaim("scope",new []{"api1.update","api1.create"});
+
+                });
+
+            });
                 
 
             services.AddControllers();

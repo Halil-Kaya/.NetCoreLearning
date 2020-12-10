@@ -14392,6 +14392,11 @@
   "RootNamespace": "UdemyIdentityServer.Client1",
   "Documents": [
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/Views/Products/Index.cshtml",
+      "TargetPath": "Views\\Products\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
