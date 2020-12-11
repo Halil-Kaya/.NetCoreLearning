@@ -32,11 +32,14 @@ namespace UdemyIdentityServer.Client1
             }).AddCookie("Cookies").AddOpenIdConnect("oidc",opts => {
 
                 opts.SignInScheme = "Cookies";
-                opts.Authority = "http://192.168.1.112:5001";
-                opts.RequireHttpsMetadata = false;
+                opts.Authority = "https://localhost:44372/";
                 opts.ClientId = "Client1-Mvc";
                 opts.ClientSecret = "secret";
                 opts.ResponseType = "code id_token";
+                opts.GetClaimsFromUserInfoEndpoint = true;
+                opts.SaveTokens = true;
+                opts.Scope.Add("api1.read");
+                opts.Scope.Add("offline_access");
 
             });
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using IdentityServer4;
@@ -114,8 +115,21 @@ namespace UdemyIdentityServer.AuthServer
                     ClientName="Client 1 app mvc uygulaması",
                     ClientSecrets=new[] {new Secret("secret".Sha256())},
                     AllowedGrantTypes= GrantTypes.Hybrid,
-                    RedirectUris = new List<string>(){"http://192.168.1.112:5006/signin-oidc"},
-                    AllowedScopes= {IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile}
+                    //client1 login olduktan sonra token bilgileri nereye gitcek burdaki url ye gidecek
+                    RedirectUris = new List<string>(){"https://localhost:44315/signin-oidc"},
+                    //client1 çıkış yaptığını nasıl anlıyacak buraya giderek
+                    PostLogoutRedirectUris = new List<string>(){"https://localhost:44315/signout-callback-oidc"},
+                    AllowedScopes= {IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile,"api1.read",IdentityServerConstants.StandardScopes.OfflineAccess},
+                    AccessTokenLifetime = 2*60*60,
+                    AllowOfflineAccess = true,
+                    //ReUse seçeneğinin anlamı refresh tokenı kullandığımda refresh token değişmiyor
+                    RefreshTokenUsage = TokenUsage.ReUse,
+                    RefreshTokenExpiration = TokenExpiration.Absolute,
+                    AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60) - DateTime.Now).TotalSeconds,
+
+                    //hangi bilgiler paylasilacak onu gosteriyor yani onay sayfasi aslinda
+                    RequireConsent = true
+                
                 }
             };
         }

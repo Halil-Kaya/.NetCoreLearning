@@ -27,7 +27,7 @@ namespace UdemyIdentityServer.Client1.Controllers
             List<Product> products = new List<Product>();
 
             var disco = await httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest {
-                Address = "http://192.168.53.239:5001",
+                Address = "https://localhost:44372/",
                 Policy =
                 {
                     RequireHttps = false
@@ -57,7 +57,7 @@ namespace UdemyIdentityServer.Client1.Controllers
 
             httpClient.SetBearerToken(token.AccessToken);
             
-            var response = await httpClient.GetAsync("http://192.168.53.239:5016/api/product/GetProducts");
+            var response = await httpClient.GetAsync("https://localhost:44303/api/product/GetProducts");
 
             if(response.IsSuccessStatusCode){
 

@@ -1,9 +1,11 @@
-@using Microsoft.AspNetCore.Authentication
+﻿@using Microsoft.AspNetCore.Authentication
 @{
     ViewData["Title"] = "Index";
 }
 
-<h3>Bu sayfayı sadece üye olan kullanıcılar görebilir.</h3>
+<a class="btn btn-primary" asp-action="LogOut">Çıkış yap</a>
+<a class="btn btn-success" asp-action="GetRefreshToken">Refresh token yenile</a>
+<h3>Bu sayfayı sadece üye olan kullanıcılar görebilir.???</h3>
 
 <h4>Claim verileri</h4>
 
@@ -20,7 +22,7 @@
 
         @foreach (var item in User.Claims)
         {
-            
+
             <tr>
                 <td>@item.Type</td>
                 <td>@item.Value</td>
@@ -47,7 +49,7 @@
 
         @foreach (var item in (await Context.AuthenticateAsync()).Properties.Items)
         {
-            
+
             <tr>
                 <td>@item.Key</td>
                 <td>@item.Value</td>
