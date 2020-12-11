@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,8 +39,17 @@ namespace UdemyIdentityServer.Client1
                 opts.ResponseType = "code id_token";
                 opts.GetClaimsFromUserInfoEndpoint = true;
                 opts.SaveTokens = true;
+                //scope.Add te talep ediyorum bana bunlari da ver diye eger izni varsa aliyor yoksa alamiyor
                 opts.Scope.Add("api1.read");
                 opts.Scope.Add("offline_access");
+
+
+                //burdaki kismi kendim yaptim custom yani sistemin bunu tanimasi icin belirtmem lazim
+                opts.Scope.Add("CountryAndCity");
+                //burda belirtiyorum country claimine tokenden gelen countryi koy
+                opts.ClaimActions.MapUniqueJsonKey("country", "country");
+                //burda belirtiyorum city claimine tokenden gelen city koy
+                opts.ClaimActions.MapUniqueJsonKey("city", "city");
 
             });
 

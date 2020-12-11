@@ -119,7 +119,15 @@ namespace UdemyIdentityServer.AuthServer
                     RedirectUris = new List<string>(){"https://localhost:44315/signin-oidc"},
                     //client1 çıkış yaptığını nasıl anlıyacak buraya giderek
                     PostLogoutRedirectUris = new List<string>(){"https://localhost:44315/signout-callback-oidc"},
-                    AllowedScopes= {IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile,"api1.read",IdentityServerConstants.StandardScopes.OfflineAccess},
+                    AllowedScopes= {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1.read",
+                        IdentityServerConstants.StandardScopes.OfflineAccess,
+                        "CountryAndCity"
+                    },
+
+
                     AccessTokenLifetime = 2*60*60,
                     AllowOfflineAccess = true,
                     //ReUse seçeneğinin anlamı refresh tokenı kullandığımda refresh token değişmiyor
@@ -140,6 +148,17 @@ namespace UdemyIdentityServer.AuthServer
 
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                //kendi identityResouce mu olusturoyorum burda kisi giris yaptiginda cookie nin icinde bu bilgilerde olacak tabi isterse
+                new IdentityResource()
+                {   //adi
+                    Name = "CountryAndCity",
+                    //gosterilecek adi
+                    DisplayName = "Country and City",
+                    //aciklamasi
+                    Description = "Kullanicinin ulke ve sehir bilgisi",
+                    //key values kismindaki keys leri
+                    UserClaims = new []{"country","city"}
+                }
 
             };
         }
@@ -152,7 +171,9 @@ namespace UdemyIdentityServer.AuthServer
                     
                     SubjectId = "1",Username = "halil",Password = "password",Claims = new List<Claim>(){
                     new Claim("given_name","Halil"),
-                    new Claim("family_name","Kaya")
+                    new Claim("family_name","Kaya"),
+                    new Claim("country","Türkiye"),
+                    new Claim("city","Ankara")
                     }
                 },
 
@@ -160,7 +181,9 @@ namespace UdemyIdentityServer.AuthServer
                     
                     SubjectId = "2",Username = "ahmet",Password = "password",Claims = new List<Claim>(){
                     new Claim("given_name","Ahmet"),
-                    new Claim("family_name","Ak")
+                    new Claim("family_name","Ak"),
+                    new Claim("country","Türkiye"),
+                    new Claim("city","İstanbul")
                     }
                 }
 
