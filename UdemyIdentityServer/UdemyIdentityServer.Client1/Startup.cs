@@ -33,6 +33,7 @@ namespace UdemyIdentityServer.Client1
 
                 opts.SignInScheme = "Cookies";
                 opts.Authority = "http://192.168.1.112:5001";
+                opts.RequireHttpsMetadata = false;
                 opts.ClientId = "Client1-Mvc";
                 opts.ClientSecret = "secret";
                 opts.ResponseType = "code id_token";
@@ -61,6 +62,7 @@ namespace UdemyIdentityServer.Client1
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

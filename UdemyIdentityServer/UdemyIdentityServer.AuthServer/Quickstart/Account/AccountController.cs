@@ -65,6 +65,7 @@ namespace IdentityServerHost.Quickstart.UI
             {
                 // we only have one option for logging in and it's an external provider
                 return RedirectToAction("Challenge", "External", new { scheme = vm.ExternalLoginScheme, returnUrl });
+            
             }
 
             return View(vm);
@@ -97,7 +98,7 @@ namespace IdentityServerHost.Quickstart.UI
                         // return the response is for better UX for the end user.
                         return this.LoadingPage("Redirect", model.ReturnUrl);
                     }
-
+                    System.Console.WriteLine("kapi1");
                     return Redirect(model.ReturnUrl);
                 }
                 else
@@ -109,9 +110,13 @@ namespace IdentityServerHost.Quickstart.UI
 
             if (ModelState.IsValid)
             {
+                System.Console.WriteLine("kapi2");
+
                 // validate username/password against in-memory store
                 if (_users.ValidateCredentials(model.Username, model.Password))
                 {
+                    System.Console.WriteLine("kapi3");
+
                     var user = _users.FindByUsername(model.Username);
                     await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.SubjectId, user.Username, clientId: context?.Client.ClientId));
 
@@ -139,10 +144,14 @@ namespace IdentityServerHost.Quickstart.UI
                     {
                         if (context.IsNativeClient())
                         {
+                            System.Console.WriteLine("kapi4");
+
                             // The client is native, so this change in how to
                             // return the response is for better UX for the end user.
                             return this.LoadingPage("Redirect", model.ReturnUrl);
                         }
+
+                        System.Console.WriteLine("kapi5");
 
                         // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
                         return Redirect(model.ReturnUrl);
@@ -151,10 +160,13 @@ namespace IdentityServerHost.Quickstart.UI
                     // request for a local page
                     if (Url.IsLocalUrl(model.ReturnUrl))
                     {
+                        System.Console.WriteLine("kapi6");
+
                         return Redirect(model.ReturnUrl);
                     }
                     else if (string.IsNullOrEmpty(model.ReturnUrl))
                     {
+                        System.Console.WriteLine("kapi7");
                         return Redirect("~/");
                     }
                     else
