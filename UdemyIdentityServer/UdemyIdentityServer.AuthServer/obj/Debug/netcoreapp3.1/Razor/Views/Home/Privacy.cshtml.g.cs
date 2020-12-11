@@ -14,20 +14,13 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/_ViewImports.cshtml"
-using UdemyIdentityServer.AuthServer;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/_ViewImports.cshtml"
-using UdemyIdentityServer.AuthServer.Models;
+using IdentityServerHost.Quickstart.UI;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8ddb6bffa5a9b264bf8f89038bf03c234083fd3", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"463e255644f6d3b7e99b0f3a0d34ff21ffdb40af", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bec599faa2156b5976535a194fedf34093459faa", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

@@ -30,6 +30,8 @@ namespace UdemyIdentityServer.AuthServer
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryApiScopes(Config.GetApiScopes())
                 .AddInMemoryClients(Config.GetClients())
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddTestUsers(Config.GetUsers().ToList())
                 .AddDeveloperSigningCredential();
 
             services.AddControllersWithViews();

@@ -14392,8 +14392,33 @@
   "RootNamespace": "UdemyIdentityServer.AuthServer",
   "Documents": [
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Device/UserCodeCapture.cshtml",
+      "TargetPath": "Views\\Device\\UserCodeCapture.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Device/UserCodeConfirmation.cshtml",
+      "TargetPath": "Views\\Device\\UserCodeConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Account/AccessDenied.cshtml",
+      "TargetPath": "Views\\Account\\AccessDenied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Account/Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Consent/Index.cshtml",
+      "TargetPath": "Views\\Consent\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14417,13 +14442,58 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Grants/Index.cshtml",
+      "TargetPath": "Views\\Grants\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Shared/_Nav.cshtml",
+      "TargetPath": "Views\\Shared\\_Nav.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Account/Logout.cshtml",
+      "TargetPath": "Views\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Shared/Redirect.cshtml",
+      "TargetPath": "Views\\Shared\\Redirect.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Shared/_ScopeListItem.cshtml",
+      "TargetPath": "Views\\Shared\\_ScopeListItem.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Account/LoggedOut.cshtml",
+      "TargetPath": "Views\\Account\\LoggedOut.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Device/Success.cshtml",
+      "TargetPath": "Views\\Device\\Success.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Diagnostics/Index.cshtml",
+      "TargetPath": "Views\\Diagnostics\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.AuthServer/Views/Shared/_ValidationSummary.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationSummary.cshtml",
       "FileKind": "mvc"
     }
   ],

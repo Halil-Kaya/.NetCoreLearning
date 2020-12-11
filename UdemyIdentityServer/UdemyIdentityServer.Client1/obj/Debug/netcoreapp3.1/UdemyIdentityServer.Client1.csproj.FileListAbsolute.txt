@@ -39,3 +39,10 @@
 /home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
 /home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/System.Text.Encodings.Web.dll
 /home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/obj/Debug/netcoreapp3.1/Razor/Views/Products/Index.cshtml.g.cs
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+/home/ubunter/Desktop/NetCoreLearning/UdemyIdentityServer/UdemyIdentityServer.Client1/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
