@@ -124,6 +124,7 @@ namespace UdemyIdentityServer.AuthServer
                         IdentityServerConstants.StandardScopes.Profile,
                         "api1.read",
                         IdentityServerConstants.StandardScopes.OfflineAccess,
+                        IdentityServerConstants.StandardScopes.Email,
                         "CountryAndCity",
                         "Roles"
                     },
@@ -181,6 +182,7 @@ namespace UdemyIdentityServer.AuthServer
             
             return new List<IdentityResource>(){
 
+                new IdentityResources.Email(),
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 //kendi identityResouce mu olusturoyorum burda kisi giris yaptiginda cookie nin icinde bu bilgilerde olacak tabi isterse

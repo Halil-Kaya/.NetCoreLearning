@@ -64,12 +64,24 @@ namespace UdemyIdentityServer.Client1
                 opts.Scope.Add("Roles");
                 opts.ClaimActions.MapUniqueJsonKey("role", "role");
 
-
+                //burda kendime gore configure ediyorum ornek vermek gerekirse soyle;
+                //[Authorization(Roles = "<roleGir>")] kisminda rol girmem gerekiyor
                 opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters() { 
-                    
-                    RoleClaimType = "role"
+                    //RoleClaimType te bunu cookeimin icindeki role den al diyiyorum
+                    RoleClaimType = "role",
+
+                    //User.Identity.Name dendiginde ordaki bilgi cookiemin icindeki name den gelsin diyiyorum YADA
+                    //User.Claims.First(x => x.Type == "name").Value olarak da alabilirim eger User.Identity.Name olarak almak istiyorsam
+                    //bunu yapmaliyim
+                    NameClaimType = "name"
+
+
                 
                 };
+
+
+                opts.Scope.Add("email");
+
 
             });
 
