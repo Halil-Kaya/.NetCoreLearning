@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Newtonsoft.Json;
 using UdemyIdentityServer.Client1.Models;
+using UdemyIdentityServer.Client1.Services;
 
 namespace UdemyIdentityServer.Client1.Controllers
 {
@@ -19,9 +20,12 @@ namespace UdemyIdentityServer.Client1.Controllers
     {
 
         private readonly IConfiguration _configuration;
+        private readonly IApiResourceHttpClient _apiResourceHttpClient;
 
-        public ProductsController(IConfiguration configuration){
+        public ProductsController(IConfiguration configuration,IApiResourceHttpClient apiResourceHttpClient)
+        {
             this._configuration = configuration;
+            this._apiResourceHttpClient = apiResourceHttpClient;
         }
 
         /*
@@ -88,18 +92,26 @@ namespace UdemyIdentityServer.Client1.Controllers
         {
 
 
-            HttpClient httpClient = new HttpClient();
 
             List<Product> products = new List<Product>();
+
+            /*
+             * Burdaki Kodları best pratic açısından daha iyi olması için Services kısmında yazdığım objelerde hallediyorum
+             * yani _apiResourceHttpClient objemde aşağıdaki kodlarla devam edebilirim amaç kod tekrarını azaltmak
+            HttpClient httpClient = new HttpClient();
 
             //cookiemin içindeki acces tokeni aliyorum
             var accessToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
 
             //tokeni güncelliyorum
             httpClient.SetBearerToken(accessToken);
-            
+            */
+
+            HttpClient client = await _apiResourceHttpClient.GetHttpClient();
+
             //istekte bulunuyorum
-            var response = await httpClient.GetAsync("https://localhost:44303/api/product/GetProducts");
+            var response = await client.GetAsync("https://localhost:44303/api/product/GetProducts");
+
 
             if (response.IsSuccessStatusCode)
             {
