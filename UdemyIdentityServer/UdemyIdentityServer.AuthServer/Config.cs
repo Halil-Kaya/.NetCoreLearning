@@ -124,7 +124,8 @@ namespace UdemyIdentityServer.AuthServer
                         IdentityServerConstants.StandardScopes.Profile,
                         "api1.read",
                         IdentityServerConstants.StandardScopes.OfflineAccess,
-                        "CountryAndCity"
+                        "CountryAndCity",
+                        "Roles"
                     },
 
 
@@ -136,9 +137,43 @@ namespace UdemyIdentityServer.AuthServer
                     AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60) - DateTime.Now).TotalSeconds,
 
                     //hangi bilgiler paylasilacak onu gosteriyor yani onay sayfasi aslinda
-                    RequireConsent = true
-                
+                    RequireConsent = false
+                },
+
+
+                new Client()
+                {
+                    ClientId = "Client2-Mvc",
+                    RequirePkce = false,
+                    ClientName="Client 2 app mvc uygulaması",
+                    ClientSecrets=new[] {new Secret("secret".Sha256())},
+                    AllowedGrantTypes= GrantTypes.Hybrid,
+                    //client2 login olduktan sonra token bilgileri nereye gitcek burdaki url ye gidecek
+                    RedirectUris = new List<string>(){"https://localhost:44313/signin-oidc"},
+                    //client2 çıkış yaptığını nasıl anlıyacak buraya giderek
+                    PostLogoutRedirectUris = new List<string>(){"https://localhost:44313/signout-callback-oidc"},
+                    AllowedScopes= {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1.read",
+                        IdentityServerConstants.StandardScopes.OfflineAccess,
+                        "CountryAndCity",
+                        "Roles"
+                    },
+
+
+                    AccessTokenLifetime = 2*60*60,
+                    AllowOfflineAccess = true,
+                    //ReUse seçeneğinin anlamı refresh tokenı kullandığımda refresh token değişmiyor
+                    RefreshTokenUsage = TokenUsage.ReUse,
+                    RefreshTokenExpiration = TokenExpiration.Absolute,
+                    AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60) - DateTime.Now).TotalSeconds,
+
+                    //hangi bilgiler paylasilacak onu gosteriyor yani onay sayfasi aslinda
+                    RequireConsent = false
                 }
+
+
             };
         }
 
@@ -158,6 +193,14 @@ namespace UdemyIdentityServer.AuthServer
                     Description = "Kullanicinin ulke ve sehir bilgisi",
                     //key values kismindaki keys leri
                     UserClaims = new []{"country","city"}
+                },
+
+                new IdentityResource()
+                {
+                    Name = "Roles",
+                    DisplayName="Roles",
+                    Description = "Kullanici Rolleri",
+                    UserClaims = new []{"role"}
                 }
 
             };
@@ -168,12 +211,13 @@ namespace UdemyIdentityServer.AuthServer
             return new List<TestUser>(){
 
                 new TestUser(){
-                    
+
                     SubjectId = "1",Username = "halil",Password = "password",Claims = new List<Claim>(){
                     new Claim("given_name","Halil"),
                     new Claim("family_name","Kaya"),
                     new Claim("country","Türkiye"),
-                    new Claim("city","Ankara")
+                    new Claim("city","Ankara"),
+                    new Claim("role","admin")
                     }
                 },
 
@@ -183,7 +227,8 @@ namespace UdemyIdentityServer.AuthServer
                     new Claim("given_name","Ahmet"),
                     new Claim("family_name","Ak"),
                     new Claim("country","Türkiye"),
-                    new Claim("city","İstanbul")
+                    new Claim("city","İstanbul"),
+                    new Claim("role","customer")
                     }
                 }
 

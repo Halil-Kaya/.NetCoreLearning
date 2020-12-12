@@ -30,7 +30,11 @@ namespace UdemyIdentityServer.Client1
                 opts.DefaultScheme = "Cookies";
                 opts.DefaultChallengeScheme = "oidc";
 
-            }).AddCookie("Cookies").AddOpenIdConnect("oidc",opts => {
+            }).AddCookie("Cookies",opts => {
+
+                opts.AccessDeniedPath = "/Home/AccessDenied";
+
+            }).AddOpenIdConnect("oidc",opts => {
 
                 opts.SignInScheme = "Cookies";
                 opts.Authority = "https://localhost:44372/";
@@ -50,6 +54,17 @@ namespace UdemyIdentityServer.Client1
                 opts.ClaimActions.MapUniqueJsonKey("country", "country");
                 //burda belirtiyorum city claimine tokenden gelen city koy
                 opts.ClaimActions.MapUniqueJsonKey("city", "city");
+
+                //burdan da role gelicek bunu rol bazli yetkilendirme icin yapicam
+                opts.Scope.Add("Roles");
+                opts.ClaimActions.MapUniqueJsonKey("role", "role");
+
+
+                opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters() { 
+                    
+                    RoleClaimType = "role"
+                
+                };
 
             });
 
