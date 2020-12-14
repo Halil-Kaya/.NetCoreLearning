@@ -30,16 +30,19 @@ namespace UdemyIdentityServer.Client1
             services.AddScoped<IApiResourceHttpClient,ApiResourceHttpClient>();
 
 
-            services.AddAuthentication(opts => {
+            services.AddAuthentication(opts =>
+            {
 
                 opts.DefaultScheme = "Cookies";
-                opts.DefaultChallengeScheme = "oidc";
+                //opts.DefaultChallengeScheme = "oidc";
 
-            }).AddCookie("Cookies",opts => {
-
+            }).AddCookie("Cookies", opts =>
+            {
+                opts.LoginPath = "/Login/Index";
                 opts.AccessDeniedPath = "/Home/AccessDenied";
 
-            }).AddOpenIdConnect("oidc",opts => {
+            });/*
+              .AddOpenIdConnect("oidc",opts => {
 
                 opts.SignInScheme = "Cookies";
                 opts.Authority = "https://localhost:44372/";
@@ -83,7 +86,7 @@ namespace UdemyIdentityServer.Client1
                 opts.Scope.Add("email");
 
 
-            });
+            });*/
 
 
             services.AddControllersWithViews();

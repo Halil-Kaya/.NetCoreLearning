@@ -218,3 +218,4 @@ C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdenti
 C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\User\AdminAction.cshtml.g.cs
 C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\User\CustomerAction.cshtml.g.cs
 C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\Home\AccessDenied.cshtml.g.cs
+C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs

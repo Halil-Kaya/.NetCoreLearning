@@ -31,10 +31,12 @@ namespace UdemyIdentityServer.Client1.Controllers
         }
 
         //cikis yapiyorum
-        public async Task LogOut()
+        public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync("Cookies");
-            await HttpContext.SignOutAsync("oidc");
+            //await HttpContext.SignOutAsync("oidc");
+
+            return RedirectToAction("Index","Home");
         }
 
 
