@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -37,7 +38,19 @@ namespace UdemyIdentityServer.AuthServer
                 opts.UseMySql("server=127.0.0.1;port=3306;username=root;password=;database=UdemyIdentityServerMembershipDb");
             });
 
+            var assemblyName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
             services.AddIdentityServer()
+                .AddConfigurationStore(opts =>{
+                    opts.ConfigureDbContext = c => c.UseMySql("server=127.0.0.1;port=3306;username=root;password=;database=UdemyIdentityServerMembershipDb",sqlOpts => {
+                        sqlOpts.MigrationsAssembly(assemblyName);
+                    });
+                })
+                .AddOperationalStore(opts => {
+                    opts.ConfigureDbContext = c => c.UseMySql("server=127.0.0.1;port=3306;username=root;password=;database=UdemyIdentityServerMembershipDb", sqlOpts => {
+                        sqlOpts.MigrationsAssembly(assemblyName);
+                    });
+                })
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryApiScopes(Config.GetApiScopes())
                 .AddInMemoryClients(Config.GetClients())

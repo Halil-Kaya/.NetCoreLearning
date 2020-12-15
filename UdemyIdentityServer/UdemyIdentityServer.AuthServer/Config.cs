@@ -222,7 +222,7 @@ namespace UdemyIdentityServer.AuthServer
                     //aciklamasi
                     Description = "Kullanicinin ulke ve sehir bilgisi",
                     //key values kismindaki keys leri
-                    UserClaims = new []{"country","city"}
+                    UserClaims = new []{"country","city" }
                 },
 
                 new IdentityResource()

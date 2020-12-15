@@ -40,6 +40,7 @@ namespace UdemyIdentityServer.AuthServer.Services
 
                 claims.Add(new Claim("role", "admin"));
                 claims.Add(new Claim("role", "customer"));
+                claims.Add(new Claim("poke", "topu"));
 
             }
             else

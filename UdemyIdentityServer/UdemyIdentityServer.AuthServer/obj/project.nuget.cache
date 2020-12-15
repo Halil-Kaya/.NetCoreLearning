@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "A4Yx4ba0zNHhO2/G+FlFBf4p1FsLPKw8OzvJp0nJsebGV16ykhwrJq4Wht8BAe5tarJLskYYKz0l8NuU9BvSaA==",
+  "dgSpecHash": "tshMEr+Spqi7S/hGqULnn/ytFIxxHPxrOWQ9taiGna+a7QZeLN6KpgRAD8kq/uAC5+Xm52bEJNy4zCQT3moVog==",
   "success": true,
   "projectFilePath": "C:\\Users\\hibra\\OneDrive\\Desktop\\UdemyIdentityServer4\\NetCoreLearning\\UdemyIdentityServer\\UdemyIdentityServer.AuthServer\\UdemyIdentityServer.AuthServer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hibra\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\identityserver4\\4.1.1\\identityserver4.4.1.1.nupkg.sha512",
+    "C:\\Users\\hibra\\.nuget\\packages\\identityserver4.entityframework\\4.1.1\\identityserver4.entityframework.4.1.1.nupkg.sha512",
+    "C:\\Users\\hibra\\.nuget\\packages\\identityserver4.entityframework.storage\\4.1.1\\identityserver4.entityframework.storage.4.1.1.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\identityserver4.storage\\4.1.1\\identityserver4.storage.4.1.1.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -41,6 +44,7 @@
     "C:\\Users\\hibra\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\system.identitymodel.tokens.jwt\\5.6.0\\system.identitymodel.tokens.jwt.5.6.0.nupkg.sha512",
+    "C:\\Users\\hibra\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\hibra\\.nuget\\packages\\system.text.encodings.web\\4.7.0\\system.text.encodings.web.4.7.0.nupkg.sha512"
   ],
