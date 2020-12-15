@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
+using UdemyIdentityServer.Client1.Services;
 
 namespace UdemyIdentityServer.Client1.Controllers
 {
@@ -18,6 +19,8 @@ namespace UdemyIdentityServer.Client1.Controllers
     {
 
         private readonly IConfiguration _configuration;
+
+
 
         public UserController(IConfiguration configuration)
         {

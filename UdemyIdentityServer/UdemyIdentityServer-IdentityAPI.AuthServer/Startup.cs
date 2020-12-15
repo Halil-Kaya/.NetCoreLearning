@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UdemyIdentityServer_IdentityAPI.AuthServer.Services;
 
 namespace UdemyIdentityServer_IdentityAPI.AuthServer
 {
@@ -28,10 +29,13 @@ namespace UdemyIdentityServer_IdentityAPI.AuthServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddLocalApiAuthentication();
+
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -47,10 +51,12 @@ namespace UdemyIdentityServer_IdentityAPI.AuthServer
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
             })
-                .AddInMemoryIdentityResources(Config.IdentityResources)
-                .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryClients(Config.Clients)
-                .AddAspNetIdentity<ApplicationUser>();
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddInMemoryApiScopes(Config.GetApiScopes())
+                .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryClients(Config.GetClients())
+                .AddAspNetIdentity<ApplicationUser>()
+                .AddResourceOwnerValidator<IdentityResourceOwnerPasswordValidator>();
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();

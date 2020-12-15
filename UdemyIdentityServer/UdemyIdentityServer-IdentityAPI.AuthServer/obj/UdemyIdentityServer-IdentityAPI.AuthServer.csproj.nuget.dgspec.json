@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[3.1.5, )"
             },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[3.2.0, )"

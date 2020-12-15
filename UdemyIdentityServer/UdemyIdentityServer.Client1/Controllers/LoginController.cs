@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UdemyIdentityServer.Client1.Models;
+using UdemyIdentityServer.Client1.Services;
 
 namespace UdemyIdentityServer.Client1.Controllers
 {
@@ -17,6 +18,11 @@ namespace UdemyIdentityServer.Client1.Controllers
     {
 
 
+        private readonly IApiResourceHttpClient _apiResourceHttpClient;
+        
+        public LoginController(IApiResourceHttpClient apiResourceHttpClient) {
+            this._apiResourceHttpClient = apiResourceHttpClient;
+        }
 
 
         public IActionResult Index()
@@ -92,6 +98,43 @@ namespace UdemyIdentityServer.Client1.Controllers
             await HttpContext.SignInAsync("Cookies",claimsPrincipal,authenticationProperties);
 
             return RedirectToAction("Index","User");
+        }
+
+
+        
+        public IActionResult SignUp() {
+
+
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignUp(UserSaveViewModel userSaveViewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+
+
+            var result = await _apiResourceHttpClient.SaveUserViewModel(userSaveViewModel);
+
+            if(result != null)
+            {
+
+                result.ForEach(x => {
+
+                    ModelState.AddModelError("",x);
+                
+                });
+                return View();
+            }
+
+
+            return RedirectToAction("Index");
         }
 
 
