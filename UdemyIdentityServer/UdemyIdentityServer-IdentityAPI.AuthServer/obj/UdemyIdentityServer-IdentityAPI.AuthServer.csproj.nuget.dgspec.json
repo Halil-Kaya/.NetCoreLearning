@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\hibra\\OneDrive\\Desktop\\UdemyIdentityServer4\\NetCoreLearning\\UdemyIdentityServer\\UdemyIdentityServer-IdentityAPI.AuthServer\\UdemyIdentityServer-IdentityAPI.AuthServer.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\hibra\\OneDrive\\Desktop\\UdemyIdentityServer4\\NetCoreLearning\\UdemyIdentityServer\\UdemyIdentityServer-IdentityAPI.AuthServer\\UdemyIdentityServer-IdentityAPI.AuthServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hibra\\OneDrive\\Desktop\\UdemyIdentityServer4\\NetCoreLearning\\UdemyIdentityServer\\UdemyIdentityServer-IdentityAPI.AuthServer\\UdemyIdentityServer-IdentityAPI.AuthServer.csproj",
+        "projectName": "UdemyIdentityServer-IdentityAPI.AuthServer",
+        "projectPath": "C:\\Users\\hibra\\OneDrive\\Desktop\\UdemyIdentityServer4\\NetCoreLearning\\UdemyIdentityServer\\UdemyIdentityServer-IdentityAPI.AuthServer\\UdemyIdentityServer-IdentityAPI.AuthServer.csproj",
+        "packagesPath": "C:\\Users\\hibra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hibra\\OneDrive\\Desktop\\UdemyIdentityServer4\\NetCoreLearning\\UdemyIdentityServer\\UdemyIdentityServer-IdentityAPI.AuthServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hibra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "IdentityServer4.AspNetIdentity": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
