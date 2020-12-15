@@ -61,9 +61,9 @@ namespace UdemyIdentityServer.Client1.Controllers
             RefreshTokenRequest refreshTokenRequest = new RefreshTokenRequest();
 
             //clientin id sini aliyorum
-            refreshTokenRequest.ClientId = _configuration["ClientMvc:ClientId"];
+            refreshTokenRequest.ClientId = "Client1-ResourceOwner-Mvc";
             //clientin sifresini aliyorum
-            refreshTokenRequest.ClientSecret = _configuration["ClientMvc:ClientSecret"];
+            refreshTokenRequest.ClientSecret = "secret";
             
             //su anki cookie deki refresh tokeni aliyorum
             refreshTokenRequest.RefreshToken = refreshToken;

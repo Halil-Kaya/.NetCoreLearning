@@ -12,7 +12,7 @@ namespace UdemyIdentityServer.AuthServer.Models
         
         public DbSet<CustomUser> customUsers { get; set; }
         
-        public CustomDbContext(DbContextOptions opts): base(opts) { }
+        public CustomDbContext(DbContextOptions<CustomDbContext> opts): base(opts) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

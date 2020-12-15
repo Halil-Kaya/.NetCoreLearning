@@ -207,3 +207,6 @@ C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdenti
 C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.AuthServer\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
 C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.AuthServer\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.AuthServer\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.AuthServer\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.AuthServer\bin\Debug\netcoreapp3.1\IdentityServer4.EntityFramework.dll
+C:\Users\hibra\OneDrive\Desktop\UdemyIdentityServer4\NetCoreLearning\UdemyIdentityServer\UdemyIdentityServer.AuthServer\bin\Debug\netcoreapp3.1\IdentityServer4.EntityFramework.Storage.dll
