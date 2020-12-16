@@ -10,8 +10,9 @@ namespace identityLearning.ClaimProvider
     public class ClaimProvider : IClaimsTransformation
     {
 
-        //kisitlama islemlerinde policy diye bir adlandirma kullaniyorum kisitlandirmalari startup ta belirtiyorum
 
+
+        //kisitlama islemlerinde policy diye bir adlandirma kullaniyorum kisitlandirmalari startup ta belirtiyorum
         private readonly UserManager<AppUser> _userManager;
 
         public ClaimProvider(UserManager<AppUser> userManager){
@@ -23,6 +24,7 @@ namespace identityLearning.ClaimProvider
         public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
         {
 
+            //bu classı startup ta tanımlıyorsan eğer Cookie de kişi varsa yani kişi GİRİŞ YAPMIŞSA BURASI KULLANICININ HER İSTEĞİNDE ÇALIŞIR
             //principal aslinda User objesi!
 
             if(principal != null && principal.Identity.IsAuthenticated){
