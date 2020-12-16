@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UdemyIdentityServer.Client1.Services;
 
 namespace UdemyIdentityServer.Client1
 {
@@ -24,19 +26,50 @@ namespace UdemyIdentityServer.Client1
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddHttpContextAccessor();
+            services.AddScoped<IApiResourceHttpClient,ApiResourceHttpClient>();
+
+
             services.AddAuthentication(opts => {
 
                 opts.DefaultScheme = "Cookies";
                 opts.DefaultChallengeScheme = "oidc";
 
-            }).AddCookie("Cookies").AddOpenIdConnect("oidc",opts => {
+            }).AddCookie("Cookies",opts => {
+
+                opts.AccessDeniedPath = "/Home/AccessDenied";
+
+            }).AddOpenIdConnect("oidc",opts => {
 
                 opts.SignInScheme = "Cookies";
-                opts.Authority = "http://192.168.1.112:5001";
-                opts.RequireHttpsMetadata = false;
+                opts.Authority = "https://localhost:44372/";
                 opts.ClientId = "Client1-Mvc";
                 opts.ClientSecret = "secret";
                 opts.ResponseType = "code id_token";
+                opts.GetClaimsFromUserInfoEndpoint = true;
+                opts.SaveTokens = true;
+                //scope.Add te talep ediyorum bana bunlari da ver diye eger izni varsa aliyor yoksa alamiyor
+                opts.Scope.Add("api1.read");
+                opts.Scope.Add("offline_access");
+
+
+                //burdaki kismi kendim yaptim custom yani sistemin bunu tanimasi icin belirtmem lazim
+                opts.Scope.Add("CountryAndCity");
+                //burda belirtiyorum country claimine tokenden gelen countryi koy
+                opts.ClaimActions.MapUniqueJsonKey("country", "country");
+                //burda belirtiyorum city claimine tokenden gelen city koy
+                opts.ClaimActions.MapUniqueJsonKey("city", "city");
+
+                //burdan da role gelicek bunu rol bazli yetkilendirme icin yapicam
+                opts.Scope.Add("Roles");
+                opts.ClaimActions.MapUniqueJsonKey("role", "role");
+
+
+                opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters() { 
+                    
+                    RoleClaimType = "role"
+                
+                };
 
             });
 

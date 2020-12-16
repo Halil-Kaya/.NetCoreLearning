@@ -35,9 +35,10 @@ namespace UdemyIdentityServer.API1
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,opts => {
 
-                    opts.Authority = "http://192.168.53.239:5001";
+                    opts.Authority = "https://localhost:44372/";
                     opts.Audience = "resource_api1";
                     opts.RequireHttpsMetadata = false;
+
 
                 });
 

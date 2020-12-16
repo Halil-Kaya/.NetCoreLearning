@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/home/ubunter/.dotnet/store/|arch|/|tfm|",
-      "/home/ubunter/.nuget/packages"
+      "C:\\Users\\hibra\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\hibra\\.nuget\\packages"
     ]
   }
 }
