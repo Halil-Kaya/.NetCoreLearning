@@ -1,3 +1,6 @@
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +36,17 @@ namespace WebApplication1.API
                 options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]);
             });
 
+            services.AddOData();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,options => {
+
+                    options.Authority = "http://localhost:5001";
+                    options.Audience = "resource_product_api";
+                    options.RequireHttpsMetadata = false;
+                
+                });
+
 
             services.AddControllers();
 
@@ -58,10 +72,21 @@ namespace WebApplication1.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            var builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Product>("Products");
+
+            builder.EntitySet<Category>("Categories");
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.Select().Expand().OrderBy().Count().Filter();
+
+                endpoints.MapODataRoute("odata", "odata",builder.GetEdmModel());
+
                 endpoints.MapControllers();
             });
         }
