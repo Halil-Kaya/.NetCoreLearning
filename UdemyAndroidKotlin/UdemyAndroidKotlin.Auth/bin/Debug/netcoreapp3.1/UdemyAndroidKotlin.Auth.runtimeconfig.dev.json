@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\hibra\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\hibra\\.nuget\\packages"
+    ]
+  }
+}
