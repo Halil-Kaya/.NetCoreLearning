@@ -12,7 +12,7 @@ namespace emre
     : HostedService
     {
         HttpClient restClient;
-        string icndbUrl="http://milletkiraathanesi.org.tr/servis.php";
+        string icndbUrl="";
 
  
 
