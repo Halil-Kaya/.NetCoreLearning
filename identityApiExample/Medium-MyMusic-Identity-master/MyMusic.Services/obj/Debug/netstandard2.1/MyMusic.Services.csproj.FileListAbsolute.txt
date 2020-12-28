@@ -1,0 +1,12 @@
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/bin/Debug/netstandard2.1/MyMusic.Services.deps.json
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/bin/Debug/netstandard2.1/MyMusic.Services.dll
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/bin/Debug/netstandard2.1/MyMusic.Services.pdb
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/bin/Debug/netstandard2.1/MyMusic.Core.dll
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/bin/Debug/netstandard2.1/MyMusic.Core.pdb
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/obj/Debug/netstandard2.1/MyMusic.Services.csprojAssemblyReference.cache
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/obj/Debug/netstandard2.1/MyMusic.Services.AssemblyInfoInputs.cache
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/obj/Debug/netstandard2.1/MyMusic.Services.AssemblyInfo.cs
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/obj/Debug/netstandard2.1/MyMusic.Services.csproj.CoreCompileInputs.cache
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/obj/Debug/netstandard2.1/MyMusic.Services.csproj.CopyComplete
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/obj/Debug/netstandard2.1/MyMusic.Services.dll
+/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Services/obj/Debug/netstandard2.1/MyMusic.Services.pdb

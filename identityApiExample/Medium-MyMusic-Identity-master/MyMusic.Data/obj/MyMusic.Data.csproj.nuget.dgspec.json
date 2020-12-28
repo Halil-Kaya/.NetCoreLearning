@@ -1,0 +1,144 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Data/MyMusic.Data.csproj": {}
+  },
+  "projects": {
+    "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Core/MyMusic.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Core/MyMusic.Core.csproj",
+        "projectName": "MyMusic.Core",
+        "projectPath": "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Core/MyMusic.Core.csproj",
+        "packagesPath": "/home/ubunter/.nuget/packages/",
+        "outputPath": "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/ubunter/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Data/MyMusic.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Data/MyMusic.Data.csproj",
+        "projectName": "MyMusic.Data",
+        "projectPath": "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Data/MyMusic.Data.csproj",
+        "packagesPath": "/home/ubunter/.nuget/packages/",
+        "outputPath": "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/ubunter/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Core/MyMusic.Core.csproj": {
+                "projectPath": "/home/ubunter/Desktop/apiAndIdentity/Medium-MyMusic-Identity-master/MyMusic.Core/MyMusic.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
