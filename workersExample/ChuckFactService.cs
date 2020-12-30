@@ -34,7 +34,7 @@ namespace emre
                     var ktphn = JsonSerializer.Deserialize<List<Kutuphane>>(fact);
 
  
-
+                
 
                     
                     using(var db = new KutuphaneContext()){
@@ -44,7 +44,7 @@ namespace emre
 
                 }
     
-                await Task.Delay(TimeSpan.FromMinutes(3), cToken);
+                await Task.Delay(TimeSpan.FromSeconds(10), cToken);
             }
         }
     }

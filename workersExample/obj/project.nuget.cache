@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zTmgT98+TyN6bwg8W0sPHeIG0mp48Baec2vFU8i9lNdSZm2wQudUpu4U8hwPgG9k02xk36jNFLpdCyNDHEMzBQ==",
+  "dgSpecHash": "NT5QRKitLOIF+1DMpDbn9QdrB2ZVAXVmPEVNom7Isvsx6pvFzQ8zjn2zlmSN/3/qBDnSvZDOolZ6moShtXOvow==",
   "success": true,
-  "projectFilePath": "/home/ubunter/Desktop/emre/emre.csproj",
+  "projectFilePath": "/home/ubunter/Desktop/NetCoreLearning/workersExample/emre.csproj",
   "expectedPackageFiles": [
     "/home/ubunter/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/ubunter/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

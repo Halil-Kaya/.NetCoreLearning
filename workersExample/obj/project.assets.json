@@ -907,11 +907,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ubunter/Desktop/emre/emre.csproj",
+      "projectUniqueName": "/home/ubunter/Desktop/NetCoreLearning/workersExample/emre.csproj",
       "projectName": "emre",
-      "projectPath": "/home/ubunter/Desktop/emre/emre.csproj",
+      "projectPath": "/home/ubunter/Desktop/NetCoreLearning/workersExample/emre.csproj",
       "packagesPath": "/home/ubunter/.nuget/packages/",
-      "outputPath": "/home/ubunter/Desktop/emre/obj/",
+      "outputPath": "/home/ubunter/Desktop/NetCoreLearning/workersExample/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ubunter/.nuget/NuGet/NuGet.Config"
